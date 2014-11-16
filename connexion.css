@@ -1,0 +1,68 @@
+
+form{
+ padding:0%;
+ width:33%;
+ font-family:'Quicksand-Regular';
+}
+legend{
+color:#2980B9;
+ font-weight:bold;
+}
+fieldset{
+padding:0px 0px 40px 40px;
+ margin-top:70px;
+ margin-bottom:10px;
+ margin-left:486px;
+ margin-bottom:70px;
+ border:3px solid #2980B9;
+ width:330px;
+ border-radius:7px;
+ background-color:white;
+font-size:15px;
+ }
+label {
+ margin-left:20px;
+ margin-top:10px;
+ display:block;
+ font-weight:bold;
+ font-size:12px;
+ }
+label.inline {
+ display:inline;
+ margin-left:0px
+ }
+input, textarea, select, option {
+ background-color:#FFF3F3;
+ }
+input, textarea, select {
+ padding:3px;
+ border:1px solid #F5C5C5;
+ border-radius:6px;
+ width:280px;
+ box-shadow:1px 1px 2px #C0C0C0 inset;
+ }
+select {
+ margin-top:10px;
+ margin-left:0px;
+ }
+ input[type=checkbox] {
+ background-color:blue;
+ border:none;
+ width:10px;
+ margin-right:0px;
+ }
+input[type=submit], input[type=reset] {
+ width:100px;
+ margin-left:5px;
+ box-shadow:1px 1px 1px #D83F3D;
+ cursor:pointer;
+ }
+ 
+ #passwordw{
+     text-align:center;
+     color:red;
+     
+     
+   
+     
+ }
