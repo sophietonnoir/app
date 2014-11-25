@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="K2K.css" />
-		<title>Key To Key - le nom de ma page</title>
+		<title>Key To Key - le nom de ma pagecoucuco</title>
 		<link rel="icon" type="image/gif" href="Img/icone.gif" />
 	</head>
 	
