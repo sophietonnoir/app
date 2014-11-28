@@ -332,11 +332,41 @@ article {
 	position:relative;
 }
 
-#dernier_ajout {
+.article2{			/*pour placer les restrictions a gauche*/
+	float:left;
+	margin-left:100px;
+	width: 400px;
+	height:300px;	
+}
+
+.article3{			/*pour placer la description a droite si on n'est pas connecté*/
+	float:right;
+	margin-right:100px;
+	width: 700px;
+	height: 300px;
+}	
+
+.article4{			/*pour placer la description a droite si on est pas connecté
+						et laisser place au button "choisir maison"*/
+	float:center;
+	text-align:left;
+	left: 200px;
+	width: 700px;
+	height: 300px;
+
+}
+
+#dernier_ajout , #restrictions , #description {	/*VOIR HABITATION*/
 	background-color: #E4E4E4;
 	padding:20px 20px 2px 20px;
 	border-radius: 10px;
 }
+
+
+.section{
+		text-align:center;
+	}
+
 
 #img_000001 {
 	display: inline-block;
