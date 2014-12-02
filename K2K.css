@@ -397,6 +397,26 @@ article p{									/*utilisé dans index.php et voirHabitation.php*/
 	box-shadow: 1px 1px 5px #2980B9; 
 }
 
+.demanderEchange {								/*button demander echange voirHabitation.php*/
+	text-decoration: none;
+	color:#F1F1F1;
+	font-family: 'Lato-Regular';
+	background-color: #2980B9;
+	border-radius: 3px;
+	padding: 4px 4px 4px 4px;
+	position:relative; 				
+	width:auto;
+	left:50px;
+	right:auto;
+	bottom:auto;
+	font-size: 130%;
+}
+
+.demanderEchange:hover {
+	box-shadow: 1px 1px 5px #2980B9; 
+}
+
+
 /* Fin article */
 
 /* footer */
