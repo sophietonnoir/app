@@ -25,12 +25,12 @@ $host = "localhost" ;
 
 $user = "root" ;
 
-$mdp = "root" ;
+$mdp = "" ;
 
-$ajmaison = mysql_connect($host, $user, $mdp) ;
+$link = mysqli_connect($host, $user, $mdp) ;
 
 
-mysql_select_db($bdd) or die("Erreur de connexion à la base de donnée" );
+mysqli_select_db($link, $bdd) or die("Erreur de connexion à la base de donnée" );
 
 
 //On récupere les valeurs du formulaire
@@ -65,26 +65,17 @@ $wifi = $_POST['wifi'];
 
 $jardin= $_POST['jardin'];
 
-
-
-
-
-
 //On insère les informations du formulaire dans la table
 
 $sql="INSERT INTO logements (typedelogement , Pays , Ville , adresse , codePostal , Description , chambres , toilettes , capacite , fumerPermis , animauxPermis , piscine , placesGarage , wifi, jardin ) VALUES ('$typedelogement','$Pays', '$Ville', '$adresse', '$codePostal', '$Description', '$chambres', '$toilettes', '$capacite', '$fumerPermis', '$animauxPermis', '$piscine','$placesGarage', '$wifi', '$jardin')" ;
 
-$result = mysql_query('$sql');
+$result = mysqli_query($link, $sql); 
 
-while($row = mysql_fetch_row($result)){
-    $typedelogement=$row[4];
-    $Pays=$row[5];
-    $Ville=$row[6];
-}
+
 
 //On ferme la connexion
 
-mysql_close();
+mysqli_close($link);
 
 
 ?>
