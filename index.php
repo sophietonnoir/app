@@ -15,24 +15,13 @@
 
 				<div id="barre_de_recherche">
 					<p id="ou_voulez">Où voulez-vous aller ?</p>
-					<p id="a_quelle">A quelle date ?</p>
-					<form method="post" action="page.php">
-						<p><input type="search" name="adresse" size="70" placeholder="Ville, Code postal" class="donnee"/></p>
-						<p>
-							<select name="type_de_logement" id="type_de_logement" class="donnee">
-								<option value="appartement">Appartement</option>
-								<option value="maison">Maison</option>
-								<option value="roulotte">Roulotte</option>
-								<option value="tente">Tente</option>
-							</select>
-						</p>
-						<p><input type="date" name="date" size="20" class="donnee"/></p>
-						<p><input type="submit" value="Rechercher" id="rechercher"/></p>
+					 <form action="ResultatDeRecherche.php" method="Post">
+					<input id="rechercher" type="text" name="requete" size="10">
+					<input type="submit" value="Ok">
 					</form>
-					<img src="Img/blanc.png" alt="blanc" id="blanc1" />
-					<img src="Img/blanc.png" alt="blanc" id="blanc2" />
+
 				</div>
-			</div>
+			<div>
 			<img src="Img/divider2.png" alt="separateur" id="divider2" />
 			<article>
 				<h2>Dernière habitation ajoutée</h2>

@@ -11,12 +11,12 @@
 					
 						<?php if($_SESSION['nmaison']!=0)
 						{
-						echo "<li><a href=\"logements.php\" class=\"lien_header\">Mes logements</a></li>";
+						echo "<li><a href=\"meslogements.php\" class=\"lien_header\">Mes logements</a></li>";
 						}
 					
 						else
 						{	
-						echo "<li><a href=\"ajout.php\" class=\"lien_header\"> Ajouter un  logement</a></li>";
+						echo "<li><a href=\"ajouterlogement.php\" class=\"lien_header\"> Ajouter un logement</a></li>";
 						}
 						?>
 				<?php endif;?>
@@ -32,12 +32,13 @@
 					<li><a href="connexion.php" class="lien_header">Se Connecter</a></li>
 					<li> | </li>
 					<li><a href="inscription.php" class="lien_header">S'inscrire</a></li>
-					</ul>"
+					</ul>
 					
 				<?php else:?>
 					
 					<ul id="connexion">Connecté en tant que:
-					<?php echo $_SESSION['pseudo'];?></ul>
+					<li><a href="monprofil.php"><?php echo $_SESSION['pseudo'];?></a></li><li>|</li><li><a href="deconnexion.php" class="lien_header" >Déconnexion</a></li></ul>
+					
 				<?php endif;?>
 					
 				

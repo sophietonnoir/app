@@ -10,7 +10,7 @@
 $_SESSION = array();
 session_destroy();
 include("header.php");
-echo "<p>done</p>";
+echo "<div id=\"dernier_ajout\"><ul><li>Vous avez été déconnecté</li></ul></div>";
 include("footer.php");
 ?>
 </html>

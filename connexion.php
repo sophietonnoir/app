@@ -14,7 +14,7 @@
 	<?php 
 	
 	
-	$bdd = new PDO('mysql:host=localhost;dbname=keydb','root', '');
+	$bdd = new PDO('mysql:host=localhost;dbname=keydb','root', 'root');
 
 
 $sql = $bdd->prepare('SELECT * FROM users WHERE mail= :mail AND password= :pass');
@@ -40,6 +40,9 @@ $sql->execute(array(
 		$_SESSION['adresse']=$auth['adresse'];
 		$_SESSION['prenom']=$auth['prenom'];
 		$_SESSION['nom']=$auth['nom'];
+		$_SESSION['mail']=$auth['mail'];
+		$_SESSION['codepostal']=$auth['codepostal'];
+		$_SESSION['ville']=$auth['ville'];
 		unset($auth);
 	
 	include ("header.php");

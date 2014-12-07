@@ -32,12 +32,14 @@
 									<li>Pseudo: <span class="Info_logement_x"><?php echo($_SESSION['pseudo']);?></span></li>
 									<li>Nom:<span class="info_logement_x"><?php echo($_SESSION['nom']);?></span></li>
 									<li>Prénom: <span class="info_logement_x"><?php echo($_SESSION['prenom']);?>		</span></li>
-									<li>Age: <span class="info_logement_x"><?php echo($_SESSION['age']);?>		</span></li>
-									<li>Lieu de Résidence: <span class="Info_logement_x"><?php echo($_SESSION['adresse']);?>		</span></li>
+									<li>Date de naissance: <span class="info_logement_x"><?php echo($_SESSION['age']);?>		</span></li>
+									<li>Lieu de Résidence: <span class="Info_logement_x"><?php echo($_SESSION['adresse']);echo(", ");echo($_SESSION['codepostal']); echo(", ");echo($_SESSION['ville']); ?>		</span></li>
 									<li>Email: <span class="Info_logement_x"><?php echo($_SESSION['mail']);?>		</span></li>
+								</ul>
 								</ul>
 							</div>
 						</article> )
-			<?php endif;?>
+			<?php endif;
+			include ("footer.php");?>
 
 </html>
