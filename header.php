@@ -1,22 +1,28 @@
 <header>
 			<div id="top">
-				<img class="ajout" src="Img/plus.png" src="+"/>
-				<ul id="ajouter_logement">
+				
+				
 				
 				<?php if(!isset ($_SESSION['id'])):?>
 					
 					<!--<li><a href="connexion.php" class="lien_header"> Ajouter un logement</a></li>-->
 				
 				<?php elseif(isset($_SESSION['nmaison'])):?>
-					
+                                       
+                                        
 						<?php if($_SESSION['nmaison']!=0)
 						{
-						echo "<li><a href=\"meslogements.php\" class=\"lien_header\">Mes logements</a></li>";
+						echo "<li><a href=\"meslogements.php\" class=\"lien_header\">Mes logements</a></li>\n" ;
+                                                
+                                               echo "<li><a href=\"ajouterlogement.php\" class=\"lien_header\"> Ajouter un logement</a></li>";
 						}
 					
 						else
 						{	
-						echo "<li><a href=\"ajouterlogement.php\" class=\"lien_header\"> Ajouter un logement</a></li>";
+                                                    ?>
+                                                <img class="ajout" src="Img/plus.png" src="+"/>
+                                                    <ul id="ajouter_logement">
+						<?php echo "<li><a href=\"ajouterlogement.php\" class=\"lien_header\"> Ajouter un logement</a></li>";
 						}
 						?>
 				<?php endif;?>

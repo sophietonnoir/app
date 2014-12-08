@@ -15,6 +15,11 @@
 
 <?php
 
+        if ($_SESSION == NULL):
+
+            echo "<article><br/><br/><br/><br/><h2>Merci de vous connecter !</h2></article>";
+    else:
+        
         $bdd = 'keydb';
 
         $host = "localhost" ;
@@ -32,7 +37,7 @@
         //j obtient le idPropietaire du client connecté
         
         
-        $sql ="SELECT * FROM logements WHERE idPropietaire= ".$idPropietaire."";
+        $sql ="SELECT * FROM logements WHERE idPropietaire= ".$idPropietaire."  ";
         $req= mysqli_query($link,$sql)  or die (mysqli_error());
 
         $n = mysqli_num_rows($link,$req);
@@ -45,7 +50,7 @@
 
             <div>
               <br/><br/><br/>
-                   <a  href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>"><?php  echo '<p>'.''.'<img width="125px" height="125px" align="left"  src="'.$donnees['monfichier1'].'">'. $donnees['Ville'].'.'.$donnees['adresse'].'. '.'<br/>
+                   <a  href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>"><?php  echo '<p>'.''.'<img width="125px" height="125px" align="left"  src="'.$donnees['monfichier'].'">'. $donnees['Ville'].'.'.$donnees['adresse'].'. '.'<br/>
 ' .'Code Postal : '.$donnees['codePostal'].'<br/>' .$donnees['Description'].'<br/>
 '.'Description générale : '.$donnees['capacite'].'personnes, '.$donnees['chambres'].' chambres'.
 '</p>';?> </a>
@@ -67,7 +72,8 @@
         // on libère l'espace mémoire alloué pour cette interrogation de la base
         mysqli_free_result ($req);
         mysqli_close ($link);
- ?>
+
+ endif ?>
  
            
         </body>

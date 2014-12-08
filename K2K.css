@@ -75,8 +75,8 @@ header {
 
 #top {
 	width:1366px;
+	position: absolute;
 	margin:auto;
-	position:fixed;
 	height:45px;
 	padding-top:-20px;
 	color:#F1F1F1;
@@ -95,23 +95,23 @@ header {
 }
 
 #top #ajouter_logement {
-	position:absolute;
+	position: relative;
 	top:10px;
-	left:0px;
+	left:10px;
 	width:auto;
 	text-align:left;
-	margin:auto;
+	margin: auto;
 	font-family: 'Quicksand-Regular';
 	font-size: 20px;
 }
 
 .ajout {
 	position:absolute;
-	top:10px;
+	top:30px;
 	left:12px;
 	width:auto;
 	text-align:left;
-	margin:auto;
+	margin-top: 100px;
 	vertical-align: middle;
 	display:inline-block;
 }
@@ -132,7 +132,11 @@ header {
 .lien_header {
 	color:#F1F1F1;
 	text-decoration: none;
+       
 }
+
+
+
 
 .lien_header:hover {
 	text-shadow:2px 2px 5px #F1F1F1;
