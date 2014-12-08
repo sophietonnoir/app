@@ -26,7 +26,7 @@
         $link = mysqli_connect($host, $user, $mdp) ;
 
         $idPropietaire= $_SESSION['id'];
-        echo $idPropietaire;
+        
         
         mysqli_select_db($link,$bdd )or die("Erreur de connexion à la base de donnée" ); // on se connecte à MySQL.
         //j obtient le idPropietaire du client connecté
@@ -34,6 +34,7 @@
         
         $sql ="SELECT * FROM logements WHERE idPropietaire= ".$idPropietaire."";
         $req= mysqli_query($link,$sql)  or die (mysqli_error());
+
         $n = mysqli_num_rows($link,$req);
         echo $n;
         while($donnees = mysqli_fetch_array($req))   {
@@ -43,12 +44,15 @@
         <article>
 
             <div>
-                <p> <?php echo $donnees['typedelogement'];
-                            echo $donnees['adresse'];
-                            echo $donnees['codePostal'];
-                            echo $donnees['Ville'];
-                            echo $donnees['Pays'];
-                        ?>   </p>
+              <br/><br/><br/>
+                   <a  href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>"><?php  echo '<p>'.''.'<img width="125px" height="125px" align="left"  src="'.$donnees['monfichier1'].'">'. $donnees['Ville'].'.'.$donnees['adresse'].'. '.'<br/>
+' .'Code Postal : '.$donnees['codePostal'].'<br/>' .$donnees['Description'].'<br/>
+'.'Description générale : '.$donnees['capacite'].'personnes, '.$donnees['chambres'].' chambres'.
+'</p>';?> </a>
+                                                        
+
+
+						
 
             </div>
 

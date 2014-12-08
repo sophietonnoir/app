@@ -73,9 +73,11 @@
 
                 $monfichier=$_POST['monfichier'];
 
+                $monfichier1= $_POST['monfichier1'];
 
 
-                 if (($_POST['adresse'] == '')||($_POST['codePostal'] == '')||($_POST['Ville'] == '')||($_POST['Pays'] == '')||($_POST['surface'] == '')||($_POST['fumerPermis'] == '')||($_POST['animauxPermis'] == '')||($_POST['piscine'] == '')||($_POST['Description'] == '')||($_POST['monfichier'] == '')){
+
+                 if (($_POST['adresse'] == '')||($_POST['codePostal'] == '')||($_POST['Ville'] == '')||($_POST['Pays'] == '')||($_POST['surface'] == '')||($_POST['fumerPermis'] == '')||($_POST['animauxPermis'] == '')||($_POST['piscine'] == '')||($_POST['Description'] == '')||($_POST['monfichier'] == '')||($_POST['monfichier1'] == '')){
 
                         echo "<article><br/><br/><br/><br/><h2>Merci de renseigner tous les champs du formulaire !</h2></article>";
                         echo "<article><br/><br/><br/><br/><h2><a href='ajouterlogement.php'>Retour</a></h2></article>";
@@ -93,9 +95,11 @@
 
 
                             $sqlPhoto="INSERT INTO Photo(idLogement,Liendelaphoto) VALUES ('$idLog','$monfichier')";
+                            $sqlPhoto1="INSERT INTO Photo(idLogement,Liendelaphoto) VALUES ('$idLog','$monfichier1')";
                             echo "<article><br/><br/><br/><br/><br/><h2> Votre logement a bien été ajouté. </h2></article>" ;
 
                             $result2=mysqli_query($link, $sqlPhoto);
+                            $result3=mysqli_query($link, $sqlPhoto1);
 
                 }
 
