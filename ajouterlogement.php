@@ -13,10 +13,13 @@
 
 
 	<body>
-		<?php include("header.php"); ?>
+		<?php include("header.php");
+                if ($_SESSION == NULL):
+                     echo "<article><br/><br/><br/><br/><h2>Merci de vous connecter !</h2></article>";
+              else: ?>
 		<fieldset class="fieldset2">
-		<legend> Ajouter un logement: </legend>
-	<form method="post" action="ajouterlogementsuite.php">
+                    <legend> Ajouter un logement: </legend>
+                        <form method="post" action="ajouterlogementsuite.php">
             <div>
              <br/>
              <br/>
@@ -120,10 +123,10 @@
            <br/>
            <br/>
 
-            <div class="input1"> <form enctype="multipart/form-data" action="fileupload.php" method="post">
+            <div class="input1"> <form enctype="multipart/form-data" action="ajouterlogementsuite.php" method="post">
                         <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
                         <input type="file" name="monfichier" />
-                  <form enctype="multipart/form-data" action="fileupload.php" method="post">
+                  <form enctype="multipart/form-data" action="ajouterlogementsuite.php" method="post">
                         <input type="hidden" name="MAX_FILE_SIZE1" value="100000" />
                         <input type="file" name="monfichier1" />
             </div>
@@ -135,5 +138,7 @@
 
 
 
-		<?php include("footer.php"); ?>
+		<?php
+                endif;
+                include("footer.php"); ?>
 	</body>

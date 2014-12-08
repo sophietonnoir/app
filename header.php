@@ -5,7 +5,7 @@
 				
 				<?php if(!isset ($_SESSION['id'])):?>
 					
-					<li><a href="connexion.php" class="lien_header"> Ajouter un logement</a></li>
+					<!--<li><a href="connexion.php" class="lien_header"> Ajouter un logement</a></li>-->
 				
 				<?php elseif(isset($_SESSION['nmaison'])):?>
 					

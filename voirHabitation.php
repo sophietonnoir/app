@@ -18,7 +18,7 @@
 
 		</div>
 
-		<div >
+		<div>
 									 <!--DONNÉES DE LA MAISON-->
 
 			<article >
@@ -27,16 +27,16 @@
 
 			<article class="article2" >
 
-				<div id="restrictions"> <!--Ce n'est pas un dernier-ajout mais c' est le même style-->
+			<div id="restrictions"> <!--Ce n'est pas un dernier-ajout mais c' est le même style-->
 
-		<?php
+                            <?php
 
 					<ul>
 						<li >Capacité:</li>
 						<li >Chambres:</li>
 						<li >Salles de bain:</li>
 						<li >Permission de fumer:</li>
-						<li >Presence d' animaux:</li>
+						<li >Presence d animaux:</li>
 						<li >Piscine:</li>
 						<li >Places de garage: </li>
 						<li >Wifi:</li>
@@ -193,6 +193,6 @@
 		<?php include("footer.php"); ?>
 
 	</body> 
-	</body>
+
 
 </html> 

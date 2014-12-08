@@ -16,87 +16,100 @@
 <body>
 
 <?php
+    if ($_SESSION == NULL):
 
-//Connexion à la base de donnée
+            echo "<article><br/><br/><br/><br/><h2>Merci de vous connecter !</h2></article>";
+    else:
 
-$bdd = 'keydb';
+                //Connexion à la base de donnée
 
-$host = "localhost" ;
+                $bdd = 'keydb';
 
-$user = "root" ;
+                $host = "localhost" ;
 
-$mdp = "root" ;
+                $user = "root" ;
 
-$link = mysqli_connect($host, $user, $mdp) ;
+                $mdp = "root" ;
 
+                $link = mysqli_connect($host, $user, $mdp) ;
 
-
-
-mysqli_select_db($link, $bdd) or die("Erreur de connexion à la base de donnée" );
-
-
-//On récupere les valeurs du formulaire
+                mysqli_select_db($link, $bdd) or die("Erreur de connexion à la base de donnée" );
 
 
-$typedelogement = $_POST['typedelogement'];
+                //On récupere les valeurs du formulaire
+                $idPropietaire= $_SESSION['id'];
 
-$adresse = $_POST['adresse'];
+                $typedelogement = $_POST['typedelogement'];
 
-$codePostal = $_POST['codePostal'];
+                $adresse = $_POST['adresse'];
 
-$Ville = $_POST['Ville'];
+                $codePostal = $_POST['codePostal'];
 
-$Pays = $_POST['Pays'];
+                $Ville = $_POST['Ville'];
 
-$Description = $_POST['Description'];
+                $Pays = $_POST['Pays'];
 
-$chambres = $_POST['chambres'];
+                $Description = $_POST['Description'];
 
-$toilettes = $_POST['toilettes'];
+                $chambres = $_POST['chambres'];
 
-$surface = $_POST['surface'];
+                $toilettes = $_POST['toilettes'];
 
-$capacite = $_POST['capacite'];
+                $surface = $_POST['surface'];
 
-$fumerPermis = $_POST['fumerPermis'];
+                $capacite = $_POST['capacite'];
 
-$animauxPermis = $_POST['animauxPermis'];
+                $fumerPermis = $_POST['fumerPermis'];
 
-$piscine = $_POST['piscine'];
+                $animauxPermis = $_POST['animauxPermis'];
 
-$placesGarage = $_POST['placesGarage'];
+                $piscine = $_POST['piscine'];
 
-$wifi = $_POST['wifi'];
+                $placesGarage = $_POST['placesGarage'];
 
-$jardin= $_POST['jardin'];
+                $wifi = $_POST['wifi'];
 
+                $jardin= $_POST['jardin'];
 
-
- if (($_POST['adresse'] == '')||($_POST['codePostal'] == '')||($_POST['Ville'] == '')||($_POST['Pays'] == '')||($_POST['surface'] == '')||($_POST['fumerPermis'] == '')||($_POST['animauxPermis'] == '')||($_POST['piscine'] == '')||($_POST['Description'] == '')){
-
-        echo "<article><br/><br/><br/><br/><h2>Merci de renseigner tous les champs du formulaire !</h2></article>";
-        echo "<article><br/><br/><br/><br/><h2><a href='ajouterlogement.php'>Retour</a></h2></article>";
-    }
-     
-
-        else {
-            $sql="INSERT INTO logements (typedelogement , Pays , Ville , adresse , codePostal , Description , chambres , toilettes , surface, capacite , fumerPermis , animauxPermis , piscine , placesGarage , wifi, jardin ) VALUES ('$typedelogement','$Pays', '$Ville', '$adresse', '$codePostal', '$Description', '$chambres', '$toilettes', '$surface', '$capacite', '$fumerPermis', '$animauxPermis', '$piscine','$placesGarage', '$wifi', '$jardin')";
-            echo "<article><br/><br/><br/><br/><br/><h2> Votre logement a bien été ajouté. </h2></article>" ;
-
-
-}
-
-
-$result = mysqli_query($link, $sql);
+                $monfichier=$_POST['monfichier'];
 
 
 
+                 if (($_POST['adresse'] == '')||($_POST['codePostal'] == '')||($_POST['Ville'] == '')||($_POST['Pays'] == '')||($_POST['surface'] == '')||($_POST['fumerPermis'] == '')||($_POST['animauxPermis'] == '')||($_POST['piscine'] == '')||($_POST['Description'] == '')||($_POST['monfichier'] == '')){
 
-//On ferme la connexion
+                        echo "<article><br/><br/><br/><br/><h2>Merci de renseigner tous les champs du formulaire !</h2></article>";
+                        echo "<article><br/><br/><br/><br/><h2><a href='ajouterlogement.php'>Retour</a></h2></article>";
+                    }
 
-mysqli_close($link);
+
+                 else {
+
+                            $sqlLogement="INSERT INTO logements (idPropietaire, typedelogement , Pays , Ville , adresse , codePostal , Description , chambres , toilettes , surface, capacite , fumerPermis , animauxPermis , piscine , placesGarage , wifi, jardin ) VALUES ('$idPropietaire','$typedelogement','$Pays', '$Ville', '$adresse', '$codePostal', '$Description', '$chambres', '$toilettes', '$surface', '$capacite', '$fumerPermis', '$animauxPermis', '$piscine','$placesGarage', '$wifi', '$jardin')";
+                            $result = mysqli_query($link, $sqlLogement);
+
+                            $queryidLogement = mysqli_query($link,"SELECT idLogement FROM logements WHERE adresse='$adresse' " ) or die (mysqli_error($link));
+                            $donneesLog=mysqli_fetch_array($queryidLogement);
+                            $idLog= $donneesLog['idLogement'];
 
 
+                            $sqlPhoto="INSERT INTO Photo(idLogement,Liendelaphoto) VALUES ('$idLog','$monfichier')";
+                            echo "<article><br/><br/><br/><br/><br/><h2> Votre logement a bien été ajouté. </h2></article>" ;
+
+                            $result2=mysqli_query($link, $sqlPhoto);
+
+                }
+
+
+
+
+
+
+
+                //On ferme la connexion
+
+                mysqli_close($link);
+
+endif;
 ?>
 
 

@@ -15,33 +15,56 @@
 
 <?php
 
-$bdd = 'keydb';
+        $bdd = 'keydb';
 
-$host = "localhost" ;
+        $host = "localhost" ;
 
-$user = "root" ;
+        $user = "root" ;
 
-$mdp = "root" ;
+        $mdp = "root" ;
 
-$link = mysqli_connect($host, $user, $mdp) ;
+        $link = mysqli_connect($host, $user, $mdp) ;
 
-		mysqli_select_db($link,$bdd )or die("Erreur de connexion à la base de donnée" ); // on se connecte à MySQL.
-		
-		$sql = 'SELECT * FROM logements NATURAL JOIN users WHERE idPropietaire = id  GROUP BY idLogement ORDER BY idLogement';
-		$req= mysqli_query($link,$sql)  or die ('Erreur SQL !<br />'.$sql.'<br />'.mysqli_error());;
-// on recupere le resultat sous forme d'un tableau
-$data = mysqli_fetch_array($req);
+        $idPropietaire= $_SESSION['id'];
+        echo $idPropietaire;
+        
+        mysqli_select_db($link,$bdd )or die("Erreur de connexion à la base de donnée" ); // on se connecte à MySQL.
+        //j obtient le idPropietaire du client connecté
+        
+        
+        $sql ="SELECT * FROM logements WHERE idPropietaire= ".$idPropietaire."";
+        $req= mysqli_query($link,$sql)  or die (mysqli_error());
+        $n = mysqli_num_rows($link,$req);
+        echo $n;
+        while($donnees = mysqli_fetch_array($req))   {
 
-// on libère l'espace mémoire alloué pour cette interrogation de la base
-mysqli_free_result ($req);
-mysqli_close ($link);
-?>
+ ?>
 
-Le numéro de téléphone de LA GLOBULE est :<br />
-<?php 
-        echo $data['adresse'];
-        ?>
-               
+        <article>
+
+            <div>
+                <p> <?php echo $donnees['typedelogement'];
+                            echo $donnees['adresse'];
+                            echo $donnees['codePostal'];
+                            echo $donnees['Ville'];
+                            echo $donnees['Pays'];
+                        ?>   </p>
+
+            </div>
+
+        </article>
+
+ <?php
+       
+       }
+
+
+  
+        // on libère l'espace mémoire alloué pour cette interrogation de la base
+        mysqli_free_result ($req);
+        mysqli_close ($link);
+ ?>
+ 
            
         </body>
 </html>
