@@ -1,0 +1,67 @@
+
+
+#superContainer {
+    height: 100%;
+    position: relative;
+
+}
+
+
+.fp-section {                   /*SECTION */
+    position: relative;
+    -webkit-box-sizing: border-box; /* Safari<=5 Android<=3 */
+ 
+}
+
+.fp-slide {                 /*POUR QUE LES SLIDES ROULENT*/
+    float: left;
+}
+
+
+
+.fp-slides {                
+    z-index:1;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.3s ease-out; /* Safari<=6 Android<=4.3 */
+    transition: all 0.3s ease-out;
+}
+
+.fp-section.fp-table, .fp-slide.fp-table {
+    display: table;
+    width: 100%;
+}
+
+.fp-tableCell {                 /*POUR QUE LE TEXTE OU PHOTOS SOIENT AU CENTRE (VERTICALE) DE LA PAGE*/
+    display: table-cell;
+    vertical-align: middle;
+    /*width: 100%;
+    height: 100%;
+    */
+}
+
+.fp-slidesContainer {       /*SANS ÇA LES SLIDES NE ROULENT PAS BIEN*/
+    float: left;
+    position: relative;
+}
+
+.fp-controlArrow {
+    position: absolute; /*POUR QUE LES FLECHES NE VONT PAS AU BAS DE LA PAGE*/
+    z-index: 4;
+    top: 50%;
+    cursor: pointer;
+    border-style: solid;
+}
+.fp-controlArrow.fp-prev {
+    left: 100px;
+    border-width: 38.5px 34px 38.5px 0;     /*TAILLE DE LA FLECHE*/
+    border-color: transparent #2980B9 transparent transparent;  /*COULEUR DE LA FLECHE*/
+}
+
+.fp-controlArrow.fp-next {
+    right: 100px;
+    border-width: 38.5px 0 38.5px 34px;     /*TAILLE DE LA FLECHE*/
+    border-color: transparent transparent transparent #2980B9;  /*COULEUR DE LA FLECHE*/
+    /**background-color: #2980B9; Ça change le couleur du fond derriere la fleche*/
+}
