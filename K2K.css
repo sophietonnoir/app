@@ -582,3 +582,23 @@ footer {
 .inputradio11{
     margin-left: 63px;
 }
+
+/* CSS Maxou */
+
+#RechercheMaxou {
+   	margin-right: 170px;
+   	margin-left: 180px;
+    font-family: 'Quicksand-Regular';
+	font-size: 17px;
+	
+}
+#encadreResultat {
+	background-color: #E4E4E4;
+	padding:20px 20px 2px 20px;
+	border-radius: 10px;
+	margin-bottom: 40px;
+}
+
+
+/* Fin CSS Maxou */
+
