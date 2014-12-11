@@ -41,7 +41,7 @@
 			include("header.php"); 
 
 
-			$link=mysqli_connect('localhost','root','');
+			$link=mysqli_connect('localhost','root','root');
 
 			if(isset($_GET['search']) && $_GET['search'] != NULL)  : 
 			

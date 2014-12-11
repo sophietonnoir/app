@@ -24,7 +24,7 @@
 
                 //Connexion à la base de donnée
 
-                $link = mysqli_connect("localhost", "root", "") ;
+                $link = mysqli_connect("localhost", "root", "root") ;
 
                 mysqli_select_db($link, 'keydb') or die("Erreur de connexion à la base de donnée" );
 
@@ -38,10 +38,10 @@
                 $proprietaire=$_GET['proprietaire'];        /*id du propietaire de la maison demandée*/
                 $idLogement=$_GET['logement'];
 
-                if (($dates1== '')||($dates2 == '')||($message == '')){
+                if (($dates1== '')||($dates2 == '')){
 
                         echo "<article><br/><br/><br/><br/><h2>Merci de renseigner tous les champs du formulaire !</h2></article>";
-                        echo "<article><br/><br/><br/><br/><h2><a href='ajouterlogement.php'>Retour</a></h2></article>";
+                        echo "<article><br/><br/><br/><br/><h2><a href='demanderEchange.php'>Retour</a></h2></article>";
                 }
 
 

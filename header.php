@@ -65,7 +65,7 @@
 				<nav>
 					<ul id="nav1">
 						<li><a href="index.php">Accueil</a></li>
-						<li><a href="@">Parcourir</a></li>
+						<li><a href="Parcourir.php">Parcourir</a></li>
 						<li><a href="@">News</a></li>
 					</ul>
 					<ul id="nav2">
