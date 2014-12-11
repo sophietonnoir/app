@@ -9,27 +9,22 @@
 				
 				<?php elseif(isset($_SESSION['nmaison'])):?>
                                        
-                      <?php if($_SESSION['nmaison']!=0)
-							{
-									echo "<li><a href=\"meslogements.php\" class=\"lien_header\">Mes logements</a></li>\n" ;
-	                                                
-	                                echo "<li><a href=\"ajouterlogement.php\" class=\"lien_header\"> Ajouter un logement  </a></li>";
-
-	                                echo "<li><a href=\"messages.php\" class=\"lien_header\">  Messages</a></li>";
-
-							}
-						
-							else
-							{	
-	                                                    ?>
-	                                     <img class="ajout" src="Img/plus.png" src="+"/>
-	                                                    <ul id="ajouter_logement">
-										<?php 
-										echo "<li><a href=\"ajouterlogement.php\" class=\"lien_header\"> Ajouter un logement  </a></li>";
-
-										echo "<li><a href=\"messages.php\" class=\"lien_header\"> Messages</a></li>";
-							}
-							?>
+                                        
+						<?php if($_SESSION['nmaison']!=0)
+						{
+						echo "<li><a href=\"meslogements.php\" class=\"lien_header\">Mes logements</a></li>\n" ;
+                                                
+                                               echo "<li><a href=\"ajouterlogement.php\" class=\"lien_header\"> Ajouter un logement</a></li>";
+						}
+					
+						else
+						{	
+                                                    ?>
+                                                <img class="ajout" src="Img/plus.png" src="+"/>
+                                                    <ul id="ajouter_logement">
+						<?php echo "<li><a href=\"ajouterlogement.php\" class=\"lien_header\"> Ajouter un logement</a></li>";
+						}
+						?>
 				<?php endif;?>
 				
 						
@@ -71,8 +66,8 @@
 					<ul id="nav2">
 						<li><a href="@">Forum</a></li>
 						<li><a href="@">Contact</a></li>
-						<li><a href="@"><img src="Img/facebook.png" alt="facebook_logo" /></a></li>
-						<li><a href="@"><img src="Img/twitter.png" alt="twitter_logo" /></a></li>
+						<li><a href="https://www.facebook.com/pages/Key2Key/1428150817431545?ref=ts&fref=ts"><img src="Img/facebook.png" alt="facebook_logo" /></a></li>
+						<li><a href="https://twitter.com/Key2Key_France"><img src="Img/twitter.png" alt="twitter_logo" /></a></li>
 					</ul>
 					</nav>
 				<img src="Img/K2K_logo.png" alt="logo K2K" id="logo"/>
