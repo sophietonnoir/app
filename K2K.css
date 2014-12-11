@@ -273,20 +273,20 @@ header {
 		font-family:'Quicksand-Regular';
 	}
 
-	#type_de_logement {
+	/*#type_de_logement {
 		width:200px;
-	}
+	}*/
 
-	#ou_voulez {
+	/*#ou_voulez {
 		position:absolute;
 		left:15px;
 		top:375px;
-	}
+	}*/
 
 	#a_quelle {
 		position:absolute;
-		right:145px;
-		top:375px;
+		right:280px;
+		top:10px;
 	}
 
 	.donnee {
@@ -312,10 +312,11 @@ header {
 		color:#7F8C8D;
 		font-family: 'Quicksand-Regular';
 		background-color: #F1F1F1;
-		border-radius:5px;
+		border-radius:10px;
 		padding: 2px 2px 2px 2px;
-		width:120%;
-		height:35px;
+		width:200px;
+		height:20px;
+		left:500px;
 	}
 	/* Fin barre de recherche */
 
@@ -601,4 +602,5 @@ footer {
 
 
 /* Fin CSS Maxou */
+
 
