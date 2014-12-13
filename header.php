@@ -65,14 +65,16 @@
 				<nav>
 					<ul id="nav1">
 						<li><a href="index.php">Accueil</a></li>
-						<li><a href="Parcourir.php">Parcourir</a></li>
-						<li><a href="@">News</a></li>
+						<li><a href="Parcourir.php"style="margin-left: 30px">Parcourir</a></li>
+                                                <li><a href="https://www.facebook.com/pages/Key2Key/1428150817431545?ref=ts&fref=ts"style="margin-left:20px"><img src="Img/facebook.png" alt="facebook_logo" /></a></li>
+						
 					</ul>
 					<ul id="nav2">
-						<li><a href="@">Forum</a></li>
-						<li><a href="@">Contact</a></li>
-						<li><a href="https://www.facebook.com/pages/Key2Key/1428150817431545?ref=ts&fref=ts"><img src="Img/facebook.png" alt="facebook_logo" /></a></li>
-						<li><a href="https://twitter.com/Key2Key_France"><img src="Img/twitter.png" alt="twitter_logo" /></a></li>
+                                                <li><a href="https://twitter.com/Key2Key_France" style="margin-right:25px"><img src="Img/twitter.png" alt="twitter_logo" /></a></li>
+						<li><a href="@" style="margin-right:40px">Forum</a></li>
+						<li><a href="@"style="margin-right:30px">Contact</a></li>
+						
+						
 					</ul>
 					</nav>
 				<img src="Img/K2K_logo.png" alt="logo K2K" id="logo"/>

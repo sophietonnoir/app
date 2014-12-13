@@ -17,7 +17,7 @@
 		mysql_connect('localhost','root','root');
 		mysql_select_db('keydb'); // on se connecte à MySQL.
 		$requete = htmlspecialchars($_GET['requete']); // on crée une variable $requete pour faciliter l'écriture de la requête SQL.
-		$query = mysql_query("SELECT * FROM logements NATURAL JOIN Photo WHERE Ville LIKE '%$requete%' GROUP BY idLogement ORDER BY dateAjout  ") or die (mysql_error()); 
+		$query = mysql_query("SELECT DISTINCT * FROM logements NATURAL JOIN Photo WHERE Ville LIKE '%$requete%' GROUP BY idLogement ORDER BY dateAjout  ") or die (mysql_error());
 		
 	 while($donnees = mysql_fetch_array($query)) 
 

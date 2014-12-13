@@ -20,7 +20,7 @@
 		$link=mysqli_connect('localhost','root','root');
 		mysqli_select_db($link,'keydb'); // on se connecte à MySQL.
 		$requete = htmlspecialchars($_POST['requete']); // on crée une variable $requete pour faciliter l'écriture de la requête SQL.
-		$query = mysqli_query($link,"SELECT * FROM logements NATURAL JOIN Photo WHERE Ville LIKE '%$requete%' GROUP BY idLogement ORDER BY idLogement  ") or die (mysqli_error($link)); 
+		$query = mysqli_query($link,"SELECT DISTINCT * FROM logements NATURAL JOIN Photo WHERE Ville LIKE '%$requete%' GROUP BY idLogement ORDER BY idLogement  ") or die (mysqli_error($link));
 		$nb_resultats = mysqli_num_rows($query); // on utilise la fonction mysql_num_rows pour compter les résultats 
 	if($nb_resultats != 0) // si le nombre de résultats est supérieur à 0, on continue
 {
@@ -39,9 +39,9 @@
 {
 ?>
 <div id='encadreResultat'>
- <a  href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>"><?php  echo '<p>'.''.'<img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'">'. $donnees['Ville'].'.'.$donnees['adresse'].'. '.'<br/>
-' .'Code Postal : '.$donnees['codePostal'].'<br/>' .$donnees['Description'].'<br/>
-'.'Description générale : '.$donnees['capacite'].'metres carrés, '.$donnees['chambres'].' chambres'.
+ <a  href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>"><?php  echo '<p>'.''.'<img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'">'.$donnees['typedelogement'].': <br>'.$donnees['adresse'].'. '.'<br/>
+' .$donnees['codePostal'].' '. $donnees['Ville'].'<br/>Description : ' .$donnees['Description'].'<br/>
+'.'Capacité : '.$donnees['capacite'].'personnes', '<br/> Nombre de chambres : '.$donnees['chambres'].' chambres'.
 '</p>';?> </a><br/>
 </div>
 <?php
