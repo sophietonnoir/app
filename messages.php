@@ -24,7 +24,7 @@
 
 						<menu id="menu">
 							<article>
-							  <h2>Messages</h2>
+							  <h2 style="text-align:left">Messages : </h2>
 							  <ul>
 							 	 <li><a href="messages.php?typeMessages=reçus">Reçus</a></li>
 							  	 <li><a href="messages.php?typeMessages=envoyes">Envoyés</a></li>
@@ -36,7 +36,7 @@
 						
 						<?php
 
-						$link = mysqli_connect("localhost", "root", "root") ;
+						$link = mysqli_connect("localhost", "root", "") ; 
 						mysqli_select_db($link, 'keydb') or die("Erreur à la base de données");
 
 				/***************************************REÇUS****************************************/
@@ -47,8 +47,10 @@
 							
 
 									<?php 
-									   
-									   	$query = mysqli_query($link,"SELECT * FROM messages WHERE idDestinataire=$idSession ORDER BY dateMessage  ") or die (mysqli_error($link)); 
+									   	
+									   $text= "SELECT * FROM messages WHERE idDestinataire=$idSession ORDER BY dateMessage  ";
+
+									   	$query = mysqli_query($link,$text) or die (mysqli_error($link)); 
 										$nb_resultats = mysqli_num_rows($query); 
 										
 	               			
@@ -56,10 +58,10 @@
 										if($nb_resultats != 0): ?> 
 
 										 <div class="messages">
-											 <article><h2>Messages reçus <?php echo " (".$nb_resultats.")";?>
+											 <article><h2 style="text-align:left">Messages reçus <?php echo " (".$nb_resultats.") : ";?>
 												 </h2>
 													
-		               			 				<table> 			 		
+		               			 				<table style="width:700px;"> 			 		
 														<tr>
 														  <td><strong>Nº: </strong></td> 
 														  <td><strong>État: </strong></td> 
@@ -71,7 +73,18 @@
 												$numeroMessage=1;
 												while($donnees = mysqli_fetch_array($query)) 
 
-												{ ?> 
+												{ 
+													/*Je cherche le nom prenom du Emetteur*/
+													$idEmet= $donnees['idEmetteur'];
+													$text2= "SELECT * FROM users WHERE id=$idEmet";
+													$query2 = mysqli_query($link,$text2) or die (mysqli_error($link));
+
+													$donnees2=mysqli_fetch_array($query2);
+													
+													$nom=$donnees2['nom'];
+													$prenom=$donnees2['prenom'];
+
+														?>
 
 														<tr> 
 														  <td><?php echo $numeroMessage ++; ?></td>
@@ -83,9 +96,9 @@
 														  <?php	endif;
 
 														  ?>
-														  <td><?php echo $donnees['idEmetteur']?></td>
-														  <td><?php echo $donnees['dateMessage']?></td>
-														  <td><a href="@">Voir message</a></td>
+														  <td><?php echo $prenom." ".$nom;?></td>
+														  <td><?php echo $donnees['dateMessage'];?></td>
+														  <td><a href="voirMessage.php?idMessage=<?php echo $donnees['idMessage'];?>">Voir message</a></td>
 														</tr>
 
 												<?php
@@ -116,13 +129,12 @@
 										if($nb_resultats != 0): ?> 
 
 										 <div class="messages">
-											 <article><h2>Messages envoyés <?php echo " (".$nb_resultats.")";?>
+											 <article><h2 style="text-align:left">Messages envoyés <?php echo " (".$nb_resultats.") : ";?>
 												 </h2>
 													
-		               			 				<table> 			 		
+		               			 			<table style="width:700px;"> 			 		
 														<tr> 
 														  <td><strong>Nº: </strong></td> 
-														  <td><strong>État: </strong></td> 
 														  <td><strong>Envoyé à: </strong></td>
 														  <td><strong>Date</strong></td>
 														</tr>
@@ -131,19 +143,31 @@
 												$numeroMessage=1;
 												while($donnees = mysqli_fetch_array($query)) 
 
-												{ ?> 
+												{ 
+
+
+														/*Je cherche le nom prenom du Emetteur*/
+													$idDest= $donnees['idDestinataire'];
+													$text2= "SELECT * FROM users WHERE id=$idDest";
+													$query2 = mysqli_query($link,$text2) or die (mysqli_error($link));
+
+													$donnees2=mysqli_fetch_array($query2);
+													
+													$nom=$donnees2['nom'];
+													$prenom=$donnees2['prenom'];
+														?>
 
 														<tr> 
 														  <td><?php echo $numeroMessage ++; ?></td>
-														  <td><?php echo $donnees['idDestinataire']?></td>
+														  <td><?php echo $prenom." ".$nom;?></td>
 														  <td><?php echo $donnees['dateMessage']?></td>
-														  <td><a href="@">Voir message</a></td>
+														  <td><a href="voirMessage.php?idMessage=<?php echo $donnees['idMessage'];?>">Voir message</a></td>
 														</tr>
 
 												<?php
 												} // fin de la boucle ?>
 		
-			               			 			</table>  
+			               			 		</table>  
 			               			 		</article>
 										</div>
 								
@@ -163,13 +187,13 @@
 
 				else: ?> 
 
-						<menu id="menu">
-							  <h1>Messages</h1>
+						<article>
+							  <h2  style="text-align:left">Messages</h2>
 							  <ul>
 							  <li><a href="messages.php?typeMessages=reçus">Reçus</a></li>
 							  <li><a href="messages.php?typeMessages=envoyes">Envoyés</a></li>
 							  </ul>
-						</menu>
+						</article>
 
 				<?php endif; ?>
 

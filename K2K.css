@@ -381,6 +381,37 @@ article p{									/*utilisé dans index.php et voirHabitation.php*/
 	margin-right:30px;
 }
 
+/*Messagerie*/
+
+tr{
+	
+	font-family:'Lato-Light';
+	color:#7F8C8D;
+	text-align:center;
+
+
+
+}
+
+td{
+	border: 1 solid;
+
+	font-family:'Lato-Light';
+	color:#7F8C8D;
+	text-align:center;
+
+
+}
+
+a{
+	font-family:'Lato-Light';
+	color:#F1F1F1;
+	text-align:center;
+
+}
+
+
+
 .info_logement_x {
 	font-weight:bold;
 }
