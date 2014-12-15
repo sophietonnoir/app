@@ -85,6 +85,7 @@
 														  ?>
 														  <td><?php echo $donnees['idEmetteur']?></td>
 														  <td><?php echo $donnees['dateMessage']?></td>
+														  <td><a href="@">Voir message</a></td>
 														</tr>
 
 												<?php

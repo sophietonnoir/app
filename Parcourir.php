@@ -14,12 +14,11 @@
 		<?php include("header.php"); ?>
 <div id="RechercheMaxou">
 <?php
-		mysql_connect('localhost','root','root');
-		mysql_select_db('keydb'); // on se connecte à MySQL.
-		$requete = htmlspecialchars($_GET['requete']); // on crée une variable $requete pour faciliter l'écriture de la requête SQL.
-		$query = mysql_query("SELECT DISTINCT * FROM logements NATURAL JOIN Photo WHERE Ville LIKE '%$requete%' GROUP BY idLogement ORDER BY dateAjout  ") or die (mysql_error());
+		$link=mysqli_connect('localhost','root','');
+		mysqli_select_db($link,'keydb'); // on se connecte à MySQL.
+		$query = mysqli_query($link,"SELECT DISTINCT * FROM logements NATURAL JOIN Photo GROUP BY idLogement ORDER BY dateAjout  ") or die (mysqli_error($link));
 		
-	 while($donnees = mysql_fetch_array($query)) 
+	 while($donnees = mysqli_fetch_array($query)) 
 
 
 echo '<div id="encadreResultat">'.'<a  href="voirHabitation.php?search='.$donnees['idLogement'].'" ><img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'">'. $donnees['Ville'].'.'.$donnees['adresse'].'. '.'<br/>
@@ -27,7 +26,7 @@ echo '<div id="encadreResultat">'.'<a  href="voirHabitation.php?search='.$donnee
 '.'Description générale : '.$donnees['capacite'].'metres carrés, '.$donnees['chambres'].' chambres'.'</div>'.'</a>'; 
 
 
-mysql_close(); // fin ?> </div>
+mysqli_close($link); // fin ?> </div>
 
 
 
