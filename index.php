@@ -12,15 +12,22 @@
 
 	<body>
 		<?php include("header.php"); ?>
-
-				<div id="barre_de_recherche">
-					<p id="ou_voulez">Où voulez-vous aller ?</p>
-					 <form action="ResultatDeRecherche.php" method="Post">
-					<input id="rechercher" type="text" name="requete" size="10">
-					<input type="submit" value="Ok">
-					</form>
-
-				</div>
+<div id="barre_de_recherche">
+                    <p id="ou_voulez">Où voulez-vous aller ?</p>
+                    <p id="a_quelle">A quelle date ?</p>
+                    <form method="post" action="ResultatDeRecherche.php">
+                        <p><input type="search" name="requete" size="70" placeholder="Ville, Code postal" class="donnee"/></p>
+                        <p>
+                            <select name="Type" id="type_de_logement" class="donnee">
+                            	 <option value="tout">Tout</option>
+                                <option value="appartement">Appartement</option>
+                                <option value="maison">Maison</option>
+                            </select>
+                        </p>
+                        <p><input type="date" name="date" size="20" class="donnee"/></p>
+                        <p><input type="submit" value="Rechercher" id="rechercher"/></p>
+                    </form>
+                </div>
 			<div>
 			<img src="Img/divider2.png" alt="separateur" id="divider2" />
 			<article>
