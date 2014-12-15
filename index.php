@@ -29,6 +29,15 @@
                     </form>
                 </div>
 			<div>
+				<?php
+								$dbh=new PDO('mysql:host=localhost;keydb','root','');
+								$sql = "SELECT * FROM keydb.logements ORDER BY dateAjout desc limit 1";
+								$respons=$dbh->query($sql);
+								$iza = $respons->fetch();
+								echo ($iza['adresse']);
+								//echo ($respons['adresse']);
+
+					?>
 			<img src="Img/divider2.png" alt="separateur" id="divider2" />
 			<article>
 				<h2>Dernière habitation ajoutée</h2>
