@@ -17,10 +17,20 @@
 
 	if(isset($_POST['requete']) && $_POST['requete'] != NULL) // on vérifie d'abord l'existence du POST et aussi si la requete n'est pas vide.
 	{
-		$link=mysqli_connect('localhost','root','');
+		$link=mysqli_connect('localhost','root','root');
 		mysqli_select_db($link,'keydb'); // on se connecte à MySQL.
+		$Type = htmlspecialchars($_POST['Type']);
 		$requete = htmlspecialchars($_POST['requete']); // on crée une variable $requete pour faciliter l'écriture de la requête SQL.
-		$query = mysqli_query($link,"SELECT DISTINCT * FROM logements NATURAL JOIN Photo WHERE Ville LIKE '%$requete%' GROUP BY idLogement ORDER BY idLogement  ") or die (mysqli_error($link));
+
+		if($Type=="tout"){
+			$query = mysqli_query($link,"SELECT * FROM logements NATURAL JOIN Photo WHERE Ville LIKE '%$requete%'  GROUP BY idLogement ORDER BY idLogement  ") or die (mysqli_error($link)); 
+		
+
+		} 
+		else{
+			
+			$query = mysqli_query($link,"SELECT * FROM logements NATURAL JOIN Photo WHERE Ville LIKE '%$requete%' AND typedelogement='$Type'  GROUP BY idLogement ORDER BY idLogement  ") or die (mysqli_error($link)); 
+		} 
 		$nb_resultats = mysqli_num_rows($query); // on utilise la fonction mysql_num_rows pour compter les résultats 
 	if($nb_resultats != 0) // si le nombre de résultats est supérieur à 0, on continue
 {
@@ -39,10 +49,10 @@
 {
 ?>
 <div id='encadreResultat'>
- <a  href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>"><?php  echo '<p>'.''.'<img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'">'.$donnees['typedelogement'].': <br>'.$donnees['adresse'].'. '.'<br/>
-' .$donnees['codePostal'].' '. $donnees['Ville'].'<br/>Description : ' .$donnees['Description'].'<br/>
-'.'Capacité : '.$donnees['capacite'].'personnes', '<br/> Nombre de chambres : '.$donnees['chambres'].' chambres'.
-'</p>';?> </a><br/>
+ <a  href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>"><?php  echo '<p>'.''.'<img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'"> <h2>'. $donnees['Ville'].'.'.$donnees['adresse'].'. '.'<br/>
+' .'Code Postal : '.$donnees['codePostal'].'<br/> ' .$donnees['Description'].'<br/>
+'.'Description générale : '.$donnees['capacite'].'metres carrés, '.$donnees['chambres'].' chambres'.
+'</p></h2>';?> </a><br/>
 </div>
 <?php
 } // fin de la boucle
