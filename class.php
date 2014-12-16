@@ -9,7 +9,7 @@ public function __construct($db);
 		}	
 public function add(User $id,$nom,$prenom,$age,$nmaison,$admin)
 {
-		$_SESSION[$id] = new User($id,$nom,$prenom,$age,$nmaison,$admin);
+		;
 		
 		}
 public function delete(User $user)
@@ -56,16 +56,16 @@ public function setId($id)
   }
 public function setAdmin($admin)
 {
-$admin = (int) $admin;
+	$admin = (int) $admin;
 
-if ($admin=0 or $admin=1)
-	{
-	$this->_admin = $admin;
-	}
-else
-{
-$this->_admin=0;
-}
+		if ($admin=0 or $admin=1)
+			{
+			$this->_admin = $admin;
+			}
+		else
+			{
+			$this->_admin=0;
+			}
 	}
 public function setNmaison($nmaison)
 {
