@@ -14,9 +14,10 @@
 	
 	<body>
 		<?php include("header.php"); ?>
+		<?php if (!isset ($_POST['nom'])):?>
 		<fieldset>
 		<legend> Inscription: </legend>
-	<form method="post" action="inscriptionverif.php">
+	<form method="post" action="inscription.php">
 				<label for="">Nom:</label>
 			<input type="text" name="nom" />
 			<label for="">Prenom:</label>
@@ -46,7 +47,7 @@
 			<input type="submit" name="S'inscrire" />
 		</form>
 		</fieldset>
-		
-		
+		<?php endif;?>
+		<?php include ("inscriptionverif.php");?>
 		<?php include("footer.php"); ?>
 	</body>

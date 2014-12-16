@@ -1,4 +1,4 @@
- <?php session_start()
+<?php
  	$bdd = new PDO('mysql:host=localhost;dbname=keydb','root', '');
 	$nmaison=0;
 ?>
@@ -15,45 +15,30 @@
 	
 	
 	<body>
-	<?php include ("header.php");
-	$sql=$bdd->prepare ('INSERT INTO users(nom, prenom, pays, codepostal, adresse, mail, dateinscription, password, tel, admin, pseudo, nmaison, age, questions, reponses, sexe) VALUES(:nom, :prenom, :pays, :codepostal, :adresse, :mail, :dateinscription, :password, :tel, :admin, :pseudo, :nmaison, :age, :questions, :reponses, :sexe)')
+	<?php
+	$sql = $bdd->prepare ('INSERT INTO users(nom, prenom, mail, password, pseudo, questions, reponses, sexe) VALUES(:nom, :prenom, 
+	:mail, :password, :pseudo, :questions, :reponses, :sex)');
 	
 	$sql->execute(array(
 		'nom' =>$_POST['nom'],
 		'prenom' =>$_POST['prenom'],
-		'pays' =>$_POST['pays'],
-		'codepostal' =>$_POST['codepostal'],
-		'adresse' =>$_POST['adresse'],
+		//'pays' =>$_POST['pays'],
+		//'codepostal' =>$_POST['codepostal'],
+		//'adresse' =>$_POST['adresse'],
 		'mail' =>$_POST['mail'],
-		'dateinscription' =>$_POST['dateinscription'],
-		'password' =>$_POST['password'],
-		'tel' =>$_POST['tel'],
-		'admin' =>$_POST['admin'],
+		//'dateinscription' =>$_POST['dateinscription'],
+		'password' =>$_POST['password1'],
+		//'tel' =>$_POST['tel'],
+		//'admin' =>$_POST['admin'],
 		'pseudo' =>$_POST['pseudo'],
-		'nmaison' =>$nmaison,
-		'questions' =>$_POST['questions'],
-		'reponses' =>$_POST['reponses'],
-		'sexe' =>$_POST['sexe']));
+		//'nmaison' =>$nmaison,
+		'questions' =>$_POST['question'],
+		'reponses' =>$_POST['questionsecrete'],
+		'sex' =>$_POST['sex']));
 		
-		
-		
-		
-		
-		
+		echo("done");
 		?>
-		
-		
-		
-	
-	
-	
-	
-	
-	
-	
-	<?php include ("footer.php")?>
-	
-	
+			
 	</body>
 	
 </html>
