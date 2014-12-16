@@ -254,17 +254,16 @@ header {
 
 	/* Fin logo */
 
-	/* Barre de recherche */
-
-	#barre_de_recherche {
+		#barre_de_recherche {
 		background-color: #2980B9;
 		border-radius: 10px;
-		height:80px;
+		height:150px;
 		margin-left:170px;
 		margin-top:40px;
 		padding-top:20px;
 		padding-left:15px;
 		width:1024px;
+		
 	}
 
 	#barre_de_recherche p {
@@ -283,6 +282,13 @@ header {
 		top:375px;
 	}*/
 
+	a h2{
+	font-family:'Lato-Light';
+	color:#7F8C8D;
+	text-align:left;
+	}
+
+
 	#a_quelle {
 		position:absolute;
 		right:280px;
@@ -294,7 +300,6 @@ header {
 		height:35px;
 		padding-left:5px;
 		color:#BEBEBE;
-
 	}
 
 	#blanc1 {
@@ -317,9 +322,21 @@ header {
 		padding: 2px 2px 2px 2px;
 		width:200px;
 		height:20px;
-		left: 500px;
+		left:500px;
 	}
+
+	#RechercheAvancee {
+		background-color: #2980B9;
+		border-radius: 10px;
+		height:150px;
+		margin-left:170px;
+		margin-top:40px;
+		padding-top:20px;
+		padding-left:15px;
+		width:1024px;
+		margin-bottom:300px;
 	/* Fin barre de recherche */
+
 
 /* Fin bloc Haut */
 
