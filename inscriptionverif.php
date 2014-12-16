@@ -36,9 +36,9 @@
 		'reponses' =>$_POST['questionsecrete'],
 		'sex' =>$_POST['sex']));
 		
-		echo("done");
+		echo "<div id=\"dernier_ajout\"><ul><li>Vous êtes maintenant inscrit, vous pouvez vous connecter</li></ul></div>";
 		?>
-			
+	
 	</body>
 	
 </html>
