@@ -48,6 +48,8 @@
 		</form>
 		</fieldset>
 		<?php endif;?>
+		<?php if (isset($_POST['nom'])):?>
 		<?php include ("inscriptionverif.php");?>
+		<?php endif;?>
 		<?php include("footer.php"); ?>
 	</body>
