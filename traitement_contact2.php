@@ -23,22 +23,16 @@
 					$objet = $_POST['objet'];
 					$message = $_POST['message'];
 			
-     		
-
-     		echo "$nom" ;
-     		echo "$prenom" ;
-     		echo "$email" ;
-     		echo "$objet" ;
-     		echo "$message";
+     	
 		//maintenant j'ouvre la base de données.
 
-					$link=mysqli_connect("localhost", "root","");
+					$link=mysqli_connect("localhost", "root","root");
 					mysqli_select_db($link,'keydb')or die ("Erreur");
 
 					//on insert les données dans la bdd
 					$texte= "INSERT INTO nous_contacter (Nom, Prenom, Email, Objet, Message)VALUES('$nom','$prenom', '$email', '$objet','$message')";
-					mysqli_query($link,$texte)	;
-						echo 'Votre message a bien été envoyé' ;
+					mysqli_query($link,$texte);
+						echo'<article><h2><br/><br/><br/>Votre message a bien été envoyé</h2></article>' ;
 					mysqli_close($link);
 	}
 }

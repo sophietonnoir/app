@@ -48,7 +48,7 @@
 				<?php else:?>
 					
 					<ul id="connexion">Connecté en tant que:
-					<li><a href="monprofil.php"><?php echo $_SESSION['pseudo'];?></a></li><li>|</li><li><a href="deconnexion.php" class="lien_header" >Déconnexion</a></li></ul>
+					<li><u><a href="monprofil.php" class="lien_header"><?php echo $_SESSION['pseudo'];?></a></u></li><li>|</li><li><a href="deconnexion.php" class="lien_header" >Déconnexion</a></li></ul>
 					
 				<?php endif;?>
 					
