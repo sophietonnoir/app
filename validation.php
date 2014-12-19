@@ -6,7 +6,8 @@ if (isset($_GET['id']) and isset($_GET['cle'])
 $id=$_GET['id'];
 $cle=$_GET['cle'];
 
-$bdd=new PDO ("localhost","dbname=keydb","root","");
+include("Bdd.php");
+
 $sql=$bdd->prepare("SELECT cle,id,activ FROM keydb.user WHERE id= :id ");
 $sql->execute(array('id'=>$id;));
 $respons=$sql->fetch();

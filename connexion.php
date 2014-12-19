@@ -14,7 +14,7 @@
 	<?php 
 	
 	
-	$bdd = new PDO('mysql:host=localhost;dbname=keydb','root', 'root');
+	include("Bdd.php");
 
 
 $sql = $bdd->prepare('SELECT * FROM users WHERE mail= :mail AND password= :pass');
