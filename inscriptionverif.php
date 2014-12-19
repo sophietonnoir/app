@@ -1,5 +1,5 @@
 <?php
- 	$bdd = new PDO('mysql:host=localhost;dbname=keydb','root', '');
+ 	include("Bdd.php");
 	$nmaison=0;
 ?>
  <!DOCTYPE html>
