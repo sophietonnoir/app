@@ -1,6 +1,5 @@
 <?php
  	include("Bdd.php");
-	$nmaison=0;
 ?>
  <!DOCTYPE html>
 <html>
@@ -16,8 +15,8 @@
 	
 	<body>
 	<?php
-	$sql = $bdd->prepare ('INSERT INTO users(nom, prenom, mail, password, pseudo, questions, reponses, sexe) VALUES(:nom, :prenom, 
-	:mail, :password, :pseudo, :questions, :reponses, :sex)');
+	$sql = $bdd->prepare ('INSERT INTO users(nom, prenom, mail, password, pseudo, questions, reponses, sexe, nmaison) VALUES(:nom, :prenom, 
+	:mail, :password, :pseudo, :questions, :reponses, :sex, :nmaison)');
 	
 	$sql->execute(array(
 		'nom' =>$_POST['nom'],
@@ -33,6 +32,7 @@
 		'pseudo' =>$_POST['pseudo'],
 		//'nmaison' =>$nmaison,
 		'questions' =>$_POST['question'],
+		'nmaison'=>0,
 		'reponses' =>$_POST['questionsecrete'],
 		'sex' =>$_POST['sex']));
 		
