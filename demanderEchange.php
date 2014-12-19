@@ -39,7 +39,7 @@
             			<textarea rows="4" cols="50" class="textarea" name="dates2"></textarea><br/><br/>
 						
 
-						<label for="" class="label">Message pour le proprietaire :    (facultatif)</label><br/>
+						<label for="" class="label">Message pour le proprietaire :  </label><br/>
              			<textarea rows="4" cols="50" class="textarea" name="message"></textarea><br/><br/>
 
              			<input type="submit" name="Ajouter mon logement" value="Envoyer" class="submit" />

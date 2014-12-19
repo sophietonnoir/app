@@ -12,37 +12,38 @@
 	<body>
 		<?php include("header.php"); ?>
 		<!--formulaire contact-->
-		<div>
+		
 			<div align="center">
-			<p>
+
 			<form method="post"action="traitement_contact2.php">
-			
+			<br/><br/><br/>
 			<fieldset>
-				<br>
+				<br/>
 				<legend class="qui">qui êtes-vous?</legend>
 				<label for="nom">Nom : </label>
-				</br>
-				<input class= "case_contact" style="margin:auto",type="text", name="nom", id="nom", required/>
-			<br>
+				<br/>
+				<input class="case_contact" style="margin:auto"type="text" name="nom" id="nom" required/>
+			<br/>
 				<label for="prenom">Prénom : </label>
-			</br>
-			<input class= "case_contact" style="margin:auto",type="text", name="prenom", id="prenom", required/>
-			<br>	
-				<label for "email">email : </label>
-			</br>
-			<input class= "case_contact", style="margin:auto",type="email", name="email", id="email", required/>
+			<br/>
+			<input class= "case_contact" style="margin:auto" type="text" name="prenom" id="prenom" required/>
+			<br/>
+				<label for="email">email : </label>
+			<br/>
+			<input class= "case_contact" style="margin:auto"type="email" name="email" id="email" required/>
 			</fieldset>			
 			<div style="height:50px"></div>
-				<label for "objet">objet du message: </label>
-			<input class="case_contact", style="margin:auto",type="text", name="objet",id="objet", required/>
-			<br>
+				<label for="objet">objet du message: </label>
+			<input class="case_contact" style="margin:auto" type="text" name="objet"id="objet" required/>
+			<br/><br/>
         		<label for = "message"> Ecrivez votre message </label>
-			</br> 
-			<textarea class= "case_contact" name="message", id="message", rows="25", cols="50"></textarea>
-            </p>
-            <input type="submit" value="Envoyer"/>
+			<br/>
+			<textarea class= "case_contact" name="message" id="message" rows="25" cols="50"></textarea>
+                        <br/><br/><br/>
+                         <input type="submit" value="Envoyer"/>
 			</form>
-		
+
+
 		</div>
 		
 		

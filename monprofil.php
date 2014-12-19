@@ -25,7 +25,7 @@
 			<?php else:?>
 			
 					<article>
-							<h2>Mon Profil</h2>
+							<br/><br/><h2>Mon Profil</h2>
 							<div id="dernier_ajout">
 					
 								<ul>
@@ -36,7 +36,7 @@
 									<li>Lieu de Résidence: <span class="Info_logement_x"><?php echo($_SESSION['adresse']);echo(", ");echo($_SESSION['codepostal']); echo(", ");echo($_SESSION['ville']); ?>		</span></li>
 									<li>Email: <span class="Info_logement_x"><?php echo($_SESSION['mail']);?>		</span></li>
 								</ul>
-								</ul>
+								
 							</div>
 						</article> )
 			<?php endif;
