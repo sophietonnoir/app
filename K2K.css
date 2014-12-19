@@ -75,8 +75,8 @@ header {
 
 #top {
 	width:1366px;
-	position: absolute;
 	margin:auto;
+	position:fixed;
 	height:45px;
 	padding-top:-20px;
 	color:#F1F1F1;
@@ -95,23 +95,23 @@ header {
 }
 
 #top #ajouter_logement {
-	position: relative;
+	position:absolute;
 	top:10px;
-	left:10px;
+	left:0px;
 	width:auto;
 	text-align:left;
-	margin: auto;
+	margin:auto;
 	font-family: 'Quicksand-Regular';
 	font-size: 20px;
 }
 
 .ajout {
 	position:absolute;
-	top:30px;
+	top:10px;
 	left:12px;
 	width:auto;
 	text-align:left;
-	margin-top: 100px;
+	margin:auto;
 	vertical-align: middle;
 	display:inline-block;
 }
@@ -132,11 +132,7 @@ header {
 .lien_header {
 	color:#F1F1F1;
 	text-decoration: none;
-       
 }
-
-
-
 
 .lien_header:hover {
 	text-shadow:2px 2px 5px #F1F1F1;
@@ -254,16 +250,17 @@ header {
 
 	/* Fin logo */
 
-		#barre_de_recherche {
+	/* Barre de recherche */
+
+	#barre_de_recherche {
 		background-color: #2980B9;
 		border-radius: 10px;
-		height:150px;
+		height:80px;
 		margin-left:170px;
 		margin-top:40px;
 		padding-top:20px;
 		padding-left:15px;
 		width:1024px;
-		
 	}
 
 	#barre_de_recherche p {
@@ -272,27 +269,20 @@ header {
 		font-family:'Quicksand-Regular';
 	}
 
-	/*#type_de_logement {
+	#type_de_logement {
 		width:200px;
-	}*/
+	}
 
-	/*#ou_voulez {
+	#ou_voulez {
 		position:absolute;
 		left:15px;
 		top:375px;
-	}*/
-
-	a h2{
-	font-family:'Lato-Light';
-	color:#7F8C8D;
-	text-align:left;
 	}
-
 
 	#a_quelle {
 		position:absolute;
-		right:280px;
-		top:10px;
+		right:145px;
+		top:375px;
 	}
 
 	.donnee {
@@ -318,25 +308,12 @@ header {
 		color:#7F8C8D;
 		font-family: 'Quicksand-Regular';
 		background-color: #F1F1F1;
-		border-radius:10px;
+		border-radius:5px;
 		padding: 2px 2px 2px 2px;
-		width:200px;
-		height:20px;
-		left:500px;
+		width:120%;
+		height:35px;
 	}
-
-	#RechercheAvancee {
-		background-color: #2980B9;
-		border-radius: 10px;
-		height:150px;
-		margin-left:170px;
-		margin-top:40px;
-		padding-top:20px;
-		padding-left:15px;
-		width:1024px;
-		margin-bottom:300px;
 	/* Fin barre de recherche */
-
 
 /* Fin bloc Haut */
 
@@ -388,6 +365,13 @@ article h2 {								/*utilisé dans index.php et voirHabitation.php*/
 	text-align:center;
 
 }
+article h3 {								/*utilisé dans index.php et voirHabitation.php*/
+	font-family:'Lato-Light';
+	color:#7F8C8D;
+	text-align:center;
+
+}
+
 
 article p{									/*utilisé dans index.php et voirHabitation.php*/
 	
@@ -398,42 +382,11 @@ article p{									/*utilisé dans index.php et voirHabitation.php*/
 	margin-right:30px;
 }
 
-/*Messagerie*/
-
-tr{
-	
-	font-family:'Lato-Light';
-	color:#7F8C8D;
-	text-align:center;
-
-
-
-}
-
-td{
-	border: 1 solid;
-
-	font-family:'Lato-Light';
-	color:#7F8C8D;
-	text-align:center;
-
-
-}
-
-a{
-	font-family:'Lato-Light';
-	color:#F1F1F1;
-	text-align:center;
-
-}
-
-
-
 .info_logement_x {
 	font-weight:bold;
 }
 
-.voir_habitation {
+.voir_habitation  {
 	text-decoration: none;
 	color:#F1F1F1;
 	font-family: 'Lato-Regular';
@@ -472,6 +425,39 @@ a{
 
 
 /* Fin article */
+
+/*Messagerie*/
+
+tr{
+	
+	font-family:'Lato-Light';
+	color:#7F8C8D;
+	text-align:center;
+
+
+
+}
+
+td{
+	border: 1 solid;
+
+	font-family:'Lato-Light';
+	color:#7F8C8D;
+	text-align:center;
+
+
+}
+
+a{
+	font-family:'Lato-Light';
+	color:#7F8C8D;
+	text-align:center;
+
+}
+
+
+
+
 
 /* footer */
 
@@ -633,26 +619,12 @@ footer {
     margin-left: 63px;
 }
 
-
-
-/* CSS Maxou */
-
-#RechercheMaxou {
-   	margin-right: 170px;
-   	margin-left: 180px;
-    font-family: 'Quicksand-Regular';
-	font-size: 17px;
-	
-}
-#encadreResultat {
-	background-color: #E4E4E4;
-	padding:20px 20px 2px 20px;
-	border-radius: 10px;
-	margin-bottom: 40px;
-}
-
-
-
-
-/* Fin CSS Maxou */
-
+/*page contact*/
+.qui {
+	color: blue;
+	font-size : 1.5em;
+	font-family : "comic Sans MS";
+ }
+ .case_contact{
+  	background-color: rgba(67, 123, 135, 0.34);
+ }

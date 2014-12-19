@@ -34,7 +34,7 @@
 				<h2>Dernière habitation ajoutée</h2>
 				<div id="dernier_ajout">
 				<?php
-								$dbh=new PDO('mysql:host=localhost;keydb','root','');
+								$dbh=new PDO('mysql:host=localhost;keydb','root','root');
 								$sql = "SELECT * FROM keydb.logements ORDER BY dateAjout desc limit 1";
 								$respons=$dbh->query($sql);
 								$iza = $respons->fetch();

@@ -22,21 +22,20 @@
 
 				if(isset($_GET['typeMessages']) && $_GET['typeMessages'] != NULL  )  : ?>
 
-						<menu id="menu">
-							<article>
-							  <h2 style="text-align:left">Messages : </h2>
-							  <ul>
-							 	 <li><a href="messages.php?typeMessages=reçus">Reçus</a></li>
-							  	 <li><a href="messages.php?typeMessages=envoyes">Envoyés</a></li>
-							  </ul>
-							 </article>
-						</menu>
+                                              <article>
+                                                  <h2 style="text-align:left">Messages : </h2>
+                                                  <ul>
+                                                         <li><a href="messages.php?typeMessages=reçus">Reçus</a></li>
+                                                         <li><a href="messages.php?typeMessages=envoyes">Envoyés</a></li>
+                                                  </ul>
+                                                </article>
+						
 
 						
 						
 						<?php
 
-						$link = mysqli_connect("localhost", "root", "") ; 
+						$link = mysqli_connect("localhost", "root", "root") ;
 						mysqli_select_db($link, 'keydb') or die("Erreur à la base de données");
 
 				/***************************************REÇUS****************************************/

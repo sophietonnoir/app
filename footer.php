@@ -1,10 +1,10 @@
 <footer>
 			<div id="footer">
 				<ul>
-					<li><a href="@">A propos</a></li>
+					<li><a href="Apropos.php">A propos</a></li>
 					<li><a href="@">Aide</a></li>
 					<li><a href="@">Règles</a></li>
-					<li><a href="@">Conditions générales</a></li>
+					<li><a href="conditionsgenerales.php">Conditions générales</a></li>
 					<li><a href="@">Confidentialité</a></li>
 				</ul>
 				<p id="texte_footer">Le site Key To Key est un site à but non-lucratif ayant pour objectif de mettre en relation les particuliers possédant un logement pour leur permettre de s'échanger le temps des vacances leur habitations.<br>
