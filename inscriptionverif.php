@@ -17,6 +17,14 @@
 	
 	<body>
 	<?php
+	if ($_POST['password1']!=$_POST['password2'])
+	{
+	echo ('les mots de passe ne correspondent pas');
+	}
+	
+	else
+	
+	{
 	$sql = $bdd->prepare ('INSERT INTO users(nom, prenom, mail, password, pseudo, questions, reponses, sexe, nmaison, tel, codepostal, adresse, pays, admin) VALUES(:nom, :prenom, 
 	:mail, :password, :pseudo, :questions, :reponses, :sexe, :nmaison, :tel, :codepostal, :adresse, :pays, :admin)');
 	
@@ -38,8 +46,10 @@
 		'sexe' =>$_POST['sex']));
 		
 		echo "<div id=\"dernier_ajout\"><ul><li>Vous êtes maintenant inscrit, vous pouvez vous connecter</li></ul></div>";
-		?>
+		
 	
+	}
+	?>
 	</body>
 	
 </html>
