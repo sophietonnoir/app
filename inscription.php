@@ -23,7 +23,7 @@
 			<label for="">Prenom:</label>
 			<input type="text" name="prenom" />
 			<label for="">Adresse mail:</label>
-			<input type="" name="mail" />
+			<input type="email" name="mail" />
 			<label for="">Sexe:</label>
 			<select name="sex" id="sex" class="donnee">
 								<option value="Masculin">Masculin</option>
@@ -31,6 +31,12 @@
 			</select>
 			<label for="">Date de naissance:</label>
 			<input type="date" name="age" />
+			<label for="">Pays de résidence:</label>
+			<input type="text" name="pays" />
+			<label for="">Code postal:</label>
+			<input type="number" name="codepostal" />
+			<label for="">Adresse:</label>
+			<input type="text" name="adresse" />
 			<label for="">Question secrète:</label>
 			<select name="question" id="question" class="donnee">
 								<option value="1">Nom de mon animal domestique</option>
@@ -39,6 +45,8 @@
 			<input type="text" name="questionsecrete" />
 			<label for="">Pseudonyme:</label>
 			<input type="text" name="pseudo" />
+			<label for="">Numéro de téléphone:</label>
+			<input type="tel" name="tel" />
 			<label for="">Mot de passe:</label>
 			<input type="password" name="password1" />
 			<label for="">Confirmation mot de passe:</label>
