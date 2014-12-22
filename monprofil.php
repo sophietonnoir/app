@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="K2K.css" />
+		<link rel="stylesheet" href="connexion.css" />
 		<title>Key To Key - Accueil</title>
 		<link rel="icon" type="image/gif" href="Img/icone.gif" />
 	</head>
@@ -27,13 +28,16 @@
 					<article>
 							<br/><br/><h2>Mon Profil</h2>
 							<div id="dernier_ajout">
+							<form method="post" action="inscription.php">
+							<input type='hidden' value=1 />
+							<input type="submit" name="Modifier mon profil" value="Modifier"/>
 					
 								<ul>
 									<li>Pseudo: <span class="Info_logement_x"><?php echo($_SESSION['pseudo']);?></span></li>
 									<li>Nom:<span class="info_logement_x"><?php echo($_SESSION['nom']);?></span></li>
-									<li>Prénom: <span class="info_logement_x"><?php echo($_SESSION['prenom']);?>		</span></li>
-									<li>Date de naissance: <span class="info_logement_x"><?php echo($_SESSION['age']);?>		</span></li>
-									<li>Lieu de Résidence: <span class="Info_logement_x"><?php echo($_SESSION['adresse']);echo(", ");echo($_SESSION['codepostal']); echo(", ");echo($_SESSION['ville']); ?>		</span></li>
+									<li>Prénom: <span class="info_logement_x"><?php echo($_SESSION['prenom']);?>		</span></li><?php
+									//<li>Date de naissance: <span class="info_logement_x"<?php echo($_SESSION['age']);?>		</span></li>
+									<li>Lieu de Résidence: <span class="Info_logement_x"><?php echo($_SESSION['adresse']);echo(", ");echo($_SESSION['codepostal']); echo(", ");//echo($_SESSION['ville']); ?>		</span></li>
 									<li>Email: <span class="Info_logement_x"><?php echo($_SESSION['mail']);?>		</span></li>
 								</ul>
 								

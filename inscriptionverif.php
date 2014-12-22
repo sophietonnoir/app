@@ -29,21 +29,21 @@
 	:mail, :password, :pseudo, :questions, :reponses, :sexe, :nmaison, :tel, :codepostal, :adresse, :pays, :admin)');
 	
 	$sql->execute(array(
-		'nom' =>$_POST['nom'],
-		'prenom' =>$_POST['prenom'],
-		'pays' =>$_POST['pays'],
-		'codepostal' =>$_POST['codepostal'],
-		'adresse' =>$_POST['adresse'],
-		'mail' =>$_POST['mail'],
+		'nom' =>htmlspecialchars($_POST['nom']),
+		'prenom' =>htmlspecialchars($_POST['prenom']),
+		'pays' =>htmlspecialchars($_POST['pays']),
+		'codepostal' =>htmlspecialchars($_POST['codepostal']),
+		'adresse' =>htmlspecialchars($_POST['adresse']),
+		'mail' =>htmlspecialchars($_POST['mail']),
 		//'dateinscription' =>current_timestamp,
-		'password' =>$_POST['password1'],
-		'tel' =>$_POST['tel'],
+		'password' =>htmlspecialchars($_POST['password1']),
+		'tel' =>htmlspecialchars($_POST['tel']),
 		'admin' =>$admin,
-		'pseudo' =>$_POST['pseudo'],
-		'questions' =>$_POST['question'],
+		'pseudo' =>htmlspecialchars($_POST['pseudo']),
+		'questions' =>htmlspecialchars($_POST['question']),
 		'nmaison'=>$nmaison,
-		'reponses' =>$_POST['questionsecrete'],
-		'sexe' =>$_POST['sex']));
+		'reponses' =>htmlspecialchars($_POST['questionsecrete']),
+		'sexe' =>htmlspecialchars($_POST['sex'])));
 		
 		echo "<div id=\"dernier_ajout\"><ul><li>Vous êtes maintenant inscrit, vous pouvez vous connecter</li></ul></div>";
 		
