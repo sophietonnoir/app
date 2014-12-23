@@ -1,4 +1,5 @@
-<?php
+
+<?php session_start();
 class usersmanag
 {	
 
@@ -11,8 +12,16 @@ class usersmanag
 		include ('inscription.php');
 	}
 }
-
-
-
+$url=$_SERVER['REQUEST_URI']; 
+echo '' .$url."<br />"; 
 $poo = new usersmanag();
-$poo->update();?>
+switch($url)
+{
+case ("/APPK2Kv2.1/inscription3.php/inscription"):
+$poo->inscription();
+break;
+
+case ("/APPK2Kv2.1/inscription3.php/update"):
+$poo->update();
+break;
+}
