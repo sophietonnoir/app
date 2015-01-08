@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-12-2014 a las 12:29:32
+-- Tiempo de generación: 08-01-2015 a las 11:05:45
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -27,35 +27,27 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `messages` (
+  `idEchange` int(11) NOT NULL,
+  `idMessage` int(11) NOT NULL AUTO_INCREMENT,
   `idEmetteur` int(11) NOT NULL,
   `idDestinataire` int(11) NOT NULL,
+  `logementDemande` int(11) NOT NULL,
   `lu` tinyint(1) NOT NULL,
   `disponibiliteEmetteur` varchar(100) NOT NULL,
   `disponibiliteDestinataire` varchar(100) NOT NULL,
   `message` varchar(256) NOT NULL,
-  `dateMessage` timestamp NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `dateMessage` timestamp NOT NULL,
+  `typeMessage` varchar(30) NOT NULL,
+  PRIMARY KEY (`idMessage`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Volcado de datos para la tabla `messages`
 --
 
-INSERT INTO `messages` (`idEmetteur`, `idDestinataire`, `lu`, `disponibiliteEmetteur`, `disponibiliteDestinataire`, `message`, `dateMessage`) VALUES
-(1, 0, 0, 'ioedj', 'ojlk,', 'okl', '0000-00-00 00:00:00'),
-(1, 0, 0, 'ioedj', 'ojlk,', 'okl', '0000-00-00 00:00:00'),
-(1, 0, 0, 'iusefdkij', 'iwelsgjdvk', 'kahjszfkj,', '0000-00-00 00:00:00'),
-(1, 0, 0, 'oijkIJLKojl', 'pol', 'lj', '0000-00-00 00:00:00'),
-(1, 0, 0, 'okl', 'kj,mpol', 'olklj', '0000-00-00 00:00:00'),
-(1, 0, 0, 'okl', 'kj,mpol', 'olklj', '0000-00-00 00:00:00'),
-(1, 0, 0, 'okl', 'kj,mpol', 'olklj', '0000-00-00 00:00:00'),
-(1, 0, 0, 'okl', 'kj,mpol', 'olklj', '0000-00-00 00:00:00'),
-(1, 0, 0, 'okl', 'kj,mpol', 'olklj', '0000-00-00 00:00:00'),
-(1, 0, 0, 'kuj', 'oilkj', 'ij', '0000-00-00 00:00:00'),
-(1, 1, 0, 'sdvxok', 'olk', 'molk', '0000-00-00 00:00:00'),
-(1, 2, 0, 'efdzc', 'ikj', 'ikj', '0000-00-00 00:00:00'),
-(2, 1, 0, 'iuhkjILK', 'OIJL', 'LIJ', '0000-00-00 00:00:00'),
-(1, 2, 0, '3eij', 'iojk', 'oijk', '0000-00-00 00:00:00'),
-(1, 0, 0, 'ed', '9oik', 'ikj', '0000-00-00 00:00:00');
+INSERT INTO `messages` (`idEchange`, `idMessage`, `idEmetteur`, `idDestinataire`, `logementDemande`, `lu`, `disponibiliteEmetteur`, `disponibiliteDestinataire`, `message`, `dateMessage`, `typeMessage`) VALUES
+(1, 8, 1, 2, 2, 0, '3/5/2015 au 10/5/2015', '3/5/2015 au 10/5/2015', 'message message message', '2015-01-06 13:52:25', 'demandeEchange'),
+(2, 9, 2, 1, 3, 1, '8/2/2015 au 10/2/2015', '8/2/2015 au 10/2/2015', 'hola hola hola', '2015-01-06 13:52:37', 'demandeEchange');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
