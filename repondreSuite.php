@@ -26,7 +26,7 @@
 			
 			/*J' obtiens les donnees du message; */
 
-			$link = mysqli_connect("localhost", "root", "") ; 
+			$link = mysqli_connect("localhost", "root", "root") ;
 			mysqli_select_db($link, 'keydb') or die("Erreur à la base de données");
  			$text= "SELECT * FROM messages WHERE idMessage=$idMessage ";
 		 	$query = mysqli_query($link,$text) or die (mysqli_error($link));
@@ -47,7 +47,7 @@
 		 			<article>
 				
 				 		<div id="description">
-		 					<p><strong> Etes-vous sûr de vouloir refuser l' échange?</p>
+		 					<p><strong> Etes-vous sûr de vouloir refuser l' échange?</strong></p>
 							
 							<br/>
 							<a href="refuserEchangeSuite.php?idMessage=<?php echo $idMessage;?>" class="voir_habitation" style="position:relative; margin-left:150px; margin-right:auto; margin-top: 50px;">Oui</a>

@@ -84,8 +84,8 @@
 					<div id="description"> <!--Ce n'est pas un dernier-ajout mais c' est le même style-->
 					
 						<ul >
-							<li >Surface: <?php echo $donnees['surface'];?>  </li>
-							<li >Capacité: <?php echo $donnees['capacite'];?>  </li>
+							<li >Surface: <?php echo $donnees['surface'];?>  mètres carrés</li>
+							<li >Capacité: <?php echo $donnees['capacite'];?>  personne(s)</li>
 							<li >Chambres: <?php echo $donnees['chambres'];?>  </li>
 							<li >Salles de bain: <?php echo $donnees['toilettes'];?>  </li>
 							<li >Permission de fumer:
@@ -128,18 +128,25 @@
 															 le button "démander échange"*/
 							
 							$idProprietaire=$donnees['idPropietaire'];
-							$idSession=$_SESSION['id']; 
+							$idSession=$_SESSION['id'];
 
-							if($idProprietaire!=$idSession):
+
+							if($idProprietaire!=$idSession){
 								$idLogement=$donnees['idLogement'];
 
 						?> 
-								<a href="demanderEchange.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="demanderEchange">Demander Échange </a> </br></br></br>
+								<a href="demanderEchange.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="demanderEchange">Demander Échange </a> 
+}
+                                                      <?php }
+							 else{ ?>
+                                                        
+                                                        <a href="modifierlogement.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="modifier">Modifier </a>
+                                                        <a href="supprimerlogement.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="modifier">Supprimer </a>
 
-							<?php 	endif; ?>
 
 							
-						<?php endif;  ?>
+						<?php }
+                                                endif;  ?>
 						<?php mysqli_close($link); ?>  <!--fermer la bd-->
 
 					</div> <!--description-->

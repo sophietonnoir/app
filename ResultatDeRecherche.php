@@ -49,7 +49,7 @@
 {
 ?>
 <div id='encadreResultat'>
- <a  href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>"><?php  echo '<p>'.''.'<img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'"> <h2>'. $donnees['Ville'].'.'.$donnees['adresse'].'. '.'<br/>
+ <a  href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>"><?php  echo '<p>'.''.'<img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'"> <h2>'. $donnees['Ville'].' '.'<br/>
 ' .'Code Postal : '.$donnees['codePostal'].'<br/> ' .$donnees['Description'].'<br/>
 '.'Description générale : '.$donnees['capacite'].'metres carrés, '.$donnees['chambres'].' chambres'.
 '</p></h2>';?> </a><br/>

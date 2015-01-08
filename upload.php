@@ -34,16 +34,43 @@ $bdd = 'keydb';
                 $size=$_FILES['monfichier']['size'];
                 $temp=$_FILES['monfichier']['tmp_name'];
                 $error=$_FILES['monfichier']['error'];
-             
-  if ($error > 0)
-      die ("error");
+
+
+                if ($error > 0)
+      die ("ERREUR");
   else
   {
       move_uploaded_file($temp, "../tmp/".$name);
       $route="../tmp/".$name;
 
       $adresse=$_GET['ad'];
-      echo $adresse;
+
+      $queryidLogement = mysqli_query($link,"SELECT idLogement FROM logements WHERE adresse='$adresse' " ) or die (mysqli_error($link));
+      $donneesLog=mysqli_fetch_array($queryidLogement);
+      $idLog= $donneesLog['idLogement'];
+
+
+      $sqlPhoto="INSERT INTO Photo(idLogement,Liendelaphoto) VALUES ('$idLog','$route')";
+       $result2=mysqli_query($link, $sqlPhoto);
+
+
+  }
+
+                 $name=$_FILES['monfichier1']['name'];
+                $type=$_FILES['monfichier1']['type'];
+                $size=$_FILES['monfichier1']['size'];
+                $temp=$_FILES['monfichier1']['tmp_name'];
+                $error=$_FILES['monfichier1']['error'];
+             
+  if ($error > 0)
+      die ("ERREUR");
+  else
+  {
+      move_uploaded_file($temp, "../tmp/".$name);
+      $route="../tmp/".$name;
+
+      $adresse=$_GET['ad'];
+     
       $queryidLogement = mysqli_query($link,"SELECT idLogement FROM logements WHERE adresse='$adresse' " ) or die (mysqli_error($link));
       $donneesLog=mysqli_fetch_array($queryidLogement);
       $idLog= $donneesLog['idLogement'];

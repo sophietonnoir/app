@@ -26,7 +26,7 @@
 
 			/*On envoi une notification a la personne qui a demandé le logement pour lui dire que le propietaire a refusé l' echange*/
 
-            $link = mysqli_connect("localhost", "root", "") ;
+            $link = mysqli_connect("localhost", "root", "root") ;
             mysqli_select_db($link, 'keydb') or die("Erreur de connexion à la base de donnée" );
             $text= "SELECT * FROM messages WHERE idMessage=$idMessage ";
 		 	$query = mysqli_query($link,$text) or die (mysqli_error($link));

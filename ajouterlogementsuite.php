@@ -38,134 +38,139 @@
 
 
                 //On récupere les valeurs du formulaire
-                $idPropietaire= $_SESSION['id'];
+              $idPropietaire= $_SESSION['id'];
+              
 
-                $typedelogement = $_POST['typedelogement'];
+              $Typedelogement = $_POST['typedelogement'];
 
-                $adresse = $_POST['adresse'];
+               $Adresse = $_POST['adresse'];
 
-                $codePostal = $_POST['codePostal'];
+               $codePostal = $_POST['codePostal'];
 
-                $Ville = $_POST['Ville'];
+              $Ville = $_POST['ville'];
 
-                $Pays = $_POST['Pays'];
+              $Pays = $_POST['Pays'];
 
-                $Description = $_POST['Description'];
+              $Description = $_POST['Description'];
 
-                $chambres = $_POST['chambres'];
+              $chambres = $_POST['chambres'];
 
-                $toilettes = $_POST['toilettes'];
+              $toilettes = $_POST['toilettes'];
 
-                $surface = $_POST['surface'];
+              $surface = $_POST['surface'];
 
-                $capacite = $_POST['capacite'];
+              $capacite = $_POST['capacite'];
 
-                $fumerPermis = $_POST['fumerPermis'];
+              $fumerPermis = $_POST['fumeur'];
 
-                $animauxPermis = $_POST['animauxPermis'];
+              $Pays=$_POST['pays'];
 
-                $piscine = $_POST['piscine'];
+              $animauxPermis = $_POST['animauxPermis'];
 
-                $placesGarage = $_POST['placesGarage'];
+               $piscine = $_POST['piscine'];
 
-                $wifi = $_POST['wifi'];
+               $placesGarage = $_POST['placesGarage'];
 
-                $jardin= $_POST['jardin'];
-                
-//
-//                $name=$_FILES['monfichier']['name'];
-//                $type=$_FILES['monfichier']['type'];
-//                $size=$_FILES['monfichier']['size'];
-//                $temp=$_FILES['monfichier']['tmp_name'];
-//                $error=$_FILES['monfichier']['error'];
-//
+              $wifi = $_POST['wifi'];
 
-
+              $jardin= $_POST['jardin'];
                 
 
-//                $route="../tmp/".$name;
-//                if ($error > 0){
-//                    echo "qqqqq";
-//                     die ("error");
-//                }
-//                 else
-//                  {
-//                    move_uploaded_file($temp, $route);
-//
-//
-//                  }
-    
-              //  $monfichier1= $_FILES['monfichier1'];
+        $erreurVide=NULL;
+        $erreurCP="erreur";
+        $erreurS="erreur";
+        $erreurC="erreur";
+
+     if (($_POST['adresse'] == '')||($_POST['codePostal'] == '')||($_POST['ville'] == '')||($_POST['surface'] == '')||($_POST['fumeur'] == '')||($_POST['animauxPermis'] == '')||($_POST['piscine'] == '')||($_POST['Description'] == '')||($_POST['capacite'] == '')){
+                            $erreurVide="erreur";
+                       echo "<article><br/><br/><br/><br/><h2>Merci de renseigner tous les champs du formulaire !</h2></article>";
+                        
+
+     }
+     else{
+             if (isset($_POST['codePostal'])) {
+                                    $_POST['codePostal'] = htmlspecialchars($_POST['codePostal']);
+                                    if (preg_match(" #^[0-9]{5,5}$# ", $_POST['codePostal'])) {
+                                        $erreurCP = NULL;
+
+
+
+                                    }
+                                    else {
+                                       
+                                        echo "<article><br/><br/><br/><br/><h2>ATTENTION ! <br/><br/> Vérifiez votre code postal </h2></article>";
+                                        
+
+                                    }
+
+
+                }
+               if (isset($_POST['surface'])) {
+                                     $_POST['surface'] = htmlspecialchars($_POST['surface']);
+                                    
+                                     if (is_numeric($_POST['surface'])){
+                                         $erreurS = NULL;
+                                     }
+                                     else {
+                                       
+                                         echo "<article><br/><br/><br/><br/><h2>ATTENTION ! <br/><br/> Vérifiez votre surface</h2></article>";
+                                         
+
+                                     }
+               }
+               
+               if (isset($_POST['capacite'])){
+                    $_POST['capacite'] = htmlspecialchars($_POST['capacite']);
+                    if(is_numeric($_POST['capacite'])) {
+                        $erreurC= NULL;
+                     
+                    }
+                    else{
+                        echo "<article><br/><br/><br/><br/><h2>ATTENTION ! <br/><br/> Vérifiez votre capacité</h2></article>";
+                        
+                    }
+               }
+               
+               
+
+
+     }
 
 
 
 
-                 if (($_POST['adresse'] == '')||($_POST['codePostal'] == '')||($_POST['Ville'] == '')||($_POST['Pays'] == '')||($_POST['surface'] == '')||($_POST['fumerPermis'] == '')||($_POST['animauxPermis'] == '')||($_POST['piscine'] == '')||($_POST['Description'] == '')){
-
-                        echo "<article><br/><br/><br/><br/><h2>Merci de renseigner tous les champs du formulaire !</h2></article>";
-                        echo "<article><br/><br/><br/><br/><h2><a href='ajouterlogement.php'>Retour</a></h2></article>";
-                 
-
-                         if (isset($_POST['codePostal'])) {
-                            $_POST['codePostal'] = htmlspecialchars($_POST['codePostal']);
-                            if (preg_match("#^[0-9]{2}$#", $_POST['codePostal'])) {
-                                $erreur = NULL;
+    if(($erreurCP==NULL)&&($erreurS==NULL)&&($erreurC==NULL)&&($erreurVide==NULL)) {
 
 
-                            }
-                            else {
-                                $erreur = "Seuls les chiffres sont autorisés";
-                                echo "<article><br/><br/><br/><br/><h2>ATTENTION ! <br/><br/> Modifiez votre code postal : seuls les chiffres sont autorisés</h2></article>";
-                                echo "<article><br/><br/><br/><br/><h2><a href='ajouterlogement.php'>Retour</a></h2></article>";
 
-                            }
+                        $sqlLogement="INSERT INTO logements (idPropietaire, typedelogement , Pays , Ville , adresse , codePostal , Description , chambres , toilettes , surface, capacite , fumerPermis , animauxPermis , piscine , placesGarage , wifi, jardin ) VALUES ('$idPropietaire','$Typedelogement','$Pays', '$Ville', '$Adresse', '$codePostal', '$Description', '$chambres', '$toilettes', '$surface', '$capacite', '$fumerPermis', '$animauxPermis', '$piscine','$placesGarage', '$wifi', '$jardin')";
+                          $result = mysqli_query($link, $sqlLogement);
+                          $queryidLogement = mysqli_query($link,"SELECT idLogement FROM logements WHERE adresse='$Adresse' " ) or die (mysqli_error($link));
+                          $donneesLog=mysqli_fetch_array($queryidLogement);
 
-                         }
-
-                         if (isset($_POST['surface'])) {
-                             $_POST['surface'] = htmlspecialchars($_POST['surface']);
-                             if (preg_match("#^[0-9]{2}$#", $_POST['surface'])) {
-                                 $erreur = NULL;
-                             }
-                             else {
-                                 $erreur ="Seuls les chiffres sont autorisés";
-                                 echo "<article><br/><br/><br/><br/><h2>ATTENTION ! <br/><br/> Modifiez la surface : seuls les chiffres sont autorisés</h2></article>";
-                                 echo "<article><br/><br/><br/><br/><h2><a href='ajouterlogement.php'>Retour</a></h2></article>";
-
-                             }
-                          }
-                 }
-                
-                 else {
-
-                            $sqlLogement="INSERT INTO logements (idPropietaire, typedelogement , Pays , Ville , adresse , codePostal , Description , chambres , toilettes , surface, capacite , fumerPermis , animauxPermis , piscine , placesGarage , wifi, jardin ) VALUES ('$idPropietaire','$typedelogement','$Pays', '$Ville', '$adresse', '$codePostal', '$Description', '$chambres', '$toilettes', '$surface', '$capacite', '$fumerPermis', '$animauxPermis', '$piscine','$placesGarage', '$wifi', '$jardin')";
-                            $result = mysqli_query($link, $sqlLogement);
-                            $queryidLogement = mysqli_query($link,"SELECT idLogement FROM logements WHERE adresse='$adresse' " ) or die (mysqli_error($link));
-                            $donneesLog=mysqli_fetch_array($queryidLogement);
-
-                            $idLog= $donneesLog['idLogement'];
+                          $idLog= $donneesLog['idLogement'];
                   
 
-                            
+                           
 
-//                                $sqlPhoto="INSERT INTO Photo(idLogement,Liendelaphoto) VALUES ('$idLog','$route')";
-//                                $sqlPhoto1="INSERT INTO Photo(idLogement,Liendelaphoto) VALUES ('$idLog','$monfichier1')";
+
                 ?>
                               <article><br/><br/><br/>
                                   <h2> Ajouter des photos
                                       <form>
-                                          <input type="button" value="Continuer" OnClick="window.location.href='form.php?add=<?php echo $adresse ?>'"/>
+                                          <input type="button" value="Continuer" OnClick="window.location.href='form.php?add=<?php echo $Adresse ?>'"/>
                                       </form>
                                   </h2></article>
                   <?php
-//                                $result2=mysqli_query($link, $sqlPhoto);
-//                                $result3=mysqli_query($link, $sqlPhoto1);
+
 
 
                   }
 
 
-
+else {
+    echo "<article><br/><br/><br/><br/><h2><a href='ajouterlogement.php'>Retour</a></h2></article>";
+}
 
                  
 

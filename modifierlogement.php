@@ -6,10 +6,10 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="K2K.css" />
-		<title>Key To Key - Ajouter un logement</title>
+		<title>Key To Key - Modifier un logement</title>
 		<link rel="icon" type="image/gif" href="Img/icone.gif" />
-            
-                  
+
+
 	</head>
 
 
@@ -21,10 +21,10 @@
                      echo "<article><br/><br/><br/><br/><h2>Merci de vous connecter !</h2></article>";
               else: ?>
 		<fieldset class="fieldset2">
-                    <legend> Ajouter un logement: </legend>
-         
-                    
-                    <form method="post" action="ajouterlogementsuite.php"/>
+                    <legend> Modifier un logement: </legend>
+
+
+                    <form method="post" action="modifierlogement.php"/>
 
 
                               <?php
@@ -44,14 +44,15 @@
                                mysqli_select_db($link, $bdd) or die("Erreur de connexion à la base de donnée" );
 
 
-                                $query = mysqli_query($link,"SELECT * FROM criteres ") or die (mysqli_error($link));
+                                $query = mysqli_query($link,"SELECT * FROM criteres") or die (mysqli_error($link));
+                                
 
                                 while($donnees = mysqli_fetch_array($query)){
 
-                                   if ($donnees['typecritere']=="textarea"){ ?>
+                                   if ($donnees['nom']=="Description"){ ?>
 <br/>
                                             <label for="" class="label"><?php echo $donnees['nomcritere'] ;?>:</label><br/>
-                                            <textarea rows="6" cols="50" class="textarea" name="<?php echo $donnees['nom']; ?>" id="<?php echo$donnees['nom'];?>" ></textarea>
+                                            <textarea rows="6" cols="50" class="textarea" name="<?php echo $donnees['nom']; ?>" id="<?php echo $donnees['nom'];?>"><?php echo $Description; ?></textarea>
 
                                                 <br/><br/>
                                  <?php }
@@ -60,8 +61,8 @@
 
                                  else if ($donnees['typecritere']=="inputradio"){?>
                                            <label for="" class="label"><?php echo $donnees['nomcritere']; ?></label>
-                                           <input type="radio" name="<?php echo $donnees['nom']; ?>" id="oui" value="1" class="inputradio" checked="checked"> Oui
-                                           <input type="radio" name="<?php echo $donnees['nom']; ?>" id="non" value="0" class="inputradio11" >Non
+                                           <input type="radio" name="<?php echo $donnees['nom']; ?>" id="oui" value="" class="inputradio" checked="checked"> Oui
+                                           <input type="radio" name="<?php echo $donnees['nom']; ?>" id="non" value="" class="inputradio11" >Non
 <br/><br/>
                                 <?php }
 
@@ -76,7 +77,7 @@
                                                         <br/><br/>                <?php }
 
                                             else if ($donnees['nomcritere']=="Nombre de places de parking"){ ?>
-                                                        
+
                                            <label for="" class="label" ><?php echo $donnees['nomcritere']; ?></label>
                                                       <select id="placesGarage" name="placesGarage" class="select" style="margin: center">
                                                              <option value="0">0</option><option value="1">1</option><option value="2">2</option>
@@ -355,9 +356,9 @@
                                                    <?php }
                                       }
 
-                                         
 
-                                         
+
+
 
 
                                   else if ($donnees['typecritere']=="input"){
@@ -384,18 +385,18 @@
                                                  }
                                   }
 
-                                    
-                                       
+
+
 
                                 }
 
                             ?>
 
-                
-			
+
+
                         <br/>
                         <br/>
-                    
+
                         <input type="submit" name="Ajouter mon logement" value="Suivant" id="envoyer"class="submit" />
 		</fieldset>
 
@@ -403,7 +404,7 @@
 
 		<?php
                 endif;
-               
+
                 include("footer.php"); ?>
 	</body>
 

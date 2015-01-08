@@ -33,7 +33,12 @@
                         <form enctype="multipart/form-data" action="upload.php?ad=<?php echo $adress;?>" method="post"/>
                         
                         <input type="file" name="monfichier" id="monfichier"/>
+
+                        <input type="file" name="monfichier1" id="monfichier1"/>
+
+
                         <br/><br>
+
                         <input type="submit" value="Suivant"/>
 
 

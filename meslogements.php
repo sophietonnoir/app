@@ -39,7 +39,7 @@
         //j obtient le idPropietaire du client connecté
         
         
-        $sql ="SELECT DISTINCT * FROM logements WHERE idPropietaire= ".$idPropietaire."";
+        $sql ="SELECT DISTINCT * FROM logements NATURAL JOIN Photo WHERE idPropietaire= ".$idPropietaire." GROUP BY idLogement";
         $req= mysqli_query($link,$sql)  or die (mysqli_error());
         $nb = mysqli_num_rows($req); // on utilise la fonction mysql_num_rows pour compter les résultats
 	if($nb != 0) // si le nombre de maisons est supérieur à 0, on continue
@@ -56,35 +56,21 @@
             </div>
 
 	<?php
-
+$lien=$donnees['Liendelaphoto'];
 
         while($donnees = mysqli_fetch_array($req))   {
 
    
-            
+            echo '<div id="dernier_ajout">'.'<a  href="voirHabitation.php?search='.$donnees['idLogement'].'" ><img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'">'.$donnees['adresse'].'. '.'<br/>
+' .'Code Postal : '.$donnees['codePostal'].'  '. $donnees['Ville'].'<br/>' .$donnees['Description'].'<br/>
+'.'Description générale : '.$donnees['capacite'].'personne(s), '.$donnees['chambres'].' chambre(s)'.'</div>'.'</a><br/><br/><br/><br/><br/>';
 
 
 
  ?>
 
-         <article>
+           
 
-            <div>
-
-              <br/><br/><br/>
-              
-                   <a  href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>"><?php  echo '<p>'.''.'<img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'">'.$donnees['typedelogement'].': <br>'.$donnees['adresse'].' '.'<br/>
-' .$donnees['codePostal'].' '. $donnees['Ville'].'<br/>Description : ' .$donnees['Description'].'<br/>
-'.'Capacité : '.$donnees['capacite'].'personnes ', '<br/> Nombre de chambres : '.$donnees['chambres'].' chambres'.
-'</p>';?> </a>
-                                                        
-
-
-						
-
-            </div>
-
-        </article>
 
  <?php
         

@@ -74,7 +74,7 @@ header {
 }
 
 #top {
-	width:1366px;
+	width:1440px;
 	margin:auto;
 	position:fixed;
 	height:45px;
@@ -245,7 +245,7 @@ header {
 		width:180px;
 		height:180px;
 		left:584px;
-		top:27%;
+		top:150px;
 	}
 
 	/* Fin logo */
@@ -314,7 +314,14 @@ header {
 		height:35px;
 	}
 	/* Fin barre de recherche */
-
+#encadreresultat
+	{
+	background-color: #E4E4E4;
+	padding:2px 20px 2px 20px;
+	border-radius: 10px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
 /* Fin bloc Haut */
 
 #divider2 {
@@ -384,6 +391,7 @@ article p{									/*utilisé dans index.php et voirHabitation.php*/
 
 .info_logement_x {
 	font-weight:bold;
+
 }
 
 .voir_habitation  {
@@ -583,7 +591,7 @@ footer {
     margin-left: 134px;
 }
 
-.inputradio1{
+/*.inputradio1{
     margin-left: 27px;
 }
 
@@ -613,7 +621,7 @@ footer {
 
 .inputradio10{
     margin-left: 65px;
-}
+}*/
 
 .inputradio11{
     margin-left: 63px;
@@ -628,3 +636,14 @@ footer {
  .case_contact{
   	background-color: rgba(67, 123, 135, 0.34);
  }
+
+ .modifier{
+     text-decoration: none;
+	color:#F1F1F1;
+	font-family: 'Lato-Regular';
+	background-color: #2980B9;
+	border-radius: 3px;
+        padding: 4px 4px 4px 4px;
+        font-size: 110%;
+        margin-left: 100px;
+}

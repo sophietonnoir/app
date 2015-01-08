@@ -50,19 +50,17 @@
 
 
 
-					<img width="200px" height="200px" align="left"src=" <?php echo $lien ?>" alt="maison_de_X" id:"img_000001"/>
+					<img width="140px" height="130px" align="left"src=" <?php echo $lien ?>" alt="maison_de_X" id:"img_000001"/>
 
 					<ul>
 						<li>Localisation: <span class="info_logement_x"> <?php echo ($donnees['Ville']);?> </span></li>
 						<li>Code Postal: <span class="info_logement_x"><?php echo ($donnees['codePostal']);?></span></li>
 						<li>Surface: <span class="info_logement_x"><?php echo ($donnees['surface']);?>m²</span></li>
 						<li>Chambre(s): <span class="info_logement_x"><?php echo ($donnees['chambres']);?></span></li>
-						<li>Pièces: <span class="info_logement_x">2salles de bain, un salon, une salle à manger et une piscine (50m²)</span></li>
-						<li>Obligation(s): <span class="Info_logement_x">S'occuper du labrador</span></li>
-						<li>Localisation: <span class="Info_logement_x">25 passage des marrons</span></li>
+						
 					</ul>
 					<p><a href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>" class="voir_habitation">Voir l'habitation</a></p>
-					</ul>
+					
 				</div>
 			</article>
 		</div>
