@@ -41,7 +41,7 @@
 			include("header.php"); 
 
 
-			$link=mysqli_connect('localhost','root','root');
+			$link=mysqli_connect('localhost','root','');
 
 			if(isset($_GET['search']) && $_GET['search'] != NULL)  : 
 			
@@ -66,7 +66,7 @@
 			<div class="section">		
 				<?php while($photos = mysqli_fetch_array($queryPhotos)){
 			
-					echo '<div class="slide">'.'<img src="'.$photos['Liendelaphoto'].'" />'.'</div>';
+				echo '<div class="slide">'.'<img width="400px" height="400px" src="'.$photos['Liendelaphoto'].'"  />'.'</div>';
 
 				 } ?>
 			
@@ -130,13 +130,26 @@
 							$idProprietaire=$donnees['idPropietaire'];
 							$idSession=$_SESSION['id']; 
 
-							if($idProprietaire!=$idSession):
+							if(($idProprietaire!=$idSession)&&($_SESSION['nmaison']!=0)):		//Si c' est pas ma maison et si j' ai au 										moins une maison pur offrir
 								$idLogement=$donnees['idLogement'];
 
 						?> 
 								<a href="demanderEchange.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="demanderEchange">Demander Échange </a> </br></br></br>
 
-							<?php 	endif; ?>
+							<?php 	
+							else:
+
+								if($idProprietaire==$idSession): // la maison visualisée m' appartient ?>
+									<p style=" color:#C4420F; "><strong>Ce logement vous appartient</strong>?></p>
+								<?php
+								else: //j' ai pas de maison a offrir ?>
+									<p style=" color:#C4420F; "><strong>Ajoutez un logement pour pouvoir démander l'echange</strong></p>
+									<a href="ajouterlogement.php"  class="demanderEchange">Ajouter un logement </a>
+									</br></br></br>
+								<?php
+								endif;
+
+							endif; ?>
 
 							
 						<?php endif;  ?>

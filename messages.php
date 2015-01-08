@@ -22,20 +22,21 @@
 
 				if(isset($_GET['typeMessages']) && $_GET['typeMessages'] != NULL  )  : ?>
 
-                                              <article>
-                                                  <h2 style="text-align:left">Messages : </h2>
-                                                  <ul>
-                                                         <li><a href="messages.php?typeMessages=reçus">Reçus</a></li>
-                                                         <li><a href="messages.php?typeMessages=envoyes">Envoyés</a></li>
-                                                  </ul>
-                                                </article>
-						
+						<!--<menu id="menu">-->
+							<article>
+							  <h2 style="text-align:left">Messages : </h2>
+							  <ul>
+							 	 <li><a href="messages.php?typeMessages=reçus">Reçus</a></li>
+							  	 <li><a href="messages.php?typeMessages=envoyes">Envoyés</a></li>
+							  </ul>
+							 </article>
+						<!--</menu>-->
 
 						
 						
 						<?php
 
-						$link = mysqli_connect("localhost", "root", "root") ;
+						$link = mysqli_connect("localhost", "root", "") ; 
 						mysqli_select_db($link, 'keydb') or die("Erreur à la base de données");
 
 				/***************************************REÇUS****************************************/
@@ -57,15 +58,17 @@
 										if($nb_resultats != 0): ?> 
 
 										 <div class="messages">
-											 <article><h2 style="text-align:left">Messages reçus <?php echo " (".$nb_resultats.") : ";?>
+											 <article><h2 style="text-align:left">Messages reçus ( <?php echo $nb_resultats; ?> ) : </h2>
 												 </h2>
 													
-		               			 				<table style="width:700px;"> 			 		
+		               			 				<table style="width:900px;"> 			 		
 														<tr>
 														  <td><strong>Nº: </strong></td> 
 														  <td><strong>État: </strong></td> 
 														  <td><strong>Envoyé par: </strong></td>
-														  <td><strong>Date</strong></td>
+														  <td><strong>Type de message</strong></td>					<td><strong>Logement Demandé</strong></td>
+														  <td><strong>Date du Message</strong></td>
+														  
 														</tr>
 												<?php		
 
@@ -83,7 +86,7 @@
 													$nom=$donnees2['nom'];
 													$prenom=$donnees2['prenom'];
 
-														?>
+													?>
 
 														<tr> 
 														  <td><?php echo $numeroMessage ++; ?></td>
@@ -96,8 +99,28 @@
 
 														  ?>
 														  <td><?php echo $prenom." ".$nom;?></td>
+														  <?php if ($donnees['typeMessage'] == "demandeEchange" ): ?>
+														  		<td>Démande échange</td>
+														  <?php else:?>
+														  		<td>Réponse</td>
+															  <?php endif;?>
+
+														<!--On montre la direction du logement demandé-->
+														<?php 
+																$idLogDemande= $donnees['logementDemande'];
+																$text3= "SELECT * FROM logements WHERE idLogement=$idLogDemande";
+																$query3 = mysqli_query($link,$text3) or die (mysqli_error($link));
+
+																$donnees3=mysqli_fetch_array($query3);
+																
+																$adresse=$donnees3['adresse'];
+																$ville=$donnees3['Ville'];
+
+														?>
+														  <td><?php echo $adresse.", ".$ville;?></td>
 														  <td><?php echo $donnees['dateMessage'];?></td>
 														  <td><a href="voirMessage.php?idMessage=<?php echo $donnees['idMessage'];?>">Voir message</a></td>
+
 														</tr>
 
 												<?php
@@ -128,14 +151,18 @@
 										if($nb_resultats != 0): ?> 
 
 										 <div class="messages">
-											 <article><h2 style="text-align:left">Messages envoyés <?php echo " (".$nb_resultats.") : ";?>
-												 </h2>
-													
-		               			 			<table style="width:700px;"> 			 		
+										 	
+											 <article><h2 style=\"text-align:left\">Messages envoyés( 
+											 	<?php echo "$nb_resultats";  ?>  ) : </h2> 
+											
+												<table style="width:900px;"> 			 		
 														<tr> 
 														  <td><strong>Nº: </strong></td> 
 														  <td><strong>Envoyé à: </strong></td>
-														  <td><strong>Date</strong></td>
+														  <td><strong>Type de message</strong></td>		
+														  <td><strong>Logement Demandé</strong></td>
+														  <td><strong>Date du Message</strong></td>
+
 														</tr>
 												<?php		
 
@@ -159,13 +186,32 @@
 														<tr> 
 														  <td><?php echo $numeroMessage ++; ?></td>
 														  <td><?php echo $prenom." ".$nom;?></td>
-														  <td><?php echo $donnees['dateMessage']?></td>
+														  <?php if ($donnees['typeMessage'] == "demandeEchange") : ?>
+														  		<td>Démande échange</td>
+														  <?php else:?>
+														  		<td>Réponse</td>
+														  <?php endif;?>
+														  <!--On montre la direction du logement demandé-->
+															<?php 
+																	$idLogDemande= $donnees['logementDemande'];
+																	$text3= "SELECT * FROM logements WHERE idLogement=$idLogDemande";
+																	$query3 = mysqli_query($link,$text3) or die (mysqli_error($link));
+
+																	$donnees3=mysqli_fetch_array($query3);
+																	
+																	$adresse=$donnees3['adresse'];
+																	$ville=$donnees3['Ville'];
+
+															?>
+														  <td><?php echo $adresse.", ".$ville;?></td>
+														  <td><?php echo $donnees['dateMessage'];?></td>
+
 														  <td><a href="voirMessage.php?idMessage=<?php echo $donnees['idMessage'];?>">Voir message</a></td>
 														</tr>
 
 												<?php
 												} // fin de la boucle ?>
-		
+			
 			               			 		</table>  
 			               			 		</article>
 										</div>
@@ -201,6 +247,8 @@
 			<article><h2 style=" color:#C4420F; ">Connectez vous pour voir vos messages</h2></article>
 		<?php 
 			endif;  
+
+			mysqli_close($link); 
 			include ("footer.php");
 		?>
 

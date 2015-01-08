@@ -30,16 +30,16 @@
 						<legend> Ajouter un logement: </legend>
                         <form method="post" action="demanderEchangeSuite.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "/>
 
-                        <label for="" class="label"> Quand voulez-vous aller dans ce logement?<br/>
-                        <label for="" class="label">  (Vous pouvez lui proposer plusieurs dates)</label><br/>
+                        <label for="" class="label"> Écrivez les dates où vous désirez aller dans ce logement:<br/>
+                        <label for="" class="label">  (Vous pouvez lui proposer plusieurs options)</label><br/>
             			<textarea rows="4" cols="50" class="textarea" name="dates1"></textarea><br/><br/>
 
-            			<label for="" class="label">Quand voulez-vous que le propriétaire de ce logement vienne chez vous?<br/>
-            			 <label for="" class="label"> (Vous pouvez lui proposer plusieurs dates)</label><br/>
+            			<label for="" class="label">Écrivez les dates où vous désirez que le propriétaire de ce 				logement vienne chez vous:<br/>
+            			 <label for="" class="label"> (Vous pouvez lui proposer plusieurs options)</label><br/>
             			<textarea rows="4" cols="50" class="textarea" name="dates2"></textarea><br/><br/>
 						
 
-						<label for="" class="label">Message pour le proprietaire :  </label><br/>
+						<label for="" class="label">Message pour le propriétaire :</label><br/>
              			<textarea rows="4" cols="50" class="textarea" name="message"></textarea><br/><br/>
 
              			<input type="submit" name="Ajouter mon logement" value="Envoyer" class="submit" />
@@ -48,7 +48,7 @@
 			<br/><br/>
 
 		<?php else :?>
-				<article><h2 style=" color:#C4420F; ">Connectez-vous !</h2></article>
+				<article><h2 style=" color:#C4420F; ">Connectez vous pour démander un logement</h2></article>
 		<?php endif;  
 			include ("footer.php");
 		?>

@@ -24,7 +24,7 @@
 
                 //Connexion à la base de donnée
 
-                $link = mysqli_connect("localhost", "root", "root") ;
+                $link = mysqli_connect("localhost", "root", "") ;
 
                 mysqli_select_db($link, 'keydb') or die("Erreur de connexion à la base de donnée" );
 
@@ -36,23 +36,36 @@
                 $message= $_POST['message'];
 
                 $proprietaire=$_GET['proprietaire'];        /*id du propietaire de la maison demandée*/
-                $idLogement=$_GET['logement'];
+                $idLogementDemande=$_GET['logement'];
+                $typeMessage="demandeEchange";
 
-                if (($dates1== '')||($dates2 == '')){
+                if (($dates1== '')||($dates2 == '')||($message == '')){
 
                         echo "<article><br/><br/><br/><br/><h2>Merci de renseigner tous les champs du formulaire !</h2></article>";
-                        echo "<article><br/><br/><br/><br/><h2><a href='demanderEchange.php'>Retour</a></h2></article>";
+                        echo "<article><br/><br/><br/><br/><h2><a href='ajouterlogement.php'>Retour</a></h2></article>";
                 }
 
 
                 else {
-                    $sqlMessage= "INSERT INTO messages(idEmetteur,idDestinataire,lu,disponibiliteEmetteur,disponibiliteDestinataire, message ) VALUES ('$idSession','$proprietaire','0','$dates1','$dates2','$message')";
+
+                    /*je cherche le dernier echange pour incrementer le idEchange*/
+                        
+
+                    $text= "SELECT MAX(idEchange) AS dernierEchange FROM messages";
+                    $query = mysqli_query($link,$text) or die (mysqli_error($link));
+                    $donnees=mysqli_fetch_array($query);
+                    $dernierEchange=$donnees["dernierEchange"];
+                    $nouvelEchange=$dernierEchange + 1;
+           
+
+
+                    $sqlMessage= "INSERT INTO messages( idEchange,idEmetteur,idDestinataire,logementDemande,lu,disponibiliteEmetteur,disponibiliteDestinataire, message, typeMessage ) VALUES ('$nouvelEchange','$idSession','$proprietaire','$idLogementDemande' ,'0','$dates1','$dates2','$message', '$typeMessage')";
                     
                     $result = mysqli_query($link, $sqlMessage);
 
                     echo "<article><br/><br/><br/><br/><br/><h2> Message envoyé correctement</h2></article>"; 
                   ?>  
-                    <a href="voirHabitation.php?search=<?php echo $idLogement;?>"  class="demanderEchange"> Retourner au logement </a> </br></br></br>
+                    <a href="voirHabitation.php?search=<?php echo $idLogementDemande;?>"  class="demanderEchange"> Retourner au logement </a> </br></br></br>
                             
                <?php 
                 
@@ -62,7 +75,6 @@
 
                 endif;
                 ?>
-
 
 </body>
 
