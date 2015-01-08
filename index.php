@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="K2K.css" />
 		<title>Key To Key - Accueil</title>
 		<link rel="icon" type="image/gif" href="Img/icone.gif" />
+		
 	</head>
 
 	<body>
@@ -60,7 +61,7 @@
 						<li>Obligation(s): <span class="Info_logement_x">S'occuper du labrador</span></li>
 						<li>Localisation: <span class="Info_logement_x">25 passage des marrons</span></li>
 					</ul>
-					<p><a href="@" class="voir_habitation">Voir l'habitation</a></p>
+					<p><a href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>" class="voir_habitation">Voir l'habitation</a></p>
 					</ul>
 				</div>
 			</article>
