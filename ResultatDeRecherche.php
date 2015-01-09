@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="K2K.css" />
 		<title>Key To Key - Accueil</title>
 		<link rel="icon" type="image/gif" href="Img/icone.gif" />
+                 <style type="text/css">a:link{text-decoration:none}</style>
 	</head>
 
 	<body>

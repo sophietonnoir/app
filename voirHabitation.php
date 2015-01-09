@@ -138,8 +138,9 @@
 								<a href="demanderEchange.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="demanderEchange">Demander Échange </a> 
 }
                                                       <?php }
-							 else{ ?>
-                                                        
+							 else{ 
+                                                        $idLogement=$donnees['idLogement']; ?>
+
                                                         <a href="modifierlogement.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="modifier">Modifier </a>
                                                         <a href="supprimerlogement.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="modifier">Supprimer </a>
 

@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="K2K.css" />
 		<title>Key To Key - Accueil</title>
 		<link rel="icon" type="image/gif" href="Img/icone.gif" />
+                <style type="text/css">a:link{text-decoration:none}</style>
 	</head>
 
 	<body>
@@ -21,9 +22,9 @@
 	 while($donnees = mysqli_fetch_array($query)) 
 
 
-echo '<div id="encadreresultat">'.'<a  href="voirHabitation.php?search='.$donnees['idLogement'].'" ><img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'">'. $donnees['Ville'].' '.'<br/>
+echo '<div id="encadreresultat">'.'<a  href="voirHabitation.php?search='.$donnees['idLogement'].'" ><img width="300px" height="300px" align="left"  src="'.$donnees['Liendelaphoto'].'">'. $donnees['Ville'].' '.'<br/>
 ' .'Code Postal : '.$donnees['codePostal'].'<br/>' .$donnees['Description'].'<br/>
-'.'Description générale : '.$donnees['capacite'].'metres carrés, '.$donnees['chambres'].' chambre(s)'.'</a><br/><br/><br/><br/><br/></div>';
+'.'Description générale : '.$donnees['capacite'].'metres carrés, '.$donnees['chambres'].' chambre(s)'.'</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>';
 
 
 mysqli_close($link); // fin ?> </div>

@@ -46,13 +46,31 @@
 
                                 $query = mysqli_query($link,"SELECT * FROM criteres") or die (mysqli_error($link));
                                 
+                                $idLog=$_GET['logement'];
+
+                                 
 
                                 while($donnees = mysqli_fetch_array($query)){
 
-                                   if ($donnees['nom']=="Description"){ ?>
+                                
+                                    $text="SELECT * FROM logements WHERE idLogement=".$idLog;
+                                    $query2=mysqli_query($link,$text) or die(mysqli_error($link));
+                                    $donnees2=mysqli_fetch_array($query2);
+                                  
+                                
+                                  if ($donnees['typecritere']=="textarea"){
+
+   
+                                             $nomCritere=$donnees['nom'];
+                                             $variable=$donnees2["$nomCritere"];
+                                       
+                                       ?>
+                    
+                    
+                                           
 <br/>
                                             <label for="" class="label"><?php echo $donnees['nomcritere'] ;?>:</label><br/>
-                                            <textarea rows="6" cols="50" class="textarea" name="<?php echo $donnees['nom']; ?>" id="<?php echo $donnees['nom'];?>"><?php echo $Description; ?></textarea>
+                                            <textarea rows="6" cols="50" class="textarea" name="<?php echo $donnees['nom']; ?>" placeholder="<?php echo $variable; ?>" id="<?php echo $donnees['nom'];?>"><?php echo $Description; ?></textarea>
 
                                                 <br/><br/>
                                  <?php }
