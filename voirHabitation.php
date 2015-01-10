@@ -55,7 +55,7 @@
 				$donnees=mysqli_fetch_array($queryLogement);
 				
 				//JE DEMANDE LES PHOTOD DE LA MAISON AVEC CE ID.
-				$queryPhotos= mysqli_query($link,"SELECT * FROM photo WHERE idLogement= $search ") or die (mysqli_error($link));
+				$queryPhotos= mysqli_query($link,"SELECT * FROM Photo WHERE idLogement= $search ") or die (mysqli_error($link));
 				
 				
 

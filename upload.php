@@ -82,6 +82,32 @@ $bdd = 'keydb';
      
   }
 
+  $name=$_FILES['monfichier2']['name'];
+                $type=$_FILES['monfichier2']['type'];
+                $size=$_FILES['monfichier2']['size'];
+                $temp=$_FILES['monfichier2']['tmp_name'];
+                $error=$_FILES['monfichier2']['error'];
+
+  if ($error > 0)
+      die ("ERREUR");
+  else
+  {
+      move_uploaded_file($temp, "../tmp/".$name);
+      $route="../tmp/".$name;
+
+      $adresse=$_GET['ad'];
+
+      $queryidLogement = mysqli_query($link,"SELECT idLogement FROM logements WHERE adresse='$adresse' " ) or die (mysqli_error($link));
+      $donneesLog=mysqli_fetch_array($queryidLogement);
+      $idLog= $donneesLog['idLogement'];
+
+
+      $sqlPhoto="INSERT INTO Photo(idLogement,Liendelaphoto) VALUES ('$idLog','$route')";
+       $result2=mysqli_query($link, $sqlPhoto);
+
+
+  }
+
 echo '<article><br/><br/><br/><br/><br/><h2>Votre logement a bien été ajouté. </h2></article>';
   
 

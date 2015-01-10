@@ -50,13 +50,14 @@
 
 
 
-					<img width="140px" height="130px" align="left"src=" <?php echo $lien ?>" alt="maison_de_X" id:"img_000001"/>
+					<img width="140px" height="130px" align="left"src=" <?php echo $lien ?>" alt="maison_de_X" id="img_000001"/>
 
 					<ul>
 						<li>Localisation: <span class="info_logement_x"> <?php echo ($donnees['Ville']);?> </span></li>
 						<li>Code Postal: <span class="info_logement_x"><?php echo ($donnees['codePostal']);?></span></li>
 						<li>Surface: <span class="info_logement_x"><?php echo ($donnees['surface']);?>m²</span></li>
 						<li>Chambre(s): <span class="info_logement_x"><?php echo ($donnees['chambres']);?></span></li>
+                                                <li>Description: <span class="info_logement_x"><?php echo ($donnees['Description']);?></span></li>
 						
 					</ul>
 					<p><a href="voirHabitation.php?search=<?php echo $donnees['idLogement']; ?>" class="voir_habitation">Voir l'habitation</a></p>

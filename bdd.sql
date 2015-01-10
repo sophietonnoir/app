@@ -35,7 +35,7 @@ INSERT INTO `criteres` (`nomcritere`, `typecritere`, `nom`, `id`) VALUES
 ('Type de logement', 'select', 'typedelogement', 1),
 ('Adresse', 'textarea', 'adresse', 2),
 ('Code Postal', 'input', 'codePostal', 3),
-('Ville', 'input', 'ville', 4),
+('Ville', 'input', 'Ville', 4),
 ('Pays', 'select', 'pays', 5),
 ('Surface', 'input', 'surface', 6),
 ('Capacite', 'input', 'capacite', 7),
@@ -44,7 +44,7 @@ INSERT INTO `criteres` (`nomcritere`, `typecritere`, `nom`, `id`) VALUES
 ('Piscine', 'inputradio', 'piscine', 10),
 ('Wifi', 'inputradio', 'wifi', 11),
 ('Jardin', 'inputradio', 'jardin', 13),
-('Fumeur', 'inputradio', 'fumeur', 14),
+('Fumeur', 'inputradio', 'fumerPermis', 14),
 ('Nombre de toilettes', 'select', 'toilettes', 15),
 ('Nombre de places de parking', 'select', 'placesGarage', 16),
 ('Description', 'textarea', 'Description', 17);

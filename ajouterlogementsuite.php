@@ -47,7 +47,7 @@
 
                $codePostal = $_POST['codePostal'];
 
-              $Ville = $_POST['ville'];
+              $Ville = $_POST['Ville'];
 
               $Pays = $_POST['Pays'];
 
@@ -61,7 +61,7 @@
 
               $capacite = $_POST['capacite'];
 
-              $fumerPermis = $_POST['fumeur'];
+              $fumerPermis = $_POST['fumerPermis'];
 
               $Pays=$_POST['pays'];
 
@@ -81,7 +81,7 @@
         $erreurS="erreur";
         $erreurC="erreur";
 
-     if (($_POST['adresse'] == '')||($_POST['codePostal'] == '')||($_POST['ville'] == '')||($_POST['surface'] == '')||($_POST['fumeur'] == '')||($_POST['animauxPermis'] == '')||($_POST['piscine'] == '')||($_POST['Description'] == '')||($_POST['capacite'] == '')){
+     if (($_POST['adresse'] == '')||($_POST['codePostal'] == '')||($_POST['Ville'] == '')||($_POST['surface'] == '')||($_POST['fumerPermis'] == '')||($_POST['animauxPermis'] == '')||($_POST['piscine'] == '')||($_POST['Description'] == '')||($_POST['capacite'] == '')){
                             $erreurVide="erreur";
                        echo "<article><br/><br/><br/><br/><h2>Merci de renseigner tous les champs du formulaire !</h2></article>";
                         
@@ -157,6 +157,7 @@
                 ?>
                               <article><br/><br/><br/>
                                   <h2> Ajouter des photos
+                                      <br/><br/>
                                       <form>
                                           <input type="button" value="Continuer" OnClick="window.location.href='form.php?add=<?php echo $Adresse ?>'"/>
                                       </form>

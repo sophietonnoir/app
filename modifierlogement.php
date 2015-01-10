@@ -24,7 +24,7 @@
                     <legend> Modifier un logement: </legend>
 
 
-                    <form method="post" action="modifierlogement.php"/>
+                    
 
 
                               <?php
@@ -47,10 +47,11 @@
                                 $query = mysqli_query($link,"SELECT * FROM criteres") or die (mysqli_error($link));
                                 
                                 $idLog=$_GET['logement'];
-
+                                $pro=$_GET['proprietaire'];
+?>
                                  
-
-                                while($donnees = mysqli_fetch_array($query)){
+<form method="post" action="modifierlogementsuite.php?proprietaire=<?php echo $pro;?>&logement=<?php echo $idLog; ?>"/>
+                         <?php       while($donnees = mysqli_fetch_array($query)){
 
                                 
                                     $text="SELECT * FROM logements WHERE idLogement=".$idLog;
@@ -70,39 +71,101 @@
                                            
 <br/>
                                             <label for="" class="label"><?php echo $donnees['nomcritere'] ;?>:</label><br/>
-                                            <textarea rows="6" cols="50" class="textarea" name="<?php echo $donnees['nom']; ?>" placeholder="<?php echo $variable; ?>" id="<?php echo $donnees['nom'];?>"><?php echo $Description; ?></textarea>
+                                            <textarea rows="6" cols="50" class="textarea" name="<?php echo $donnees['nom']; ?>" id="<?php echo $donnees['nom'];?>"><?php echo $variable; ?></textarea>
 
                                                 <br/><br/>
                                  <?php }
 
 
 
-                                 else if ($donnees['typecritere']=="inputradio"){?>
+                                 else if ($donnees['typecritere']=="inputradio"){
+                                      $nomCritere=$donnees['nom'];
+                                             $variable=$donnees2["$nomCritere"];
+                                             ?>
                                            <label for="" class="label"><?php echo $donnees['nomcritere']; ?></label>
-                                           <input type="radio" name="<?php echo $donnees['nom']; ?>" id="oui" value="" class="inputradio" checked="checked"> Oui
-                                           <input type="radio" name="<?php echo $donnees['nom']; ?>" id="non" value="" class="inputradio11" >Non
+                                           <input type="radio" name="<?php echo $donnees['nom']; ?>" id="oui"  value="1" class="inputradio" <?php if($variable=="1"){ echo"checked"; } ?>> Oui
+                                           <input type="radio" name="<?php echo $donnees['nom']; ?>" id="non"  value="0" class="inputradio11"<?php if($variable=="0"){  echo"checked"; } ?> >Non
 <br/><br/>
                                 <?php }
 
 
                                  else if ($donnees['typecritere']=="select"){
-                                           if ($donnees['nomcritere']=="Type de logement"){ ?>
+                                           if ($donnees['nomcritere']=="Type de logement"){
+
+                                                $nomCritere=$donnees['nom'];
+                                             $variable=$donnees2["$nomCritere"];
+                                             ?>
                                                     <br/>
                                                     <label for="typedelogement" class="label" ><?php echo $donnees['nomcritere']; ?></label>
-                                                      <select id="typedelogement" name="typedelogement" class="select" style="margin: center">
-                                                             <option value="Maison">Maison</option><option value="Appartement">Appartement</option><option value="Autre">Autre type de logement</option>
+                                                      <select id="typedelogement" name="typedelogement" class="select" style="margin: center" >
+
+                                                    <?php
+                                                            if ($variable=="Maison") { ?>
+                                                            
+                <option value="Maison">Maison</option><option value="Appartement">Appartement</option><option value="Autre">Autre type de logement</option>
+                                                      
+
+                                                    <?php }
+
+                                                    else if ($variable=="Appartement"){ ?>
+                                                        
+                                                    
+                                                  
+                                                        <option value="Appartement">Appartement</option> <option value="Maison">Maison</option><option value="Autre">Autre type de logement</option>
+                                                 
+                                                <?php    }
+
+                                                else { ?>
+                                                    <option value="Appartement">Appartement</option> <option value="Maison">Maison</option><option value="Autre">Autre type de logement</option>
+
+                                               <?php }?>
                                                       </select>
+
                                                         <br/><br/>                <?php }
 
-                                            else if ($donnees['nomcritere']=="Nombre de places de parking"){ ?>
+                                            else if ($donnees['nomcritere']=="Nombre de places de parking"){ 
+                                                
+                                                $nomCritere=$donnees['nom'];
+                                             $variable=$donnees2["$nomCritere"];
+                                             ?>
+                                            
 
                                            <label for="" class="label" ><?php echo $donnees['nomcritere']; ?></label>
                                                       <select id="placesGarage" name="placesGarage" class="select" style="margin: center">
-                                                             <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                                                        </select>
-                                           <br/>
+
+                                                       <?php   if ($variable=="0") { ?>
+
+                                                            <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+
+
+                                                    <?php }
+
+                                                    else if ($variable=="1"){ ?>
+
+                                                        <option value="1">1</option><option value="0">0</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+
+                                                <?php    }
+
+                                                else if($variable=="2") { ?>
+                                                    <option value="2">2</option><option value="0">0</option><option value="1">1</option><option value="3">3</option><option value="4">4</option>
+
+                                               <?php }
+
+                                               else if($variable=="3") { ?>
+
+                                                   <option value="3">3</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="4">4</option>
+                                                   <?php }
+
+                                                   else { ?>
+                                                       <option value="4">4</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option>
+
+                                                  <?php }?>
+                                                      </select> <br/>
+
+                                                     
                                                                             <?php }
-                                                 else if ($donnees['nomcritere']=="Pays"){ ?>
+                                          else if ($donnees['nomcritere']=="Pays"){
+                                              ?>
                                                        <label for="pays" class="label" ><?php echo $donnees['nomcritere']; ?></label>
                                                                   <select id="pays" name="pays" class="select" style="margin: center">
                                                                         <option value="France" selected="selected">France </option>
@@ -363,12 +426,42 @@
 
                                                 <?php }
 
-                                                  else { ?>
+                                                  else { 
+                                                      $nomCritere=$donnees['nom'];
+                                             $variable=$donnees2["$nomCritere"]; ?>
+
 <br/><br/>
                                                     <label for="" class="label" ><?php echo $donnees['nomcritere']; ?></label>
                                                              <select id="<?php echo $donnees['nom']?>" name="<?php echo $donnees['nom'];?>"style="margin: center">
-                                                                    <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option>
-                                                            </select>
+
+                                                    <?php
+
+                                                     if ($variable=="1"){ ?>
+
+                                                        <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+
+                                                <?php    }
+
+                                                else if($variable=="2") { ?>
+                                                    <option value="2">2</option><option value="1">1</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+
+                                               <?php }
+
+                                               else if($variable=="3") { ?>
+
+                                                   <option value="3">3</option><option value="1">1</option><option value="2">2</option><option value="4">4</option><option value="5">5</option>
+                                                   <?php }
+
+                                                   else if($variable=="4"){ ?>
+                                                       <option value="4">4</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="5">5</option>
+
+                                                  <?php }
+
+                                                  else { ?>
+                                                      <option value="5">5</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                                                 <?php }?>
+                                                      </select>
+                                                                    
                                                    <br/><br/>
 
                                                    <?php }
@@ -381,24 +474,30 @@
 
                                   else if ($donnees['typecritere']=="input"){
 
-                                                 if ($donnees['nomcritere']=="Surface"){ ?>
+                                                 if ($donnees['nomcritere']=="Surface"){ 
+                                                     $nomCritere=$donnees['nom'];
+                                             $variable=$donnees2["$nomCritere"];?>
+                                                 
 <br/><br/>
                                                    <label for="" class="label">Surface : </label>
-                                                <input type="text" name="surface" class="ville"/> mètres carrés
+                                                <input type="text" name="surface" class="ville" value="<?php echo $variable; ?>"/> mètres carrés
 
                                               <?php }
 
-                                                else if ($donnees['nomcritere']=="Capacite"){ ?>
+                                                else if ($donnees['nomcritere']=="Capacite"){
+                                                    $nomCritere=$donnees['nom'];
+                                             $variable=$donnees2["$nomCritere"];?>
 
                                                    <label for="" class="label">Capacité : </label>
-                                                <input type="text" name="capacite" class="ville"/> personnes
+                                                <input type="text" name="capacite" class="ville" value="<?php echo $variable; ?>"/> personnes
 
                                               <?php }
 
-                                                        else { ?>
+                                                        else { $nomCritere=$donnees['nom'];
+                                             $variable=$donnees2["$nomCritere"];?>
 
                                                 <label for="" class="label"><?php echo $donnees['nomcritere'];?></label>
-                                                <input type="text" name="<?php echo $donnees['nom'];?>" class="ville"/>
+                                                <input type="text" name="<?php echo $donnees['nom'];?>" class="ville" value="<?php echo $variable; ?>"/>
                                                  <?php
                                                  }
                                   }
@@ -415,7 +514,7 @@
                         <br/>
                         <br/>
 
-                        <input type="submit" name="Ajouter mon logement" value="Suivant" id="envoyer"class="submit" />
+                        <input type="submit" name="modifier mon logement" value="Modifier" id="envoyer"class="submit" />
 		</fieldset>
 
 

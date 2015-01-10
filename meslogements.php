@@ -62,7 +62,7 @@ $lien=$donnees['Liendelaphoto'];
 
    
             echo '<div id="dernier_ajout">'.'<a  href="voirHabitation.php?search='.$donnees['idLogement'].'" ><img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'">'.$donnees['adresse'].'. '.'<br/>
-' .'Code Postal : '.$donnees['codePostal'].'  '. $donnees['Ville'].'<br/>' .$donnees['Description'].'<br/>
+' .' '.$donnees['codePostal'].'  '. $donnees['Ville'].'<br/>' .$donnees['Description'].'<br/>
 '.'Description générale : '.$donnees['capacite'].'personne(s), '.$donnees['chambres'].' chambre(s)'.'</div>'.'</a><br/><br/><br/><br/><br/>';
 
 

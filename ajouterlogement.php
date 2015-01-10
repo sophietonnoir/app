@@ -79,7 +79,7 @@
                                                         
                                            <label for="" class="label" ><?php echo $donnees['nomcritere']; ?></label>
                                                       <select id="placesGarage" name="placesGarage" class="select" style="margin: center">
-                                                             <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+                                                             <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
                                                         </select>
                                            <br/>
                                                                             <?php }

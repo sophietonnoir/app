@@ -28,18 +28,20 @@
 		<fieldset class="fieldset2">
                     <legend> Ajouter un logement: </legend>
                         
-                    <div> <h2>Ajouter des photos de votre logement </h2></div>
+                    <div> <h3 >Ajouter des photos de votre logement </h3></div>
 
                         <form enctype="multipart/form-data" action="upload.php?ad=<?php echo $adress;?>" method="post"/>
                         
-                        <input type="file" name="monfichier" id="monfichier"/>
+                        <input  type="file" name="monfichier" id="monfichier"/>
 
                         <input type="file" name="monfichier1" id="monfichier1"/>
+
+                        <input type="file" name="monfichier2" id="monfichier1"/>
 
 
                         <br/><br>
 
-                        <input type="submit" value="Suivant"/>
+                        <input type="submit" value="Suivant" class="submit"/>
 
 
 </fieldset>
