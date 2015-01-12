@@ -3,28 +3,110 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="K2K.css" />
-		<title>Key To Key - Ajouter un logement</title>
-		<link rel="icon" type="image/gif" href="Img/icone.gif" />
-            
-                  
-	</head>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="K2K.css" />
+        <title>Key To Key - Ajouter un logement</title>
+        <link rel="icon" type="image/gif" href="Img/icone.gif" />
+                <script language="JavaScript">
+                    function verifform()
+  {
 
 
-	<body>
+   if(document.formulaire.adresse.value == "")
+    {
+     alert("Veuillez entrer votre adresse!");
+     document.formulaire.adresse.focus();
+     return false;
+    }
+   if(document.formulaire.codePostal.value == "")
+    {
+     alert("Veuillez entrer votre code postal!");
+     document.formulaire.codePostal.focus();
+     return false;
+    }
+    var chkZ = 1;
+   for(i=0;i<document.formulaire.codePostal.value.length;++i)
+     if(document.formulaire.codePostal.value.charAt(i) < "0"
+     || document.formulaire.codePostal.value.charAt(i) > "9")
+       chkZ = -1;
+   if(chkZ == -1)
+   {
+     alert("Vérifiez votre code postal!");
+     document.formulaire.codePostal.focus();
+     return false;
+    }
+   if(document.formulaire.Ville.value == "")
+    {
+     alert("Veuillez entrer votre ville!");
+     document.formulaire.Ville.focus();
+     return false;
+    }
+   if(document.formulaire.surface.value == "")
+    {
+     alert("Veuillez entrer une surface valide!");
+     document.formulaire.surface.focus();
+     return false;
+    }
+    var chkZ = 1;
+   for(i=0;i<document.formulaire.surface.value.length;++i)
+     if(document.formulaire.surface.value.charAt(i) < "0"
+     || document.formulaire.surface.value.charAt(i) > "9")
+       chkZ = -1;
+   if(chkZ == -1)
+   {
+     alert("Vérifiez votre surface!");
+     document.formulaire.surface.focus();
+     return false;
+    }
+    if(document.formulaire.capacite.value == "")
+    {
+     alert("Veuillez entrer une capacité valide!");
+     document.formulaire.capacite.focus();
+     return false;
+    }
+    var chkZ = 1;
+   for(i=0;i<document.formulaire.capacite.value.length;++i)
+     if(document.formulaire.capacite.value.charAt(i) < "0"
+     || document.formulaire.capacite.value.charAt(i) > "9")
+       chkZ = -1;
+   if(chkZ == -1)
+   {
+     alert("Vérifiez votre capacité!");
+     document.formulaire.capacite.focus();
+     return false;
+    }
+
+    if(document.formulaire.Description.value == "")
+    {
+     alert("Veuillez entrer une description valide!");
+     document.formulaire.Description.focus();
+     return false;
+    }
+
+
+
+     return true;
+  }
+
+ </script>
+
+
+    </head>
+
+
+    <body>
               <?php include("header.php");
 
 
               if ($_SESSION == NULL):
                      echo "<article><br/><br/><br/><br/><h2>Merci de vous connecter !</h2></article>";
               else: ?>
-		<fieldset class="fieldset2">
+        <fieldset class="fieldset2">
                     <legend> Ajouter un logement: </legend>
-         
-                    
-                    <form method="post" action="ajouterlogementsuite.php"/>
+
+
+                    <form method="post" action="ajouterlogementsuite.php" name="formulaire" onSubmit="return verifform();">
 
 
                               <?php
@@ -76,7 +158,7 @@
                                                         <br/><br/>                <?php }
 
                                             else if ($donnees['nomcritere']=="Nombre de places de parking"){ ?>
-                                                        
+
                                            <label for="" class="label" ><?php echo $donnees['nomcritere']; ?></label>
                                                       <select id="placesGarage" name="placesGarage" class="select" style="margin: center">
                                                              <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
@@ -355,9 +437,9 @@
                                                    <?php }
                                       }
 
-                                         
 
-                                         
+
+
 
 
                                   else if ($donnees['typecritere']=="input"){
@@ -384,27 +466,29 @@
                                                  }
                                   }
 
-                                    
-                                       
+
+
 
                                 }
 
                             ?>
 
-                
-			
+
+
                         <br/>
                         <br/>
-                    
+
                         <input type="submit" name="Ajouter mon logement" value="Suivant" id="envoyer"class="submit" />
-		</fieldset>
+                        </form>
+        </fieldset>
 
 
 
-		<?php
+
+        <?php
                 endif;
-               
+
                 include("footer.php"); ?>
-	</body>
+    </body>
 
 </html>
