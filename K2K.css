@@ -647,3 +647,8 @@ footer {
         font-size: 110%;
         margin-left: 100px;
 }
+
+#photo {
+    margin-left: 600px;
+    margin-top: 50px;
+}

@@ -59,24 +59,36 @@
 				
 				
 
-		
+                                $text3= "SELECT COUNT(idPhoto) AS count FROM Photo WHERE idLogement= $search ";
+                                $query3 = mysqli_query($link,$text3) or die (mysqli_error($link));
+                                $donnees3=mysqli_fetch_array($query3);
+                                $count=$donnees3["count"];
+
+
+
 		?>
-			
+
 			<!--PHOTOS ROULANTES-->
-			<div class="section">		
-				<?php while($photos = mysqli_fetch_array($queryPhotos)){
-			
-					echo '<div class="slide">'.'<img src="'.$photos['Liendelaphoto'].'" />'.'</div>';
-
-				 } ?>
-			
-			</div>
-
-			<!--DONNÉES DE LA MAISON-->
 
 
-			<div >		
-										 
+                    <?php    if($count==1):
+                                        $photos = mysqli_fetch_array($queryPhotos);
+					echo '<div id="photo"><img width="400px" height="400px" src="'.$photos['Liendelaphoto'].'"  /></div>';
+                    else:
+                        ?>
+                                <div class="section">
+
+                                        <?php
+
+                                             while($photos = mysqli_fetch_array($queryPhotos)){
+
+                                                    echo '<div class="slide">'.'<img width="400px" height="400px" src="'.$photos['Liendelaphoto'].'"  />'.'</div>';
+
+                                             }
+                             ?>
+                                </div>
+		<?php endif; ?>
+                        <div>
 				<article >
 					<h2> DESCRIPTION DU LOGEMENT  </h2>
 				
