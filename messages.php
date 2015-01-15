@@ -36,7 +36,7 @@
 						
 						<?php
 
-						$link = mysqli_connect("localhost", "root", "root") ;
+						$link = mysqli_connect("localhost", "root", "") ; 
 						mysqli_select_db($link, 'keydb') or die("Erreur à la base de données");
 
 				/***************************************REÇUS****************************************/
@@ -102,7 +102,7 @@
 														  <?php if ($donnees['typeMessage'] == "demandeEchange" ): ?>
 														  		<td>Démande échange</td>
 														  <?php else:?>
-														  		<td>Réponse</td>
+														  		<td>Réponse échange</td>
 															  <?php endif;?>
 
 														<!--On montre la direction du logement demandé-->
@@ -115,9 +115,10 @@
 																
 																$adresse=$donnees3['adresse'];
 																$ville=$donnees3['Ville'];
+																$pays=$donnees3['Pays'];
 
 														?>
-														  <td><?php echo $adresse.", ".$ville;?></td>
+														  <td><?php echo $adresse.", ".$ville.", ".$pays;?></td>
 														  <td><?php echo $donnees['dateMessage'];?></td>
 														  <td><a href="voirMessage.php?idMessage=<?php echo $donnees['idMessage'];?>">Voir message</a></td>
 
@@ -201,9 +202,10 @@
 																	
 																	$adresse=$donnees3['adresse'];
 																	$ville=$donnees3['Ville'];
+																	$pays=$donnees3['Pays'];
 
-															?>
-														  <td><?php echo $adresse.", ".$ville;?></td>
+														?>
+														  <td><?php echo $adresse.", ".$ville.", ".$pays;?></td>
 														  <td><?php echo $donnees['dateMessage'];?></td>
 
 														  <td><a href="voirMessage.php?idMessage=<?php echo $donnees['idMessage'];?>">Voir message</a></td>

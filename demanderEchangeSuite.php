@@ -31,9 +31,9 @@
 
                 //On récupere les valeurs du formulaire
                 $idSession= $_SESSION['id'];                 /*id du client qui démande la maison*/
-                $dates1= $_POST['dates1'];
-                $dates2= $_POST['dates2'];
-                $message= $_POST['message'];
+                $dates1= addslashes($_POST['dates1']);
+                $dates2= addslashes($_POST['dates2']);
+                $message= addslashes($_POST['message']);
 
                 $proprietaire=$_GET['proprietaire'];        /*id du propietaire de la maison demandée*/
                 $idLogementDemande=$_GET['logement'];

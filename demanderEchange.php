@@ -31,11 +31,9 @@
                         <form method="post" action="demanderEchangeSuite.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "/>
 
                         <label for="" class="label"> Écrivez les dates où vous désirez aller dans ce logement:<br/>
-                        <label for="" class="label">  (Vous pouvez lui proposer plusieurs options)</label><br/>
             			<textarea rows="4" cols="50" class="textarea" name="dates1"></textarea><br/><br/>
 
             			<label for="" class="label">Écrivez les dates où vous désirez que le propriétaire de ce 				logement vienne chez vous:<br/>
-            			 <label for="" class="label"> (Vous pouvez lui proposer plusieurs options)</label><br/>
             			<textarea rows="4" cols="50" class="textarea" name="dates2"></textarea><br/><br/>
 						
 
