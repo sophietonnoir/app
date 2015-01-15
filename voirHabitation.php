@@ -154,7 +154,7 @@
                                                         $idLogement=$donnees['idLogement']; ?>
 
                                                         <a href="modifierlogement.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="modifier">Modifier </a>
-                                                        <a href="supprimerlogement.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="modifier">Supprimer </a>
+                                                        <a href="supprimerlogement.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> " onclick="if(!confirm('Voulez-vous Supprimer')) return false;"  class="modifier">Supprimer </a>
 
 
 							

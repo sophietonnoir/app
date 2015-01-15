@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Dim 21 Décembre 2014 à 11:27
+-- Généré le :  Jeu 15 Janvier 2015 à 11:25
 -- Version du serveur :  5.5.38
 -- Version de PHP :  5.6.2
 
@@ -22,28 +22,32 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `criteres` (
   `nomcritere` varchar(50) NOT NULL,
-  `typecritere` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `typecritere` varchar(50) NOT NULL,
+  `nom` varchar(256) NOT NULL,
+`id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `criteres`
 --
 
-INSERT INTO `criteres` (`nomcritere`, `typecritere`) VALUES
-('Type de logement', 'select'),
-('Adresse', 'textarea'),
-('Code Postal', 'input'),
-('Ville', 'input'),
-('Nombre de chambres', 'select'),
-('Surface', 'input'),
-('Capacité', 'select'),
-('Fumeur', 'input radio'),
-('Animaux autorisés', 'input radio'),
-('Piscine', 'input radio'),
-('Nombre de places de parking', 'select'),
-('wifi', 'input radio'),
-('Jardin', 'input radio'),
-('Description', 'textarea');
+INSERT INTO `criteres` (`nomcritere`, `typecritere`, `nom`, `id`) VALUES
+('Type de logement', 'select', 'typedelogement', 1),
+('Adresse', 'textarea', 'adresse', 2),
+('Code Postal', 'input', 'codePostal', 3),
+('Ville', 'input', 'Ville', 4),
+('Pays', 'select', 'Pays', 5),
+('Surface', 'input', 'surface', 6),
+('Capacite', 'input', 'capacite', 7),
+('Nombre de chambres', 'select', 'chambres', 8),
+('Animaux autorises', 'inputradio', 'animauxPermis', 9),
+('Piscine', 'inputradio', 'piscine', 10),
+('Wifi', 'inputradio', 'wifi', 11),
+('Jardin', 'inputradio', 'jardin', 13),
+('Fumeur', 'inputradio', 'fumerPermis', 14),
+('Nombre de toilettes', 'select', 'toilettes', 15),
+('Nombre de places de parking', 'select', 'placesGarage', 16),
+('Description', 'textarea', 'Description', 17);
 
 -- --------------------------------------------------------
 
@@ -71,7 +75,7 @@ CREATE TABLE `logements` (
   `placesGarage` int(2) DEFAULT NULL,
   `wifi` tinyint(1) NOT NULL,
   `jardin` tinyint(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `logements`
@@ -79,11 +83,21 @@ CREATE TABLE `logements` (
 
 INSERT INTO `logements` (`idLogement`, `idPropietaire`, `dateAjout`, `typedelogement`, `Pays`, `Ville`, `adresse`, `codePostal`, `Description`, `surface`, `chambres`, `toilettes`, `capacite`, `fumerPermis`, `animauxPermis`, `piscine`, `placesGarage`, `wifi`, `jardin`) VALUES
 (1, 3, '2014-12-09 10:34:26', '', 'France', 'Paris', '28 Rue Notre Dames des Champs', 75006, 'ISEP, n''avez vous pas toujours voulu vivre dans votre lycee !?', 0, 8, 4, 500, 0, 0, 0, 2, 1, 0),
-(2, 4, '2014-12-10 17:02:34', '', 'France', 'Colombes', '64 Avenue Anatole France', 92700, 'Pavillon dans un quartier paisible, a 5 min de la gare La Garenne Colombes.\r\nPetit jardin, ambiance cosy cosy assuree !', 0, 4, 3, 300, 0, 0, 0, 2, 1, 0),
-(3, 1, '2014-12-09 15:51:47', '', 'France', 'Colombes', '14 rue Pasteur', 92700, 'Maison dans un quartier paisible, proche du Pizza hut, et de l''ecole maternelle', 0, 3, 2, 150, 0, 0, 0, 2, 1, 0),
+(2, 4, '2015-01-12 14:16:53', 'Appartement', 'France', 'Colombes', '64 Avenue Anatole France', 92700, 'Pavillon dans un quartier paisible, a 5 min de la gare La Garenne Colombes.\r\nPetit jardin, ambiance cosy cosy assuree !', 50, 4, 3, 300, 0, 0, 0, 2, 1, 0),
+(3, 3, '2015-01-07 20:07:45', '', 'France', 'Colombes', '14 rue Pasteur', 92700, 'Maison dans un quartier paisible, proche du Pizza hut, et de l''ecole maternelle', 0, 3, 2, 150, 0, 0, 0, 2, 1, 0),
 (4, 4, '2014-12-09 15:57:18', 'Maison', 'France', 'Asnieres', '20 rue de la marne', 92600, 'ok', 200, 2, 1, 3, 0, 0, 0, 2, 0, 0),
-(22, 4, '2014-12-15 10:22:11', 'Maison', 'france', 'paris', 'ezfez', 23456, 'babla', 12, 1, 1, 1, 0, 0, 0, 0, 0, 0),
-(36, 1, '2014-12-16 15:12:48', 'Maison', 'france', 'paris', '5 rue de la marne', 12345, 'sdfgfghggf', 34, 1, 1, 1, 0, 0, 0, 0, 0, 0);
+(22, 1, '2015-01-07 20:08:27', 'Maison', 'france', 'paris', 'ezfez', 23456, 'babla', 12, 1, 1, 1, 0, 0, 0, 0, 0, 0),
+(36, 1, '2014-12-16 15:12:48', 'Maison', 'france', 'paris', '5 rue de la marne', 12345, 'sdfgfghggf', 34, 1, 1, 1, 0, 0, 0, 0, 0, 0),
+(78, 2, '2015-01-07 20:07:33', 'Appartement', '', 'colombes', '3 rue de paris', 92100, 'bel appartement', 23, 2, 3, 2, 1, 1, 1, 2, 1, 0),
+(79, 1, '2015-01-07 20:07:40', 'Maison', 'France', 'paris', 'dsfdg', 12345, 'dsfgd', 12, 1, 1, 1, 1, 1, 0, 0, 0, 1),
+(80, 3, '2015-01-07 20:07:24', 'Maison', 'France', 'paris', 'sdff', 12345, 'dfdg', 12, 1, 1, 12, 1, 1, 0, 0, 0, 1),
+(82, 2, '2015-01-07 20:08:18', 'Maison', 'France', 'lkjhvg', 'dfgh', 23456, 'dfsdgf', 21, 1, 1, 1, 0, 1, 0, 0, 0, 0),
+(83, 4, '2015-01-07 15:44:09', 'Appartement', 'France', 'Boulogne', '23 rue des martyrs de la premiÃ¨re guerre mondiale', 12345, 'Appartement en plein centre', 56, 2, 2, 3, 0, 1, 1, 1, 1, 0),
+(84, 4, '2015-01-10 15:25:29', 'Maison', 'France', 'Paris', '2 avenue belleforiere', 75008, 'belle maison Ã  Paris', 150, 3, 2, 5, 0, 0, 1, 1, 1, 0),
+(89, 4, '2015-01-12 14:20:58', 'Maison', 'France', 'Boulogne', '6 rue de la faune', 12345, 'sqdesfdgf', 150, 1, 1, 3, 1, 1, 1, 0, 1, 1),
+(92, 4, '2015-01-13 14:02:19', 'Maison', 'France', 'Boulogne', 'dsfgf', 12345, 'fdgh', 9, 1, 1, 3, 1, 1, 1, 0, 1, 1),
+(94, 4, '2015-01-13 14:05:33', 'Maison', 'France', 'dfvf', 'cvb', 12345, 'dfgdfhf', 50, 1, 1, 1, 1, 1, 1, 0, 1, 1),
+(112, 4, '2015-01-15 10:01:40', 'Maison', 'France', 'belleville', 'qSDF', 56789, 'sqdfg', 67, 1, 1, 5, 1, 1, 1, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -119,7 +133,7 @@ CREATE TABLE `Photo` (
   `idLogement` int(11) NOT NULL,
 `idPhoto` int(11) NOT NULL,
   `Liendelaphoto` varchar(256) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=170 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `Photo`
@@ -141,7 +155,24 @@ INSERT INTO `Photo` (`idLogement`, `idPhoto`, `Liendelaphoto`) VALUES
 (23, 82, '../tmp/rapace.jpg'),
 (23, 84, '../tmp/villagelac.jpg'),
 (24, 89, '../tmp/image034.jpg'),
-(36, 90, '../tmp/chateau.jpg');
+(36, 90, '../tmp/chateau.jpg'),
+(80, 96, '../tmp/canyon.jpg'),
+(82, 97, '../tmp/cascade1.jpg'),
+(83, 98, '../tmp/paris.jpg'),
+(84, 99, '../tmp/fleurs.jpg'),
+(84, 100, '../tmp/neigeblanc.jpg'),
+(89, 101, '../tmp/chateauecossais.jpg'),
+(89, 102, '../tmp/rochejaune.jpg'),
+(89, 103, '../tmp/villagelac.jpg'),
+(92, 107, '../tmp/bleu.jpg'),
+(92, 108, '../tmp/cascade.jpg'),
+(92, 109, '../tmp/bigbang.jpg'),
+(94, 110, '../tmp/eclairs.jpg'),
+(94, 111, '../tmp/caravelle.jpg'),
+(94, 112, '../tmp/bleu.jpg'),
+(112, 167, '../tmp/bleu.jpg'),
+(112, 168, '../tmp/bigbang.jpg'),
+(112, 169, '../tmp/grotte.jpg');
 
 -- --------------------------------------------------------
 
@@ -167,7 +198,7 @@ CREATE TABLE `users` (
   `questions` varchar(256) NOT NULL,
   `reponses` varchar(256) NOT NULL,
   `sexe` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `users`
@@ -177,12 +208,17 @@ INSERT INTO `users` (`id`, `nom`, `prenom`, `pays`, `codepostal`, `adresse`, `ma
 (1, 'Le Dorh', 'Jean', 'FRANCE', 92260, '2,rue Joseph le Guay', 'jledorh@gmail.com', '2014-11-07', '123456', 659118303, 1, 'yannadadmin', 1, '0000-00-00', '', '', ''),
 (2, 'Le Dorh', 'Jean', 'FRANCE', 92260, '2,rue Joseph le Guay', 'jledorh@icloud.com', '2014-11-07', '234567', 659118303, 0, 'yannad', 0, '0000-00-00', '', '', ''),
 (3, 'Jimenez', 'Monica', 'Espagne', 28223, '56, rue Islas', 'm@hotmail.com', '2014-11-24', 'abcd', 123456789, 0, 'mjr', 0, '0000-00-00', '', '', ''),
-(4, 'tonnoir', 'sophie', 'france', 78600, '83 bis avenue de saint germain', 'laptitesophie78@hotmail.fr', '2014-12-04', 'blabla', 606965290, 1, 'soso573', 6, '0000-00-00', '', '', ''),
-(5, 'jle', 'jld', '', 0, '', 'jld', '0000-00-00', '123', 0, 0, 'juan', 0, '0000-00-00', '1', 'hdjs', 'Masculin');
+(4, 'tonnoir', 'sophie', 'france', 78600, '83 bis avenue de saint germain', 'laptitesophie78@hotmail.fr', '2014-12-04', 'blabla', 606965290, 1, 'soso573', 6, '0000-00-00', '', '', '');
 
 --
 -- Index pour les tables exportées
 --
+
+--
+-- Index pour la table `criteres`
+--
+ALTER TABLE `criteres`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `logements`
@@ -213,10 +249,15 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT pour la table `criteres`
+--
+ALTER TABLE `criteres`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
 -- AUTO_INCREMENT pour la table `logements`
 --
 ALTER TABLE `logements`
-MODIFY `idLogement` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
+MODIFY `idLogement` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=113;
 --
 -- AUTO_INCREMENT pour la table `messages`
 --
@@ -226,9 +267,9 @@ MODIFY `idMessage` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 -- AUTO_INCREMENT pour la table `Photo`
 --
 ALTER TABLE `Photo`
-MODIFY `idPhoto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=91;
+MODIFY `idPhoto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=170;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;

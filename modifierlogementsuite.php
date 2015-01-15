@@ -72,7 +72,7 @@
 
               $fumerPermis = $_POST['fumerPermis'];
 
-              $Pays=$_POST['pays'];
+              
 
               $animauxPermis = $_POST['animauxPermis'];
 
@@ -90,7 +90,7 @@
         $erreurS="erreur";
         $erreurC="erreur";
 
-     if (($_POST['adresse'] == '')||($_POST['codePostal'] == '')||($_POST['Ville'] == '')||($_POST['surface'] == '')||($_POST['fumerPermis'] == '')||($_POST['animauxPermis'] == '')||($_POST['piscine'] == '')||($_POST['Description'] == '')||($_POST['capacite'] == '')){
+     if (($_POST['adresse'] == '')||($_POST['codePostal'] == '')||($_POST['Ville'] == '')||($_POST['surface'] == '')||($_POST['fumerPermis'] == '')||($_POST['animauxPermis'] == '')||($_POST['piscine'] == '')||($_POST['Description'] == '')||($_POST['capacite'] == '')||($_POST['Pays'] == '')){
                             $erreurVide="erreur";
                        echo "<article><br/><br/><br/><br/><h2>Merci de renseigner tous les champs du formulaire !</h2></article>";
 
@@ -157,7 +157,7 @@ $idLog=$_GET['logement'];
                           
 
                         
-                          print_r($sqlLogement);
+                          echo "<br/><br/><article><h2>Logement modifié.</h2></article>";
  }
 
  else {

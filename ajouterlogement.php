@@ -167,7 +167,7 @@
                                                                             <?php }
                                                  else if ($donnees['nomcritere']=="Pays"){ ?>
                                                        <label for="pays" class="label" ><?php echo $donnees['nomcritere']; ?></label>
-                                                                  <select id="pays" name="pays" class="select" style="margin: center">
+                                                                  <select id="pays" name="Pays" class="select" style="margin: center">
                                                                         <option value="France" selected="selected">France </option>
 
                                                                         <option value="Afghanistan">Afghanistan </option>
