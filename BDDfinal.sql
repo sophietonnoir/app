@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Jeu 15 Janvier 2015 à 11:25
+-- Généré le :  Jeu 15 Janvier 2015 à 13:38
 -- Version du serveur :  5.5.38
 -- Version de PHP :  5.6.2
 
@@ -97,7 +97,7 @@ INSERT INTO `logements` (`idLogement`, `idPropietaire`, `dateAjout`, `typedeloge
 (89, 4, '2015-01-12 14:20:58', 'Maison', 'France', 'Boulogne', '6 rue de la faune', 12345, 'sqdesfdgf', 150, 1, 1, 3, 1, 1, 1, 0, 1, 1),
 (92, 4, '2015-01-13 14:02:19', 'Maison', 'France', 'Boulogne', 'dsfgf', 12345, 'fdgh', 9, 1, 1, 3, 1, 1, 1, 0, 1, 1),
 (94, 4, '2015-01-13 14:05:33', 'Maison', 'France', 'dfvf', 'cvb', 12345, 'dfgdfhf', 50, 1, 1, 1, 1, 1, 1, 0, 1, 1),
-(112, 4, '2015-01-15 10:01:40', 'Maison', 'France', 'belleville', 'qSDF', 56789, 'sqdfg', 67, 1, 1, 5, 1, 1, 1, 0, 1, 1);
+(112, 4, '2015-01-15 12:35:36', 'Maison', '', 'belleville', 'qSDF', 56789, 'sqdfg', 67, 1, 1, 5, 1, 1, 1, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -106,22 +106,30 @@ INSERT INTO `logements` (`idLogement`, `idPropietaire`, `dateAjout`, `typedeloge
 --
 
 CREATE TABLE `messages` (
+  `idEchange` int(11) NOT NULL,
 `idMessage` int(11) NOT NULL,
   `idEmetteur` int(11) NOT NULL,
   `idDestinataire` int(11) NOT NULL,
-  `lu` int(1) NOT NULL,
+  `logementDemande` int(11) NOT NULL,
+  `lu` tinyint(1) NOT NULL,
   `disponibiliteEmetteur` varchar(100) NOT NULL,
   `disponibiliteDestinataire` varchar(100) NOT NULL,
   `message` varchar(256) NOT NULL,
-  `dateMessage` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+  `dateMessage` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `typeMessage` varchar(30) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `messages`
 --
 
-INSERT INTO `messages` (`idMessage`, `idEmetteur`, `idDestinataire`, `lu`, `disponibiliteEmetteur`, `disponibiliteDestinataire`, `message`, `dateMessage`) VALUES
-(27, 1, 4, 0, '17/09/06 au 07/10/2015', '17/09/06 au 07/10/2015', 'message', '2014-12-16 15:10:13');
+INSERT INTO `messages` (`idEchange`, `idMessage`, `idEmetteur`, `idDestinataire`, `logementDemande`, `lu`, `disponibiliteEmetteur`, `disponibiliteDestinataire`, `message`, `dateMessage`, `typeMessage`) VALUES
+(1, 23, 1, 2, 2, 1, '13/05/2015 au 15/05/2015', '3/06/2015 au 5/06/2015', 'message du gmail au icloud', '0000-00-00 00:00:00', 'demandeEchange'),
+(2, 24, 1, 2, 2, 1, '08/09/2015 au 12/09/2015', '5/12/2015 au 10/12/2015', 'message2 du gmail au icloud', '0000-00-00 00:00:00', 'demandeEchange'),
+(2, 25, 2, 1, 2, 1, '5/12/2015 au 10/12/2015', '08/09/2015 au 12/09/2015', 'Nous sommes desolÃ©s de vous communiquer le refus de l'' echange du logement.', '0000-00-00 00:00:00', 'reponseRefus'),
+(3, 26, 2, 1, 3, 1, '2/3/2015 au 8/3/2015', '8/3/2015 au 15/3/2015', 'message du icloud au gmail', '0000-00-00 00:00:00', 'demandeEchange'),
+(3, 28, 1, 2, 3, 0, '8/3/2015 au 15/3/2015', '2/3/2015 au 8/3/2015', 'Nous sommes desolÃ©s de vous communiquer le refus de l'' echange du logement.', '0000-00-00 00:00:00', 'reponseRefus'),
+(1, 29, 2, 1, 2, 1, '3/06/2015 au 5/06/2015', '13/05/2015 au 15/05/2015', 'JE VEUX ACCEPTER L'' ECHANGE', '0000-00-00 00:00:00', 'reponseAccepte');
 
 -- --------------------------------------------------------
 
@@ -262,7 +270,7 @@ MODIFY `idLogement` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=113;
 -- AUTO_INCREMENT pour la table `messages`
 --
 ALTER TABLE `messages`
-MODIFY `idMessage` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+MODIFY `idMessage` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT pour la table `Photo`
 --
