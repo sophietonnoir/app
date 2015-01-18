@@ -43,10 +43,13 @@ $sql->execute(array(
 		$_SESSION['mail']=$auth['mail'];
 		$_SESSION['codepostal']=$auth['codepostal'];
 		$_SESSION['ville']=$auth['ville'];
+                $_SESSION['tel']=$auth['tel'];
+                $_SESSION['sexe']=$auth['sexe'];
+
 		unset($auth);
 	
 	include ("header.php");
-	echo "<p>vous etes identifié</p>";}
+	echo "<br/><br/><article><h2>Vous êtes identifié</h2></article>";}
 	
 
 	else

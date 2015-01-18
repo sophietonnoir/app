@@ -25,7 +25,7 @@
      Pour les modifer vous devez cliquer sur le bouton "Modifier" situé en dessous de vos informations.
     </p>
 	<br/>
-	<h4>Quel est la procédure pour réserver une maison?</h4>
+	<h4>Quelle est la procédure pour réserver une maison?</h4>
 	
 	<p>La procédure pour réserver une maison est de cliquer sur la maison que vous voulez, puis appuyez sur le bouton "Demander Echange" puis remplir les trois formulaires et attendre une réponse.
 	</p>	

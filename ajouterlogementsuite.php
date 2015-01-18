@@ -84,7 +84,7 @@
                                       <br/><br/>
                                       
 
-                                      <form enctype="multipart/form-data" action="upload.php?adresse=<?php echo $Adresse;?>&typedelogement=<?php echo $Typedelogement; ?>&codePostal=<?php echo $codePostal;?>&Ville=<?php echo $Ville;?>&Pays=<?php echo $Pays;?>&Description=<?php echo $Description;?>&chambres=<?php echo $chambres;?>&toilettes=<?php echo $toilettes;?>&surface=<?php echo $surface;?>&capacite=<?php echo $capacite;?>&fumerPermis=<?php echo $fumerPermis;?>&animauxPermis=<?php echo $animauxPermis;?>&piscine=<?php echo $piscine;?>&placesGarage=<?php echo $placesGarage;?>&wifi=<?php echo $wifi;?>&jardin=<?php echo $jardin;?>" method="post">
+                        <form enctype="multipart/form-data" action="upload.php?adresse=<?php echo $Adresse;?>&typedelogement=<?php echo $Typedelogement; ?>&codePostal=<?php echo $codePostal;?>&Ville=<?php echo $Ville;?>&Pays=<?php echo $Pays;?>&Description=<?php echo $Description;?>&chambres=<?php echo $chambres;?>&toilettes=<?php echo $toilettes;?>&surface=<?php echo $surface;?>&capacite=<?php echo $capacite;?>&fumerPermis=<?php echo $fumerPermis;?>&animauxPermis=<?php echo $animauxPermis;?>&piscine=<?php echo $piscine;?>&placesGarage=<?php echo $placesGarage;?>&wifi=<?php echo $wifi;?>&jardin=<?php echo $jardin;?>" method="post">
 
                         <input  type="file" name="monfichier" id="monfichier"/>
 

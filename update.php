@@ -1,12 +1,13 @@
+
 <!DOCTYPE html>
 
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="http://localhost/APPK2Kv2.1/K2K.css" />
+		<link rel="stylesheet" href="K2K.css" />
 		<title>Key To Key - le nom de ma page</title>
 		<link rel="icon" type="image/gif" href="Img/icone.gif" />
-		<link rel="stylesheet" href="http://localhost/APPK2Kv2.1/connexion.css" />
+		<link rel="stylesheet" href="connexion.css" />
 	</head>
 	
 	

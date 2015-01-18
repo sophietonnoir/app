@@ -22,7 +22,7 @@
 			$idSession= $_SESSION['id'];
 			$idMessage=$_GET['idMessage'];	
 
-			$link = mysqli_connect("localhost", "root", "") ; 
+			$link = mysqli_connect("localhost", "root", "root") ; 
 			mysqli_select_db($link, 'keydb') or die("Erreur à la base de données");
  			$text= "SELECT * FROM messages WHERE idMessage=$idMessage ";
 		 	$query = mysqli_query($link,$text) or die (mysqli_error($link));

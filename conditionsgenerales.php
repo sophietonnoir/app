@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<?include("Bdd.php");
-$sql=$Bdd->prepare ("SELECT conditiongen FROM keydb.text");
-$respons=$sql->fetch();
-?>
+<!--include("Bdd.php");-->
+<!--$sql=$Bdd->prepare ("SELECT conditiongen FROM keydb.text");-->
+<!--$respons=$sql->fetch();-->
 
 <html>
 <head>
