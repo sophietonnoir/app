@@ -19,6 +19,10 @@ class usersmanag
 	{
 		include ('updatea.php');
 	}
+	public function adminajout()
+	{
+		include ('ajoutprofil.php');
+	}
 }
 $url=$_GET['page']; 
 $poo = new usersmanag();
@@ -38,5 +42,9 @@ break;
 
 case ("updatea"):
 $poo->adminmanag();
+break;
+
+case ("profilajout"):
+$poo->adminajout();
 break;
 }

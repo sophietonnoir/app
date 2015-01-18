@@ -1,0 +1,1 @@
+<?phpinclude("inscription3.php?page=profilajout");?>
