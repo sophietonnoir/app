@@ -23,11 +23,7 @@
 		<fieldset class="fieldset2">
                     <legend> Supprimer un logement: </legend>
 
-
-
-
-
-                              <?php
+                    <?php
 
                                     //Connexion à la base de donnée
 
@@ -43,24 +39,38 @@
 
                                mysqli_select_db($link, $bdd) or die("Erreur de connexion à la base de donnée" );
 
-             $idLog=$_GET['logement'];
+             $idlog=$_GET['log']; ?>
+
+<?php
 
 
-$query="DELETE FROM logements WHERE idLogement=$idLog";
-$query1="DELETE FROM Photo WHERE idLogement=$idLog";
-
-
-
-
-$result = mysqli_query($link, $query);
-$result1=mysqli_query($link,$query1);
-
-echo 'Votre logement a été supprimé';
+    $name=$_FILES['monfichier']['name'];
+    $type=$_FILES['monfichier']['type'];
+    $size=$_FILES['monfichier']['size'];
+    $temp=$_FILES['monfichier']['tmp_name'];
+    $error=$_FILES['monfichier']['error'];
 
 
 
+   if ($error > 0)
+      die ("ERREUR");
+  else
+  {
+      move_uploaded_file($temp, "../tmp/".$name);
+      $route="../tmp/".$name;
+      $route=addslashes($route);
 
- mysqli_close($link);
+       $sqlPhoto4="INSERT INTO Photo(idLogement,Liendelaphoto) VALUES ('$idlog','$route')";
+                   $result4=mysqli_query($link, $sqlPhoto4);
+
+     echo '<article><br/><br/><br/><br/><br/><h2>Votre photo a bien été ajoutée. </h2></article>';
+
+  }
+
+
+
+
+             mysqli_close($link);
 
 
 
@@ -71,7 +81,7 @@ echo 'Votre logement a été supprimé';
 
                 </fieldset>
  <?php
-		
+
                 endif;
 
               include("footer.php"); ?>

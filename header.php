@@ -9,35 +9,44 @@
 				
 				<?php elseif(isset($_SESSION['nmaison'])):?>
                                        
-                      <?php if($_SESSION['nmaison']!=0)
-							{
+                      <?php //if($_SESSION['nmaison']!=0)
+							//{
 									echo "<li><a href=\"meslogements.php\" class=\"lien_header\">Mes logements</a></li>\n" ;
 	                                                
 	                                echo "<li><a href=\"ajouterlogement.php\" class=\"lien_header\"> Ajouter un logement  </a></li>";
+                                        /*Je Prend le numero de messages reçus*/
+									$link = mysqli_connect("localhost", "root", "root") ;
+									mysqli_select_db($link, 'keydb') or die("Erreur à la base de données");
+									$id=$_SESSION['id'];
+									$text="SELECT count(idMessage) AS total FROM messages WHERE lu=0 AND idDestinataire= $id";
+									$query= mysqli_query($link,$text) or die (mysqli_error($link));
+									$data=mysqli_fetch_assoc($query);
 
-	                                echo "<li><a href=\"messages.php\" class=\"lien_header\">  Messages</a></li>";
+	                                echo "<li><a href=\"messages.php\" class=\"lien_header\">  Messages(".$data['total'].")</a></li>";
 
-							}
+							//}
 						
-							else
-							{	
+							//else
+							//{
 	                                                    ?>
-	                                     <img class="ajout" src="Img/plus.png" src="+"/>
-	                                                    <ul id="ajouter_logement">
+	                                     <!--<img class="ajout" src="Img/plus.png" src="+"/>
+	                                                    <ul id="ajouter_logement">-->
 										<?php 
-										echo "<li><a href=\"ajouter/logement.php\" class=\"lien_header\"> Ajouter un logement  </a></li>";
+										//echo "<li><a href=\"ajouter/logement.php\" class=\"lien_header\"> Ajouter un logement  </a></li>";
 
-										echo "<li><a href=\"messages.php\" class=\"lien_header\"> Messages</a></li>";
-							}
+										//echo "<li><a href=\"messages.php\" class=\"lien_header\"> Messages</a></li>";
+							//}
 							?>
 				<?php endif;?>
 				
 						
 					
-				</ul>
+<!--				</ul>-->
+				<?php if ($_SESSION['admin'] == 1){ ?>
+<a href="admincriteres.php" class="lien_header">Modifier les critères</a>
+                              <?php  }
 				
-				
-				<?php if (!isset($_SESSION['pseudo'])): ?>
+				 if (!isset($_SESSION['pseudo'])): ?>
 					
 					<ul id="connexion">
 					<li><a href="connexion.php" class="lien_header">Se Connecter</a></li>

@@ -19,13 +19,14 @@
 		mysqli_select_db($link,'keydb'); // on se connecte à MySQL.
 		$query = mysqli_query($link,"SELECT DISTINCT * FROM logements NATURAL JOIN Photo GROUP BY idLogement ORDER BY dateAjout  ") or die (mysqli_error($link));
 		
-	 while($donnees = mysqli_fetch_array($query)) 
+	 while($donnees = mysqli_fetch_array($query))
 
 
 echo '<div id="encadreresultat">'.'<a  href="voirHabitation.php?search='.$donnees['idLogement'].'" ><img width="300px" height="300px" align="left"  src="'.$donnees['Liendelaphoto'].'">'. $donnees['Ville'].' '.'<br/>
 ' .'Code Postal : '.$donnees['codePostal'].'<br/>' .$donnees['Description'].'<br/>
 '.'Description générale : '.$donnees['capacite'].'metres carrés, '.$donnees['chambres'].' chambre(s)'.'</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>';
 
+        
 
 mysqli_close($link); // fin ?> </div>
 

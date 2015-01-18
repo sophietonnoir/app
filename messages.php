@@ -36,7 +36,7 @@
 						
 						<?php
 
-						$link = mysqli_connect("localhost", "root", "") ; 
+						$link = mysqli_connect("localhost", "root", "root") ; 
 						mysqli_select_db($link, 'keydb') or die("Erreur à la base de données");
 
 				/***************************************REÇUS****************************************/
@@ -59,7 +59,7 @@
 
 										 <div class="messages">
 											 <article><h2 style="text-align:left">Messages reçus ( <?php echo $nb_resultats; ?> ) : </h2>
-												 </h2>
+												
 													
 		               			 				<table style="width:900px;"> 			 		
 														<tr>
@@ -188,7 +188,7 @@
 														  <td><?php echo $numeroMessage ++; ?></td>
 														  <td><?php echo $prenom." ".$nom;?></td>
 														  <?php if ($donnees['typeMessage'] == "demandeEchange") : ?>
-														  		<td>Démande échange</td>
+														  		<td>Demande échange</td>
 														  <?php else:?>
 														  		<td>Réponse</td>
 														  <?php endif;?>

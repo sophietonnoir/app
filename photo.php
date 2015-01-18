@@ -21,13 +21,9 @@
                      echo "<article><br/><br/><br/><br/><h2>Merci de vous connecter !</h2></article>";
               else: ?>
 		<fieldset class="fieldset2">
-                    <legend> Supprimer un logement: </legend>
+                    <legend> Ajouter une photo: </legend>
 
-
-
-
-
-                              <?php
+                    <?php
 
                                     //Connexion à la base de donnée
 
@@ -43,35 +39,31 @@
 
                                mysqli_select_db($link, $bdd) or die("Erreur de connexion à la base de donnée" );
 
-             $idLog=$_GET['logement'];
-
-
-$query="DELETE FROM logements WHERE idLogement=$idLog";
-$query1="DELETE FROM Photo WHERE idLogement=$idLog";
+             $idLog=$_GET['logement']; ?>
 
 
 
-
-$result = mysqli_query($link, $query);
-$result1=mysqli_query($link,$query1);
-
-echo 'Votre logement a été supprimé';
+            <article><br/><br/><br/>
+                                  <h2> Ajouter une photo </h2> </article>
+                                      <br/><br/>
 
 
+                        <form enctype="multipart/form-data" action="photosuite.php?log=<?php echo $idLog;?>" method="post">
+
+                        <input  type="file" name="monfichier" id="monfichier"/>
+
+                         <br/><br>
+                                <input type="submit" value="Continuer"/>
+
+                                      </form>
 
 
- mysqli_close($link);
 
-
-
-
-
-?>
-
+  
 
                 </fieldset>
  <?php
-		
+
                 endif;
 
               include("footer.php"); ?>

@@ -86,7 +86,7 @@ $bdd = 'keydb';
   //ICI J' obiens les donnees du formulaire
 
   if(($name=='')||($name2=='')||($name3=='')){
-          echo "<article><br/><br/><br/><br/><h2>ATTENTION ! <br/><br/> Au moins trois photos</h2></article>";
+          echo "<article><br/><br/><br/><br/><h2>ATTENTION ! <br/><br/> Ajoutez au moins trois photos!</h2></article>";
 
   }
 
