@@ -2,8 +2,8 @@
 			<div id="footer">
 				<ul>
 					<li><a href="Apropos.php">A propos</a></li>
-					<li><a href="@">Aide</a></li>
-					<li><a href="@">Règles</a></li>
+					<li><a href="faq.php">FAQ</a></li>
+					<li><a href="regle.php">Règles</a></li>
 					<li><a href="conditionsgenerales.php">Conditions générales</a></li>
 					<li><a href="confidentialite.php">Confidentialité</a></li>
 				</ul>
