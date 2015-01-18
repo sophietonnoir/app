@@ -290,8 +290,6 @@ include ('modelsearchprof.php');?>
 </select>
 			<label for="">Code postal:</label>
 			<input type="number" name="codepostal" value= "<?php echo($auth['codepostal']);?>" />
-			<label for="">Ville:</label>
-			<input type="text" name="ville" />
 			<label for="">Adresse:</label>
 			<input type="text" name="adresse" value= "<?php echo($auth['adresse']);?>" />
 			<label for="">Question secrète:</label>
@@ -308,19 +306,13 @@ include ('modelsearchprof.php');?>
 			<input type="password" name="password1" />
 			<label for="">Confirmation mot de passe:</label>
 			<input type="password" name="password2" />
-			<label for="admin" name="admin"/>Administrateur:</label>
-			<select name="admin">
-				<option value=1>Oui</option>
-				<option value=0>Non</option>
-			</select>
-			
 			
 			<input type="submit" name="S'inscrire"  />
 		</form>
 		</fieldset>
 		<?php endif;?>
 		<?php if (isset($_POST['nom'])):?>
-		<?php include ("inscriptionverifadminu.php");?>
+		<?php include ("inscriptionverif2.php");?>
 		<?php endif;?>
 		<?php include("footer.php");?>
 	</body>

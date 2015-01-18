@@ -289,8 +289,6 @@
 </select>
 			<label for="">Code postal:</label>
 			<input type="number" name="codepostal" />
-			<label for="">Ville:</label>
-			<input type="text" name="ville" />
 			<label for="">Adresse:</label>
 			<input type="text" name="adresse" />
 			<label for="">Question secrète:</label>
@@ -307,11 +305,6 @@
 			<input type="password" name="password1" />
 			<label for="">Confirmation mot de passe:</label>
 			<input type="password" name="password2" />
-			<label for="admin" name="admin"/>Administrateur:</label>
-			<select name="admin">
-				<option value=1>Oui</option>
-				<option value=0>Non</option>
-			</select>
 			
 			<input type="submit" name="S'inscrire" />
 		</form>

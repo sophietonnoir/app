@@ -14,7 +14,7 @@
 	<?php 
 	
 	
-include('Bdd.php');
+	include("Bdd.php");
 
 
 $sql = $bdd->prepare('SELECT * FROM users WHERE mail= :mail AND password= :pass');
@@ -43,7 +43,6 @@ $sql->execute(array(
 		$_SESSION['mail']=$auth['mail'];
 		$_SESSION['codepostal']=$auth['codepostal'];
 		$_SESSION['ville']=$auth['ville'];
-		$_SESSION['tel']=$auth['tel'];
 		unset($auth);
 	
 	include ("header.php");

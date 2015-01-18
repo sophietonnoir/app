@@ -289,8 +289,6 @@
 </select>
 			<label for="">Code postal:</label>
 			<input type="number" name="codepostal" value= "<?php echo($_SESSION['codepostal']);?>" />
-			<label for="">Ville:</label>
-			<input type="text" name="ville" value= "<?php echo($_SESSION['ville']);?>" />
 			<label for="">Adresse:</label>
 			<input type="text" name="adresse" value= "<?php echo($_SESSION['adresse']);?>" />
 			<label for="">Question secrète:</label>

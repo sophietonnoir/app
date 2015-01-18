@@ -1,14 +1,6 @@
 <?php
  	include("Bdd.php");
-	
-	if (!isset($_POST['admin']))
 	$admin=0;
-	}
-	else
-	{
-	$admin=$_POST['admin']
-	}
-	
 	$nmaison=0;
 ?>
  <!DOCTYPE html>
@@ -45,8 +37,8 @@ else
 	else
 	
 	{
-	$sql = $bdd->prepare ('INSERT INTO users(nom, prenom, mail, password, pseudo, questions, reponses, sexe, nmaison, tel, codepostal, adresse, pays, admin, ville) VALUES(:nom, :prenom, 
-	:mail, :password, :pseudo, :questions, :reponses, :sexe, :nmaison, :tel, :codepostal, :adresse, :pays, :admin, :ville)');
+	$sql = $bdd->prepare ('INSERT INTO users(nom, prenom, mail, password, pseudo, questions, reponses, sexe, nmaison, tel, codepostal, adresse, pays, admin) VALUES(:nom, :prenom, 
+	:mail, :password, :pseudo, :questions, :reponses, :sexe, :nmaison, :tel, :codepostal, :adresse, :pays, :admin)');
 	
 	$sql->execute(array(
 		'nom' =>htmlspecialchars($_POST['nom']),
@@ -63,7 +55,6 @@ else
 		'questions' =>htmlspecialchars($_POST['question']),
 		'nmaison'=>$nmaison,
 		'reponses' =>htmlspecialchars($_POST['questionsecrete']),
-		'ville' =>htmlspecialchars($_POST['ville']),
 		'sexe' =>htmlspecialchars($_POST['sex'])));
 		
 		echo "<div id=\"dernier_ajout\"><ul><li>Vous êtes maintenant inscrit, vous pouvez vous connecter</li></ul></div>";
