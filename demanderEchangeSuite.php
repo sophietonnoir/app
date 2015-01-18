@@ -16,15 +16,15 @@
 <body>
 
 <?php
-    if ($_SESSION == NULL): 
+    if ($_SESSION == NULL): ?>
 
             echo "<article><br/><br/><br/><br/><h2>Merci de vous connecter !</h2></article>";
 
-     else: 
+    <?php else: 
 
                 //Connexion à la base de donnée
 
-                $link = mysqli_connect("localhost", "root", "root") ;
+                $link = mysqli_connect("localhost", "root", "") ;
 
                 mysqli_select_db($link, 'keydb') or die("Erreur de connexion à la base de donnée" );
 
@@ -65,7 +65,7 @@
 
                     echo "<article><br/><br/><br/><br/><br/><h2> Message envoyé correctement</h2></article>"; 
                   ?>  
-                    <a href="voirHabitation.php?search=<?php echo $idLogementDemande;?>"  class="demanderEchange"> Retourner au logement </a> 
+                    <a href="voirHabitation.php?search=<?php echo $idLogementDemande;?>"  class="demanderEchange"> Retourner au logement </a> </br></br></br>
                             
                <?php 
                 

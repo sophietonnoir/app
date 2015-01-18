@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
 
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="K2K.css" />
+		<link rel="stylesheet" href="http://localhost/APPK2Kv2.1/K2K.css" />
 		<title>Key To Key - le nom de ma page</title>
 		<link rel="icon" type="image/gif" href="Img/icone.gif" />
-		<link rel="stylesheet" href="connexion.css" />
+		<link rel="stylesheet" href="http://localhost/APPK2Kv2.1/connexion.css" />
 	</head>
 	
 	
@@ -290,6 +289,8 @@
 </select>
 			<label for="">Code postal:</label>
 			<input type="number" name="codepostal" value= "<?php echo($_SESSION['codepostal']);?>" />
+			<label for="">Ville:</label>
+			<input type="text" name="ville" value= "<?php echo($_SESSION['ville']);?>" />
 			<label for="">Adresse:</label>
 			<input type="text" name="adresse" value= "<?php echo($_SESSION['adresse']);?>" />
 			<label for="">Question secrète:</label>

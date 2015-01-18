@@ -46,6 +46,10 @@ elseif ($_SESSION['admin']=1):
 				include("searchprofil.php");
 				
 			break;
+			
+			case ("profilajout"):
+				include("inscription.php");	
+			break;
 			}
 		}
 		else 

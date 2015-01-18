@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<?php include("Bdd.php");
-include ('modelsearchprof.php');?>
+
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="http://localhost/APPK2Kv2.1/K2K.css" />
+		<link rel="stylesheet" href="K2K.css" />
 		<title>Key To Key - le nom de ma page</title>
 		<link rel="icon" type="image/gif" href="Img/icone.gif" />
-		<link rel="stylesheet" href="http://localhost/APPK2Kv2.1/connexion.css" />
+		<link rel="stylesheet" href="connexion.css" />
 	</head>
 	
 	
@@ -16,13 +15,13 @@ include ('modelsearchprof.php');?>
 		<?php if (!isset ($_POST['nom'])):?>
 		<fieldset>
 		<legend> Inscription: </legend>
-	<form method="post" action="update.php">
+	<form method="post" action="inscription.php">
 				<label for="">Nom:</label>
-			<input type="text" name="nom" value= "<?php echo($auth['nom']);?>"/>
+			<input type="text" name="nom" />
 			<label for="">Prenom:</label>
-			<input type="text" name="prenom" value= "<?php echo($auth['prenom']);?>" />
+			<input type="text" name="prenom" />
 			<label for="">Adresse mail:</label>
-			<input type="email" name="mail" value= "<?php echo($auth['mail']);?>" />
+			<input type="email" name="mail" />
 			<label for="">Sexe:</label>
 			<select name="sex" selected="selected">
 								<option value="Masculin">Masculin</option>
@@ -289,11 +288,11 @@ include ('modelsearchprof.php');?>
 
 </select>
 			<label for="">Code postal:</label>
-			<input type="number" name="codepostal" value= "<?php echo($auth['codepostal']);?>" />
+			<input type="number" name="codepostal" />
 			<label for="">Ville:</label>
 			<input type="text" name="ville" />
 			<label for="">Adresse:</label>
-			<input type="text" name="adresse" value= "<?php echo($auth['adresse']);?>" />
+			<input type="text" name="adresse" />
 			<label for="">Question secrète:</label>
 			<select name="question" selected="selected">
 								<option value="1">Nom de mon animal domestique</option>
@@ -301,26 +300,20 @@ include ('modelsearchprof.php');?>
 			</select>
 			<input type="text" name="questionsecrete" />
 			<label for="">Pseudonyme:</label>
-			<input type="text" name="pseudo" value= "<?php echo($auth['pseudo']);?>" />
+			<input type="text" name="pseudo" />
 			<label for="">Numéro de téléphone:</label>
-			<input type="tel" name="tel" value= "<?php echo($auth['tel']);?>" />
+			<input type="tel" name="tel" />
 			<label for="">Mot de passe:</label>
 			<input type="password" name="password1" />
 			<label for="">Confirmation mot de passe:</label>
 			<input type="password" name="password2" />
-			<label for="admin" name="admin"/>Administrateur:</label>
-			<select name="admin">
-				<option value=1>Oui</option>
-				<option value=0>Non</option>
-			</select>
 			
-			
-			<input type="submit" name="S'inscrire"  />
+			<input type="submit" name="S'inscrire" />
 		</form>
 		</fieldset>
 		<?php endif;?>
 		<?php if (isset($_POST['nom'])):?>
-		<?php include ("inscriptionverifadminu.php");?>
+		<?php include ("inscriptionverif.php");?>
 		<?php endif;?>
-		<?php include("footer.php");?>
+		<?php include("footer.php"); ?>
 	</body>

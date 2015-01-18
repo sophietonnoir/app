@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="K2K.css" />
 		<title>Key To Key - Mes logements</title>
 		<link rel="icon" type="image/gif" href="Img/icone.gif" />
-                 <style type="text/css">a:link{text-decoration:none}</style>
 	</head>
 
 	<body>
@@ -48,7 +47,7 @@
 // maintenant, on va afficher les maisons
 ?>
             <div> <p> Vous avez <?php echo $nb;
-                    if($nb > 1) {echo ' logements'; } else { echo ' logement'; } // on vérifie le nombre de résultats pour orthographier correctement.
+                    if($nb > 1) {echo ' maisons'; } else { echo ' maison'; } // on vérifie le nombre de résultats pour orthographier correctement.
 							?>
  			:<br/>
 
@@ -61,9 +60,10 @@ $lien=$donnees['Liendelaphoto'];
 
         while($donnees = mysqli_fetch_array($req))   {
 
-   echo '<div id="encadreresultat">'.'<a  href="voirHabitation.php?search='.$donnees['idLogement'].'" ><img width="300px" height="300px" align="left"  src="'.$donnees['Liendelaphoto'].'">'. $donnees['Ville'].' '.'<br/>
-' .'Code Postal : '.$donnees['codePostal'].'<br/>' .$donnees['Description'].'<br/>
-'.'Description générale : '.$donnees['capacite'].'metres carrés, '.$donnees['chambres'].' chambre(s)'.'</a><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>';
+   
+            echo '<div id="dernier_ajout">'.'<a  href="voirHabitation.php?search='.$donnees['idLogement'].'" ><img width="125px" height="125px" align="left"  src="'.$donnees['Liendelaphoto'].'">'.$donnees['adresse'].'. '.'<br/>
+' .' '.$donnees['codePostal'].'  '. $donnees['Ville'].'<br/>' .$donnees['Description'].'<br/>
+'.'Description générale : '.$donnees['capacite'].'personne(s), '.$donnees['chambres'].' chambre(s)'.'</div>'.'</a><br/><br/><br/><br/><br/>';
 
 
 

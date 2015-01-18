@@ -8,88 +8,7 @@
 		<link rel="stylesheet" href="K2K.css" />
 		<title>Key To Key - Modifier un logement</title>
 		<link rel="icon" type="image/gif" href="Img/icone.gif" />
-                <script language="JavaScript">
-                    function verifform()
-  {
 
-
-   if(document.formulaire.adresse.value == "")
-    {
-     alert("Veuillez entrer votre adresse!");
-     document.formulaire.adresse.focus();
-     return false;
-    }
-   if(document.formulaire.codePostal.value == "")
-    {
-     alert("Veuillez entrer votre code postal!");
-     document.formulaire.codePostal.focus();
-     return false;
-    }
-    var chkZ = 1;
-   for(i=0;i<document.formulaire.codePostal.value.length;++i)
-     if(document.formulaire.codePostal.value.charAt(i) < "0"
-     || document.formulaire.codePostal.value.charAt(i) > "9")
-       chkZ = -1;
-   if(chkZ == -1)
-   {
-     alert("Vérifiez votre code postal!");
-     document.formulaire.codePostal.focus();
-     return false;
-    }
-   if(document.formulaire.Ville.value == "")
-    {
-     alert("Veuillez entrer votre ville!");
-     document.formulaire.Ville.focus();
-     return false;
-    }
-   if(document.formulaire.surface.value == "")
-    {
-     alert("Veuillez entrer une surface valide!");
-     document.formulaire.surface.focus();
-     return false;
-    }
-    var chkZ = 1;
-   for(i=0;i<document.formulaire.surface.value.length;++i)
-     if(document.formulaire.surface.value.charAt(i) < "0"
-     || document.formulaire.surface.value.charAt(i) > "9")
-       chkZ = -1;
-   if(chkZ == -1)
-   {
-     alert("Vérifiez votre surface!");
-     document.formulaire.surface.focus();
-     return false;
-    }
-    if(document.formulaire.capacite.value == "")
-    {
-     alert("Veuillez entrer une capacité valide!");
-     document.formulaire.capacite.focus();
-     return false;
-    }
-    var chkZ = 1;
-   for(i=0;i<document.formulaire.capacite.value.length;++i)
-     if(document.formulaire.capacite.value.charAt(i) < "0"
-     || document.formulaire.capacite.value.charAt(i) > "9")
-       chkZ = -1;
-   if(chkZ == -1)
-   {
-     alert("Vérifiez votre capacité!");
-     document.formulaire.capacite.focus();
-     return false;
-    }
-
-    if(document.formulaire.Description.value == "")
-    {
-     alert("Veuillez entrer une description valide!");
-     document.formulaire.Description.focus();
-     return false;
-    }
-
-
-
-     return true;
-  }
-
- </script>
 
 	</head>
 
@@ -131,7 +50,7 @@
                                 $pro=$_GET['proprietaire'];
 ?>
                                  
-<form method="post" name="formulaire"action="modifierlogementsuite.php?proprietaire=<?php echo $pro;?>&logement=<?php echo $idLog; ?>" onSubmit="return verifform();"/>
+<form method="post" action="modifierlogementsuite.php?proprietaire=<?php echo $pro;?>&logement=<?php echo $idLog; ?>"/>
                          <?php       while($donnees = mysqli_fetch_array($query)){
 
                                 
@@ -248,7 +167,7 @@
                                           else if ($donnees['nomcritere']=="Pays"){
                                               ?>
                                                        <label for="pays" class="label" ><?php echo $donnees['nomcritere']; ?></label>
-                                                                  <select id="pays" name="Pays" class="select" style="margin: center">
+                                                                  <select id="pays" name="pays" class="select" style="margin: center">
                                                                         <option value="France" selected="selected">France </option>
 
                                                                         <option value="Afghanistan">Afghanistan </option>

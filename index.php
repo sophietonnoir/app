@@ -27,7 +27,7 @@
                         </p>
                         
                         <p><input type="submit" value="Rechercher" id="rechercher"/></p>
-                        <p><a href="recherche_avancee.php" id="recherche_avancee" style="margin-left: 180px; color:#F1F1F1; "> Recherche Avancée </a></p>
+                        <p><a href="recherche_avancee.php" id="recherche_avancee"> Recherche Avancée </a></p>
                     </form>
                 </div>
 			<div>
