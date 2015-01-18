@@ -16,7 +16,7 @@ include ('modelsearchprof.php');?>
 		<?php if (!isset ($_POST['nom'])):?>
 		<fieldset>
 		<legend> Inscription: </legend>
-	<form method="post" action="update.php">
+	<form method="post" action="updatea.php">
 				<label for="">Nom:</label>
 			<input type="text" name="nom" value= "<?php echo($auth['nom']);?>"/>
 			<label for="">Prenom:</label>
@@ -308,18 +308,19 @@ include ('modelsearchprof.php');?>
 			<input type="password" name="password1" />
 			<label for="">Confirmation mot de passe:</label>
 			<input type="password" name="password2" />
+			<input type="hidden" name="pseudov" value=<?php echo($auth['pseudo']);?> />
 			<label for="admin" name="admin"/>Administrateur:</label>
 			<select name="admin">
-				<option value=1>Oui</option>
-				<option value=0>Non</option>
+				<option value="1">Oui</option>
+				<option value="0">Non</option>
 			</select>
-			
 			
 			<input type="submit" name="S'inscrire"  />
 		</form>
 		</fieldset>
 		<?php endif;?>
 		<?php if (isset($_POST['nom'])):?>
+		
 		<?php include ("inscriptionverifadminu.php");?>
 		<?php endif;?>
 		<?php include("footer.php");?>

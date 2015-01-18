@@ -4,9 +4,9 @@
 	if (!isset($_POST['admin']))
 	{$admin=0;}
 	else
-	{$admin=$_POST['admin']}
+	{$admin=$_POST['admin'];}
 	
-	$nmaison=0;);
+	$nmaison=0;
 ?>
  <!DOCTYPE html>
 <html>

@@ -1,13 +1,10 @@
 <?php
+ 	session_start();
  	include("Bdd.php");
-	
 	if (!isset($_POST['admin']))
-	$admin=0;
-	}
+	{$admin=0;}
 	else
-	{
-	$admin=$_POST['admin']
-	}
+	{$admin=$_POST['admin'];}
 	
 	$nmaison=0;
 ?>

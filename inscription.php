@@ -307,11 +307,16 @@
 			<input type="password" name="password1" />
 			<label for="">Confirmation mot de passe:</label>
 			<input type="password" name="password2" />
+			<?php if (isset($_SESSION['admin'])):
+					if ($_SESSION['admin']=1):?>
+			
 			<label for="admin" name="admin"/>Administrateur:</label>
 			<select name="admin">
 				<option value=1>Oui</option>
 				<option value=0>Non</option>
 			</select>
+			
+					<?php endif;endif;?>
 			
 			<input type="submit" name="S'inscrire" />
 		</form>

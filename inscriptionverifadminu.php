@@ -3,7 +3,7 @@
 	if (!isset($_POST['admin']))
 	{$admin=0;}
 	else
-	{$admin=$_POST['admin']}
+	{$admin=$_POST['admin'];}
 	
 	$nmaison=0;
 ?>
@@ -27,9 +27,11 @@
 	$auth=$sql1->fetch();
 	
 	
-if (isset($auth['id']))
+if ((isset($auth['id'])) and ($_POST['pseudo']!=$_POST['pseudov']))
 {
 echo ("le pseudo existe déjà");
+//echo $_POST['pseudov'];
+//echo $_POST['pseudo'];
 }
 else
 {
@@ -41,7 +43,7 @@ else
 		else
 	
 		{
-		$sql = $bdd->prepare ("UPDATE keydb.users SET nom=:nom, prenom=:prenom, mail=:mail, password=:password, pseudo=:pseudo, questions=:questions, reponses=:reponses, sexe=:sexe, tel=:tel, codepostal=:codepostal, adresse=:adresse, pays=:pays, admin= :admin WHERE id= :id");
+		$sql = $bdd->prepare ("UPDATE keydb.users SET nom=:nom, prenom=:prenom, mail=:mail, password=:password, pseudo=:pseudo, questions=:questions, reponses=:reponses, sexe=:sexe, tel=:tel, codepostal=:codepostal, adresse=:adresse, pays=:pays, admin= :admin, ville=:ville WHERE pseudo= :pseudov");
 		$sql->execute(array(
 		'nom' =>htmlspecialchars($_POST['nom']),
 		'prenom' =>htmlspecialchars($_POST['prenom']),
@@ -55,9 +57,9 @@ else
 		'pseudo' =>htmlspecialchars($_POST['pseudo']),
 		'questions' =>htmlspecialchars($_POST['question']),
 		'reponses' =>htmlspecialchars($_POST['questionsecrete']),
-		'id'=>$_SESSION['id'],
+		'pseudov'=>($_POST['pseudov']),
 		'sexe' =>htmlspecialchars($_POST['sex']),
-		'admin' =>$_POST['admin']),
+		'admin' =>($_POST['admin']),
 		'ville' =>htmlspecialchars($_POST['ville'])));
 		
 		echo "<div id=\"dernier_ajout\"><ul><li>Vos informations personnelles ont bien été modifiées</li></ul></div>";
