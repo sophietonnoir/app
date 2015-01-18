@@ -313,6 +313,15 @@ header {
 		width:120%;
 		height:35px;
 	}
+
+	#recherche_avancee {
+		display:inline-block;
+		font-family:'Quicksand-Regular';
+		margin-left: 850px;
+		margin-top: 0px;
+		color:#F1F1F1;
+
+	}
 	/* Fin barre de recherche */
 #encadreresultat
 	{
