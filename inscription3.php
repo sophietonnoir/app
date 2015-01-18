@@ -11,17 +11,32 @@ class usersmanag
 	{
 		include ('inscription.php');
 	}
+	public function delete()
+	{
+		include ('delete.php');
+	}
+	public function adminmanag()
+	{
+		include ('updatea.php');
+	}
 }
-$url=$_SERVER['REQUEST_URI']; 
-echo '' .$url."<br />"; 
+$url=$_GET['page']; 
 $poo = new usersmanag();
 switch($url)
 {
-case ("/APPK2Kv2.1/inscription3.php/inscription"):
+case ("inscription"):
 $poo->inscription();
 break;
 
-case ("/APPK2Kv2.1/inscription3.php/update"):
+case ("update"):
 $poo->update();
+break;
+
+case ("delete"):
+$poo->delete();
+break;
+
+case ("updatea"):
+$poo->adminmanag();
 break;
 }

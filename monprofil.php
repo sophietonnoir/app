@@ -28,7 +28,7 @@
 					<article>
 							<br/><br/><h2>Mon Profil</h2>
 							<div id="dernier_ajout">
-							<form method="post" action="inscription.php">
+							<form method="post" action="inscription3.php?page=update">
 							<input type='hidden' value=1 />
 							<input type="submit" name="Modifier mon profil" value="Modifier"/>
 					

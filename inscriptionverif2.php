@@ -18,16 +18,28 @@
 	
 	<body>
 	<?php
-	if ($_POST['password1']!=$_POST['password2'])
-	{
-	echo ('les mots de passe ne correspondent pas');
-	}
+	$sql1 = $bdd->prepare('SELECT * FROM users WHERE pseudo= :pseudo');
+	$sql1->execute(array(
+	'pseudo'=> $_POST['pseudo']));
+	$auth=$sql1->fetch();
 	
-	else
 	
-	{
-	$sql = $bdd->prepare ("UPDATE keydb.users SET nom=:nom, prenom=:prenom, mail=:mail, password=:password, pseudo=:pseudo, questions=:questions, reponses=:reponses, sexe=:sexe, tel=:tel, codepostal=:codepostal, adresse=:adresse, pays=:pays WHERE id= :id");
-	$sql->execute(array(
+if (isset($auth['id']))
+{
+echo ("le pseudo existe déjà");
+}
+else
+{
+		if ($_POST['password1']!=$_POST['password2'])
+		{
+		echo ('les mots de passe ne correspondent pas');
+		}
+	
+		else
+	
+		{
+		$sql = $bdd->prepare ("UPDATE keydb.users SET nom=:nom, prenom=:prenom, mail=:mail, password=:password, pseudo=:pseudo, questions=:questions, reponses=:reponses, sexe=:sexe, tel=:tel, codepostal=:codepostal, adresse=:adresse, pays=:pays WHERE id= :id");
+		$sql->execute(array(
 		'nom' =>htmlspecialchars($_POST['nom']),
 		'prenom' =>htmlspecialchars($_POST['prenom']),
 		'pays' =>htmlspecialchars($_POST['pays']),
@@ -46,7 +58,8 @@
 		echo "<div id=\"dernier_ajout\"><ul><li>Vos informations personnelles ont bien été modifiées</li></ul></div>";
 		
 	
-	}
+		}
+}
 	?>
 	</body>
 	

@@ -17,6 +17,18 @@
 	
 	<body>
 	<?php
+	$sql1 = $bdd->prepare('SELECT * FROM users WHERE pseudo= :pseudo');
+	$sql1->execute(array(
+	'pseudo'=> $_POST['pseudo']));
+	$auth=$sql1->fetch();
+	
+	
+if (isset($auth['id']))
+{
+echo ("le pseudo existe déjà");
+}
+else
+{
 	if ($_POST['password1']!=$_POST['password2'])
 	{
 	echo ('les mots de passe ne correspondent pas');
@@ -49,6 +61,7 @@
 		
 	
 	}
+}
 	?>
 	</body>
 	
