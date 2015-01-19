@@ -71,7 +71,7 @@
 					</ul>
 					<ul id="nav2">
                                                 <li><a href="https://twitter.com/Key2Key_France" style="margin-right:25px"><img src="Img/twitter.png" alt="twitter_logo" /></a></li>
-						<li><a href="@" style="margin-right:40px">Forum</a></li>
+						<li><a href="forum2.php" style="margin-right:40px">Forum</a></li>
 						<li><a href="contact.php"style="margin-right:30px">Contact</a></li>
 						
 						
