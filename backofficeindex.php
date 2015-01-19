@@ -50,6 +50,9 @@ elseif ($_SESSION['admin']=1):
 				include("admincriteres.php");
 
 			break;
+                    case ("effacer"):
+                                include("effacercritere.php");
+                        break;
 			}
 		}
 		else 

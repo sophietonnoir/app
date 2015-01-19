@@ -23,7 +23,7 @@ $sql = $bdd->prepare('SELECT * FROM users WHERE mail= :mail AND password= :pass'
 	{
 $sql->execute(array(
 	'mail'=> $_POST['mail'],
-	'pass'=> $_POST['password']));
+	'pass'=> sha1($_POST['password'])));
 	$auth=$sql->fetch();
 	}
 		

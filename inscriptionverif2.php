@@ -36,37 +36,37 @@ else
 {
 		if ($_POST['password1']!=$_POST['password2'])
 		{
-		echo ('les mots de passe ne correspondent pas');
+		echo ('<article><h2>les mots de passe ne correspondent pas</h2></article>');
 		}
 	
 		else
 	
-		{if (!(preg_match("#^0[1-7][0-9]{8}$#", $_POST['tel']))):
-{echo('numero de telephone incorrect');}
+		{if (!(preg_match("#^0[1-9][0-9]{8}$#", $_POST['tel']))):
+{echo('<article><h2>Numero de telephone incorrect</h2></article>');}
 else:
 if (!(preg_match("#^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['mail']))):
-echo('Email incorrect');
+echo('<article><h2>Email incorrect</h2></article>');
 else:
 if (!(preg_match("#^[0-9]{5}$#", $_POST['codepostal']))):
-echo('Code postal incorrect');
+echo('<article><h2>Code postal incorrect</h2></article>');
 else:
 if (!(preg_match("#^[a-zA-Z0-9. -]{3,}$#", $_POST['pseudo']))):
-echo('Pseudo incorrect');
+echo('<article><h2>Pseudo incorrect</h2></article>');
 else:
 if (!(preg_match("#^[a-zA-Z -]{2,}$#", $_POST['nom']))):
-echo('Nom incorrect');
+echo('<article><h2>Nom incorrect</h2></article>');
 else:
 if (!(preg_match("#^[a-zA-Z. -]{2,}$#", $_POST['prenom']))):
-echo('Prenom incorrect');
+echo('<article><h2>Prenom incorrect</h2></article>');
 else:
 if (!(preg_match("#^[0-9]+,[a-zA-Z -]{5,}$#", $_POST['adresse']))):
-echo('Adresse incorrect');
+echo('<article><h2>Adresse incorrect</h2></article>');
 else:
 if (!(preg_match("#^[a-zA-Z. -]{2,}$#", $_POST['ville']))):
-echo('Ville incorrect');
+echo('<article><h2>Ville incorrect</h2></article>');
 else:
 if (!(preg_match("#^[a-z0-9.é-è_çà@]{6,}$#", $_POST['password1']))):
-echo('Mot de passe trop simple');
+echo('<article><h2>Mot de passe trop simple</h2></article>');
 else:
 		$sql = $bdd->prepare ("UPDATE keydb.users SET nom=:nom, prenom=:prenom, mail=:mail, password=:password, pseudo=:pseudo, questions=:questions, reponses=:reponses, sexe=:sexe, tel=:tel, codepostal=:codepostal, adresse=:adresse, pays=:pays, ville= :ville WHERE id= :id");
 		$sql->execute(array(
@@ -87,10 +87,9 @@ else:
 		'ville' =>htmlspecialchars($_POST['ville'])));
 		session_destroy();
 		
-		echo "<div id=\"dernier_ajout\"><ul><li>Vos informations personnelles ont bien été modifiées</li></ul></div>";
+		echo "<article><h2>Vos informations personnelles ont bien été modifiées</h2></article>";
 		
 	
-		endif;
 endif;
 endif;
 endif;
@@ -98,7 +97,9 @@ endif;
 endif;
 endif;
 endif;
-endif}
+endif;
+endif;
+}
 }
 	?>
 	</body>

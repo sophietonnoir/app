@@ -32,7 +32,14 @@
 <fieldset>
 		<legend> Ajouter un critère</legend>
 		<form method="post" action="backofficeindex.php?page=critere">
-				<input type="submit" name="create" value="Creer" />
+				<input type="submit" name="create" value="Ajouter" />
+		</form>
+</fieldset>
+
+<fieldset>
+		<legend> Supprimer des critères</legend>
+		<form method="post" action="backofficeindex.php?page=effacer">
+				<input type="submit" name="create" value="Supprimer" />
 		</form>
 </fieldset>
 

@@ -40,20 +40,23 @@ $bdd = 'keydb';
                                 }
 
 ?>
+            <fieldset class="fieldset2">
+                <legend>Nouveau Message</legend>
 <form method="post"action="register_message.php">
 <div>
-<labels>Rentrez votre pseudo :</label></br>
+<label>Rentrez votre pseudo :</label><br/>
 <input type="textbox" id="pseudo" name="pseudo", required>
 </div>
 <div class="h1">
-<label>Rentrez votre message : </label></br>
+<label>Rentrez votre message : </label><br/>
 <textarea rows="4" cols="50" id="message" name ="message", required>
 </textarea>
 </div>
 <div>
-<input type="submit" "Envoyer" />
+<input type="submit" value="Envoyer" />
 </div> 
 <?php echo "<input type='hidden' id='date' name='date' value='".date('Y-m-d H:i:s')."'/>"; ?>
 </form>
+            </fieldset>
 		<?php include("footer.php"); ?>
 	</body>

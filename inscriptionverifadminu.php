@@ -37,7 +37,7 @@ else
 {
 		if ($_POST['password1']!=$_POST['password2'])
 		{
-		echo ('les mots de passe ne correspondent pas');
+		echo ('<article><h2>les mots de passe ne correspondent pas</h2></article>');
 		}
 	
 		else
@@ -62,7 +62,7 @@ else
 		'admin' =>($_POST['admin']),
 		'ville' =>htmlspecialchars($_POST['ville'])));
 		
-		echo "<div id=\"dernier_ajout\"><ul><li>Vos informations personnelles ont bien été modifiées</li></ul></div>";
+		echo "<article><h2>Vos informations personnelles ont bien été modifiées</h2></article>";
 		
 	
 		}

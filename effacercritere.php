@@ -41,17 +41,25 @@
 
                 $text= "SELECT * FROM criteres";
                 $query = mysqli_query($link,$text) or die (mysqli_error($link)); ?>
-    <form method="post" action="effacercriteresuite.php"/>
+    <fieldset>
+    <form method="post" action="effacercriteresuite.php">
               <?php  while ($donnees=  mysqli_fetch_array($query)){ ?>
 
-                <input type="checkbox" name="critere"/>
-                <label for=""><?php echo $donnees['nom']; ?></label> <br/>
+                <label for="" class="inputradio11"><?php echo $donnees['nom']; ?></label><input type="checkbox" name="critere[]" value="<?php  echo $donnees['nom']; ?>" />
+                
 
                
-                <?php } ?>
-                 <input type="submit" value="Supprimer"/> <?php
+                <?php } ?> <br/><br/>
+                 <input type="submit" value="Supprimer"/></form></fieldset> <?php
+        endif;
+        mysqli_close($link);
 
-        endif; ?>
+
+
+include("footer.php"); ?>
+
+
+
 
 </body>
 </html>

@@ -24,6 +24,8 @@
                                
                      mysqli_close($link);
 
+                     echo '<article><h2>Critère ajouté</h2></article>';
+
 
 
 
