@@ -52,7 +52,7 @@ else
 		'adresse' =>htmlspecialchars($_POST['adresse']),
 		'mail' =>htmlspecialchars($_POST['mail']),
 		//'dateinscription' =>current_timestamp,
-		'password' =>htmlspecialchars($_POST['password1']),
+		'password' =>sha1(htmlspecialchars($_POST['password1'])),
 		'tel' =>htmlspecialchars($_POST['tel']),
 		'pseudo' =>htmlspecialchars($_POST['pseudo']),
 		'questions' =>htmlspecialchars($_POST['question']),

@@ -27,8 +27,8 @@
 								<option value="Masculin">Masculin</option>
 								<option value="Feminin">Feminin</option>
 			</select>
-			<label for="">Date de naissance:</label>
-			<input type="date" name="age" />
+			<!--<label for="">Date de naissance:</label>
+			<input type="date" name="age" />-->
 			<label for="">Pays de résidence:</label>
 			<select name="pays">
 <option value="France" selected="selected">France </option>
