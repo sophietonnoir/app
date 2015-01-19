@@ -331,6 +331,12 @@ header {
 	margin-bottom: 30px;
 	margin-top: 30px;
 }
+
+#searchprofil {
+	font-family:'Lato-Light';
+	color:#7F8C8D;
+
+}
 /* Fin bloc Haut */
 
 #divider2 {
