@@ -8,6 +8,44 @@
         <link rel="stylesheet" href="K2K.css" />
         <title>Key To Key - Ajouter un logement</title>
         <link rel="icon" type="image/gif" href="Img/icone.gif" />
+        <script language="JavaScript">
+                    function verifform()
+  {
+
+
+   
+   if(document.formulaire.Ville.value == "")
+    {
+     alert("Veuillez entrer votre ville!");
+     document.formulaire.Ville.focus();
+     return false;
+    }
+   
+    if(document.formulaire.capacite.value == "")
+    {
+     alert("Veuillez entrer une capacité valide!");
+     document.formulaire.capacite.focus();
+     return false;
+    }
+    var chkZ = 1;
+   for(i=0;i<document.formulaire.capacite.value.length;++i)
+     if(document.formulaire.capacite.value.charAt(i) < "0"
+     || document.formulaire.capacite.value.charAt(i) > "9")
+       chkZ = -1;
+   if(chkZ == -1)
+   {
+     alert("Vérifiez votre capacité!");
+     document.formulaire.capacite.focus();
+     return false;
+    }
+
+
+
+
+     return true;
+  }
+
+ </script>
                 
 
     </head>
@@ -23,7 +61,7 @@
                     <legend> Recherche Avancée: </legend>
 
 
-                    <form method="post" action="php_recherche_avancee.php"  >
+                    <form method="post" action="php_recherche_avancee.php" name="formulaire" onSubmit="return verifform(); " >
 
 
                               <?php
@@ -412,30 +450,6 @@
     </body>
 
 </html>
-<?php /*
-if ($donnees['nomcritere']=="Surface"){ ?>
-<br/><br/>
-                                                   <label for="" class="label">Surface : </label>
-                                                <input type="text" name="surface" class="ville"/> mètres carrés
-
-                                              <?php }
-
- else if ($donnees['nomcritere']=="Capacite"){ ?>
-
-                                                   <label for="" class="label">Capacité : </label>
-                                                <input type="text" name="capacite" class="ville"/> personnes
-
-
-                                                <br/><br/>
- <?php }
-
-                                                        else { ?> 
-
-                                                <label for="" class="label"><?php echo $donnees['nomcritere'];?></label>
-                                                <input type="text" name="<?php echo $donnees['nom'];?>" class="ville"/>
-                                                 <?php
-                                                 }
-*/ ?>
 
 
 
