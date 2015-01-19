@@ -15,7 +15,17 @@
 	                                                
 	                                echo "<li><a href=\"ajouterlogement.php\" class=\"lien_header\"> Ajouter un logement  </a></li>";
 
-	                                echo "<li><a href=\"messages.php\" class=\"lien_header\">  Messages</a></li>";
+                                        /*Je Prend le numero de messages reçus*/
+									$link = mysqli_connect("localhost", "root", "root") ;
+									mysqli_select_db($link, 'keydb') or die("Erreur à la base de données");
+									$id=$_SESSION['id'];
+									$text="SELECT count(idMessage) AS total FROM messages WHERE lu=0 AND idDestinataire= $id";
+									$query= mysqli_query($link,$text) or die (mysqli_error($link));
+									$data=mysqli_fetch_assoc($query);
+
+									echo "<li><a href=\"messages.php\" class=\"lien_header\">  Messages(".$data['total'].")</a></li>";
+
+
 
 							}
 						
@@ -35,9 +45,12 @@
 						
 					
 				</ul>
+                                             <?php if ($_SESSION['admin'] == 1){ ?>
+<a href="backofficeindex.php" class="lien_header">Back office</a>
+                              <?php  }
 				
 				
-				<?php if (!isset($_SESSION['pseudo'])): ?>
+				 if (!isset($_SESSION['pseudo'])): ?>
 					
 					<ul id="connexion">
 					<li><a href="connexion.php" class="lien_header">Se Connecter</a></li>

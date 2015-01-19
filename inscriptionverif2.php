@@ -41,7 +41,33 @@ else
 	
 		else
 	
-		{
+		{if (!(preg_match("#^0[1-7][0-9]{8}$#", $_POST['tel']))):
+{echo('numero de telephone incorrect');}
+else:
+if (!(preg_match("#^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['mail']))):
+echo('Email incorrect');
+else:
+if (!(preg_match("#^[0-9]{5}$#", $_POST['codepostal']))):
+echo('Code postal incorrect');
+else:
+if (!(preg_match("#^[a-zA-Z0-9. -]{3,}$#", $_POST['pseudo']))):
+echo('Pseudo incorrect');
+else:
+if (!(preg_match("#^[a-zA-Z -]{2,}$#", $_POST['nom']))):
+echo('Nom incorrect');
+else:
+if (!(preg_match("#^[a-zA-Z. -]{2,}$#", $_POST['prenom']))):
+echo('Prenom incorrect');
+else:
+if (!(preg_match("#^[0-9]+,[a-zA-Z -]{5,}$#", $_POST['adresse']))):
+echo('Adresse incorrect');
+else:
+if (!(preg_match("#^[a-zA-Z. -]{2,}$#", $_POST['ville']))):
+echo('Ville incorrect');
+else:
+if (!(preg_match("#^[a-z0-9.é-è_çà@]{6,}$#", $_POST['password1']))):
+echo('Mot de passe trop simple');
+else:
 		$sql = $bdd->prepare ("UPDATE keydb.users SET nom=:nom, prenom=:prenom, mail=:mail, password=:password, pseudo=:pseudo, questions=:questions, reponses=:reponses, sexe=:sexe, tel=:tel, codepostal=:codepostal, adresse=:adresse, pays=:pays, ville= :ville WHERE id= :id");
 		$sql->execute(array(
 		'nom' =>htmlspecialchars($_POST['nom']),
@@ -64,7 +90,16 @@ else
 		echo "<div id=\"dernier_ajout\"><ul><li>Vos informations personnelles ont bien été modifiées</li></ul></div>";
 		
 	
-		}
+		endif;
+endif;
+endif;
+endif;
+endif;
+endif;
+endif;
+endif;
+endif;
+}
 }
 	?>
 	</body>

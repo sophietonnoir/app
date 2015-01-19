@@ -37,44 +37,34 @@
                mysqli_select_db($link, $bdd) or die("Erreur de connexion à la base de donnée" );
 
 
-                //On récupere les valeurs du formulaire
               $idPropietaire= $_SESSION['id'];
-              
 
-              $Typedelogement = $_POST['typedelogement'];
+                    $text0= "SELECT * FROM criteres";
+                    $query = mysqli_query($link,$text0) or die (mysqli_error($link));
 
-               $Adresse = $_POST['adresse'];
+                    $url="upload.php?";
 
-               $codePostal = $_POST['codePostal'];
 
-              $Ville = $_POST['Ville'];
+                    $premiereFois=1;
 
-              
+                    while($donnees0=mysqli_fetch_array($query)){
 
-              $Description = addslashes($_POST['Description']);
+                        $variable=$donnees0['nom'];
+                        $valeur=addslashes($_POST[$variable]);
+                        if($premiereFois==1){
 
-              $chambres = addslashes($_POST['chambres']);
+                             $url=$url.$variable."=".$valeur;
+                             $premiereFois=$premiereFois+1;
 
-              $toilettes = addslashes($_POST['toilettes']);
+                        }else{
+                             $url=$url."&".$variable."=".$valeur;
 
-              $surface = addslashes($_POST['surface']);
+                        }
 
-              $capacite = addslashes($_POST['capacite']);
 
-              $fumerPermis =addslashes($_POST['fumerPermis']);
+                    }
 
-              $Pays=addslashes($_POST['Pays']);
-
-              $animauxPermis = addslashes($_POST['animauxPermis']);
-
-               $piscine = addslashes($_POST['piscine']);
-
-               $placesGarage = addslashes($_POST['placesGarage']);
-
-              $wifi = addslashes($_POST['wifi']);
-
-              $jardin= addslashes($_POST['jardin']);
-                
+                    
 
 
 
@@ -82,9 +72,9 @@
                               <article><br/><br/><br/>
                                   <h2> Ajouter des photos </h2> </article>
                                       <br/><br/>
-                                      
 
-                                      <form enctype="multipart/form-data" action="upload.php?adresse=<?php echo $Adresse;?>&typedelogement=<?php echo $Typedelogement; ?>&codePostal=<?php echo $codePostal;?>&Ville=<?php echo $Ville;?>&Pays=<?php echo $Pays;?>&Description=<?php echo $Description;?>&chambres=<?php echo $chambres;?>&toilettes=<?php echo $toilettes;?>&surface=<?php echo $surface;?>&capacite=<?php echo $capacite;?>&fumerPermis=<?php echo $fumerPermis;?>&animauxPermis=<?php echo $animauxPermis;?>&piscine=<?php echo $piscine;?>&placesGarage=<?php echo $placesGarage;?>&wifi=<?php echo $wifi;?>&jardin=<?php echo $jardin;?>" method="post">
+
+                        <form enctype="multipart/form-data" action="<?php echo $url?>" method="post">
 
                         <input  type="file" name="monfichier" id="monfichier"/>
 
@@ -97,18 +87,9 @@
                                 <input type="submit" value="Continuer"/>
 
                                       </form>
-                                  
+
                   <?php
 
-
-
-                
-
-
-
-                 
-
-             
 
 
                 //On ferme la connexion
@@ -122,4 +103,3 @@ endif;
 </body>
 
 </html>
-

@@ -49,12 +49,13 @@
 				$idPropietaire=addslashes($donnees['idDestinataire']);
 				$idEchange=addslashes($donnees['idEchange']);
 				$idLogementDemande=addslashes($donnees['logementDemande']);
-				$disponibiliteDemandeur=addslashes($donnees['disponibiliteEmetteur']);
-				$disponibilitePropietaire=addslashes($donnees['disponibiliteDestinataire']);
+				$disponibiliteDemandeurArrivee=addslashes($donnees['disponibiliteEmetteurArrivee']);
+				$disponibiliteDemandeurDepart=addslashes($donnees['disponibiliteEmetteurDepart']);
+				$disponibilitePropietaireArrivee=addslashes($donnees['disponibiliteDestinataireArrivee']);
+				$disponibilitePropietaireDepart=addslashes($donnees['disponibiliteDestinataireDepart']);
 				$typeMessage=addslashes("reponseAccepte");
 
-
-				$sqlMessage= "INSERT INTO messages(idEchange,idEmetteur,idDestinataire,logementDemande,lu,disponibiliteEmetteur,disponibiliteDestinataire, message, typeMessage ) VALUES ('$idEchange','$idPropietaire','$idDemandeur','$idLogementDemande' ,'0','$disponibilitePropietaire','$disponibiliteDemandeur','$message', '$typeMessage')";
+				$sqlMessage= "INSERT INTO messages(idEchange,idEmetteur,idDestinataire,logementDemande,lu,disponibiliteEmetteurArrivee,disponibiliteEmetteurDepart,disponibiliteDestinataireArrivee,disponibiliteDestinataireDepart, message, typeMessage ) VALUES ('$idEchange','$idPropietaire','$idDemandeur','$idLogementDemande' ,'0','$disponibilitePropietaireArrivee','$disponibilitePropietaireDepart','$disponibiliteDemandeurArrivee','$disponibiliteDemandeurDepart','$message', '$typeMessage')";
 		                 
 		        $result = mysqli_query($link, $sqlMessage);
 

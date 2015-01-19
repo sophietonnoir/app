@@ -38,9 +38,9 @@
 
                                     <!--<menu id="menu">-->
                                             <article>
-                                              <h2 style="text-align:left">Options : </h2>
+                                              <h2 style="text-align:left">Option : </h2>
                                               <ul>
-                                                     <li><a href="admincriteres.php?demande=effacer">Effacer</a></li>
+                                                    
                                                      <li><a href="admincriteres.php?demande=ajouter">Ajouter</a></li>
                                               </ul>
                                              </article>
@@ -52,7 +52,7 @@
 
                                           <?php         while($donnees=  mysqli_fetch_array($query)){ ?>
 
-                                                             <input type="radio" name="<?php echo $donnees['nom']; ?>" id="oui" value="1" class="inputradio">
+                                                             <input type="checkbox" name="<?php echo $donnees['nom']; ?>" id="oui" class="inputradio" value="1">
                                                              <label for="" class="label"><?php echo $donnees['nomcritere']; ?></label>
                                                              <br/>
 
@@ -76,9 +76,9 @@
                     <?php      }
                                    else{?>
                                         <article>
-                                              <h2 style="text-align:left">Options : </h2>
+                                              <h2 style="text-align:left">Option : </h2>
                                               <ul>
-                                                     <li><a href="admincriteres.php?demande=effacer">Effacer</a></li>
+                                                     
                                                      <li><a href="admincriteres.php?demande=ajouter">Ajouter</a></li>
                                               </ul>
                                              </article>

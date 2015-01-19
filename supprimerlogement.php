@@ -43,17 +43,24 @@
 
                                mysqli_select_db($link, $bdd) or die("Erreur de connexion à la base de donnée" );
 
-                               
+             $idLog=$_GET['logement'];
 
 
-if (isset($_GET['logement'])) {
+$query="DELETE FROM logements WHERE idLogement=$idLog";
+$query1="DELETE FROM Photo WHERE idLogement=$idLog";
 
-$res = mysqli_query("DELETE from logements WHERE idLogement= '".$_GET['logement']."'");
-$res = @mysqli_query("DELETE from Photo WHERE idLogement = '".$_GET['logement']."'");
+
+
+
+$result = mysqli_query($link, $query);
+$result1=mysqli_query($link,$query1);
 
 echo 'Votre logement a été supprimé';
 
-}
+
+
+
+ mysqli_close($link);
 
 
 

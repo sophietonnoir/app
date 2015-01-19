@@ -17,7 +17,11 @@
                                $nom=$_POST['nom'];
 
                                $query = mysqli_query($link,"INSERT INTO criteres(nomcritere, typecritere, nom) VALUES ('$nomcritere', '$type', '$nom')");
-                               $result1=mysqli_query($link, $query);
+                               
+
+                               $query1= mysqli_query($link,"ALTER TABLE logements ADD $nom varchar(30) NOT NULL");
+                              
+                               
                      mysqli_close($link);
 
 

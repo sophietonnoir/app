@@ -1,5 +1,5 @@
-
-<fieldset>
+<?php include("header.php"); ?>
+<!--<fieldset>
 		<legend> Modifier une page </legend>
 <form method="post" action="backofficeindex.php?page=edit">
 		<select name="page" id="page" class="donnee">
@@ -13,7 +13,7 @@
 		</select>
 		<input type="submit" name="Modifier" value="Modifier" />
 </form>
-</fieldset>
+</fieldset>-->
 
 <fieldset>
 		<legend> Chercher un profil par pseudo</legend>
@@ -29,6 +29,11 @@
 				<input type="submit" name="create" value="Creer" />
 		</form>
 </fieldset>
+<fieldset>
+		<legend> Ajouter un critère</legend>
+		<form method="post" action="backofficeindex.php?page=critere">
+				<input type="submit" name="create" value="Creer" />
+		</form>
+</fieldset>
 
-
-		
+		<?php                include ("footer.php"); ?>

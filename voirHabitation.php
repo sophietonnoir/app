@@ -154,10 +154,12 @@
                                                         $idLogement=$donnees['idLogement']; ?>
 
                                                         <a href="modifierlogement.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="modifier">Modifier </a>
-                                                        <a href="supprimerlogement.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> " onclick="if(!confirm('Voulez-vous Supprimer')) return false;"  class="modifier">Supprimer </a>
 
+<!--                                                        <a href="supprimerlogement.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> " onclick="if(!confirm('Voulez-vous supprimer ce logement')) return false;"  class="modifier">Supprimer </a>-->
+                                                       <a href="supprimerlogement.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "  class="modifier" onclick="return confirm('Supprimer ce logement?');">Supprimer</a>
 
-							
+						<br/><br/>
+                                                  <a href="photo.php?proprietaire=<?php echo $idProprietaire;?>&logement=<?php echo $idLogement; ?> "class="modifier" style="margin-left: 310px;">Ajouter une photo </a>
 						<?php }
                                                 endif;  ?>
 						<?php mysqli_close($link); ?>  <!--fermer la bd-->

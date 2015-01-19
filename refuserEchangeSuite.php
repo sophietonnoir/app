@@ -26,7 +26,7 @@
 
 			/*On envoi une notification a la personne qui a demandé le logement pour lui dire que le propietaire a refusé l' echange*/
 
-            $link = mysqli_connect("localhost", "root", "") ;
+            $link = mysqli_connect("localhost", "root", "root") ;
             mysqli_select_db($link, 'keydb') or die("Erreur de connexion à la base de données" );
             $text= "SELECT * FROM messages WHERE idMessage=$idMessage ";
 		 	$query = mysqli_query($link,$text) or die (mysqli_error($link));
@@ -36,14 +36,16 @@
 			$idPropietaire=addslashes($donnees['idDestinataire']);
 			$idEchange=addslashes($donnees['idEchange']);
 			$idLogementDemande=addslashes($donnees['logementDemande']);
-			$disponibiliteDemandeur=addslashes($donnees['disponibiliteEmetteur']);
-			$disponibilitePropietaire=addslashes($donnees['disponibiliteDestinataire']);
+			$disponibiliteDemandeurArrivee=addslashes($donnees['disponibiliteEmetteurArrivee']);
+			$disponibiliteDemandeurDepart=addslashes($donnees['disponibiliteEmetteurDepart']);
+			$disponibilitePropietaireArrivee=addslashes($donnees['disponibiliteDestinataireArrivee']);
+			$disponibilitePropietaireDepart=addslashes($donnees['disponibiliteDestinataireDepart']);
 			$message=addslashes("Nous sommes desolés de vous communiquer le refus de l' echange du logement.");
 			$typeMessage=addslashes("reponseRefus");
 
 			if($idPropietaire==$idSession){
 							 	
-		          	$sqlMessage= "INSERT INTO messages(idEchange,idEmetteur,idDestinataire,logementDemande,lu,disponibiliteEmetteur,disponibiliteDestinataire, message, typeMessage ) VALUES ('$idEchange','$idPropietaire','$idDemandeur','$idLogementDemande' ,'0','$disponibilitePropietaire','$disponibiliteDemandeur','$message', '$typeMessage')";
+		          	$sqlMessage= "INSERT INTO messages(idEchange,idEmetteur,idDestinataire,logementDemande,lu,disponibiliteEmetteurArrivee,disponibiliteEmetteurDepart,disponibiliteDestinataireArrivee,disponibiliteDestinataireDepart, message, typeMessage ) VALUES ('$idEchange','$idPropietaire','$idDemandeur','$idLogementDemande' ,'0','$disponibilitePropietaireArrivee','$disponibilitePropietaireDepart','$disponibiliteDemandeurArrivee','$disponibiliteDemandeurDepart','$message', '$typeMessage')";
 		                 
 		            $result = mysqli_query($link, $sqlMessage);
 

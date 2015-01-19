@@ -36,7 +36,7 @@
 						
 						<?php
 
-						$link = mysqli_connect("localhost", "root", "") ; 
+						$link = mysqli_connect("localhost", "root", "root") ; 
 						mysqli_select_db($link, 'keydb') or die("Erreur à la base de données");
 
 				/***************************************REÇUS****************************************/
@@ -59,7 +59,7 @@
 
 										 <div class="messages">
 											 <article><h2 style="text-align:left">Messages reçus ( <?php echo $nb_resultats; ?> ) : </h2>
-												 </h2>
+												
 													
 		               			 				<table style="width:900px;"> 			 		
 														<tr>
@@ -99,12 +99,21 @@
 
 														  ?>
 														  <td><?php echo $prenom." ".$nom;?></td>
-														  <?php if ($donnees['typeMessage'] == "demandeEchange" ): ?>
-														  		<td>Démande échange</td>
-														  <?php else:?>
-														  		<td>Réponse échange</td>
+															 <?php if ($donnees['typeMessage'] == "demandeEchange") : ?>
+															  		<td>Demande échange</td>
 															  <?php endif;?>
-
+															  <?php if($donnees['typeMessage'] == "reponseRefus") :?>
+															  		<td>Refus d' echange</td>
+															   <?php endif;?>
+															  <?php if($donnees['typeMessage'] == "reponseAccepte") :?>
+															  		<td>Accept. d' echange</td>
+															   <?php endif;?>
+															  <?php if($donnees['typeMessage'] == "confirmation") :?>
+															  		<td>Confirmation</td>
+															  <?php endif;?>
+															  <?php if($donnees['typeMessage'] == "confirmationFinale") :?>
+															  		<td>Confirm. Finale</td>
+															  <?php endif;?>
 														<!--On montre la direction du logement demandé-->
 														<?php 
 																$idLogDemande= $donnees['logementDemande'];
@@ -188,10 +197,20 @@
 														  <td><?php echo $numeroMessage ++; ?></td>
 														  <td><?php echo $prenom." ".$nom;?></td>
 														  <?php if ($donnees['typeMessage'] == "demandeEchange") : ?>
-														  		<td>Démande échange</td>
-														  <?php else:?>
-														  		<td>Réponse</td>
+														  		<td>Demande échange</td>
 														  <?php endif;?>
+														  <?php if($donnees['typeMessage'] == "reponseRefus") :?>
+															  		<td>Refus d' echange</td>
+															   <?php endif;?>
+														  <?php if($donnees['typeMessage'] == "reponseAccepte") :?>
+															  		<td>Accept. d' echange</td>
+															   <?php endif;?>
+														  <?php if($donnees['typeMessage'] == "confirmation") :?>
+														  		<td>Confirmation</td>
+														  <?php endif;?>
+														  <?php if($donnees['typeMessage'] == "confirmationFinale") :?>
+															  		<td>Confirm. Finale</td>
+														<?php endif;?>
 														  <!--On montre la direction du logement demandé-->
 															<?php 
 																	$idLogDemande= $donnees['logementDemande'];

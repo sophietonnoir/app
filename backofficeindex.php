@@ -28,27 +28,27 @@ elseif ($_SESSION['admin']=1):
 		
 			switch($url)
 			{
-			case ("edit"):
-				if (isset($_POST['page']))
-				{
-				$edit=$_POST['page'];
-				include ("boeditvue.php");
-				include ("boeditcontroleur.php");
-				}
-				else
-				{
-				echo ("erreur 404 la page n\'existe pas");
-				}
-			break;
+			//case ("edit"):
+			//	if (isset($_POST['page']))
+			//{
+			//	$edit=$_POST['page'];
+			//	include ("boeditvue.php");
+			//	include ("boeditcontroleur.php");
+			//	}
+			//	else
+			//	{
+				//echo ("erreur 404 la page n\'existe pas");
+			//	}
+			//break;
 			
 
 			case ("profilsearch"):
 				include("searchprofil.php");
 				
 			break;
-			
-			case ("profilajout"):
-				include("inscription.php");	
+                    case ("critere"):
+				include("admincriteres.php");
+
 			break;
 			}
 		}
