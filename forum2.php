@@ -43,11 +43,11 @@ $bdd = 'keydb';
 <form method="post"action="register_message.php">
 <div>
 <labels>Rentrez votre pseudo :</label></br>
-<input type="textbox" id="pseudo" name="pseudo">
+<input type="textbox" id="pseudo" name="pseudo", required>
 </div>
 <div class="h1">
 <label>Rentrez votre message : </label></br>
-<textarea rows="4" cols="50" id="message" name ="message">
+<textarea rows="4" cols="50" id="message" name ="message", required>
 </textarea>
 </div>
 <div>
