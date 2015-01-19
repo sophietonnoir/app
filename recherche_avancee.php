@@ -16,7 +16,7 @@
    
    if(document.formulaire.Ville.value == "")
     {
-     alert("Veuillez entrer votre ville!");
+     alert("Veuillez entrer une ville!");
      document.formulaire.Ville.focus();
      return false;
     }
